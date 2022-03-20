@@ -9,6 +9,7 @@ class ProductsModel {
   final String description;
   final String catrgory;
   final String imagee;
+
   final RatingModel ratingModel;
 
   factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
