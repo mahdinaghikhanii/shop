@@ -37,7 +37,7 @@ class ConfigTheme {
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20,
+              fontSize: 34,
               color: isDarkTheme ? kwhite : kblack)),
       primaryColor: isDarkTheme ? Colors.black : kwhite,
       backgroundColor: isDarkTheme ? Colors.black : kwhite,

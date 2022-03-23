@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_provider.dart';
+import 'package:shop/theme/configtheme.dart';
+import 'package:shop/view/getstartScreans/getstart_screans.dart';
 import 'package:shop/view/homescreans/home_screans.dart';
 
 void main() {
@@ -18,10 +20,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<ProductsProvider>(
             create: (context) => ProductsProvider()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        theme: ConfigTheme.themeData(false, context),
         title: 'Flutter shop',
         debugShowCheckedModeBanner: false,
-        home: HomeScreans(),
+        home: GetStartScreans(),
       ),
     );
   }
