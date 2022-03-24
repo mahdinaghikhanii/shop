@@ -41,7 +41,7 @@ class HomeViews extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.person,
-                  size: 30,
+                  size: 35,
                   color: kblack,
                 )),
           )

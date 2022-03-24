@@ -59,11 +59,11 @@ class GetStartViews extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 65,
+              height: 60,
             ),
             Center(
                 child: SizedBox(
-                    width: 300, child: Image.asset('assets/img/cloth.png')))
+                    width: 290, child: Image.asset('assets/img/cloth.png')))
           ],
         ),
       )),

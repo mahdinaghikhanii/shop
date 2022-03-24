@@ -24,17 +24,24 @@ class HomeItems extends StatelessWidget {
             'clothes today',
             style: textTheme.headline1,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: const [
-                BuildChip(text: "All", color: kred),
-                BuildChip(text: "Men", color: kred),
-                BuildChip(text: "Women", color: kred),
-                BuildChip(text: "Kids", color: kred)
-              ],
-            ),
+          Row(
+            children: const [
+              BuildChip(text: "All", color: kred),
+              BuildChip(text: "Men", color: kred),
+              BuildChip(text: "Women", color: kred),
+              BuildChip(text: "Kids", color: kred)
+            ],
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+              child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2),
+                  itemBuilder: (context, index) {
+                    return Card();
+                  }))
         ],
       ),
     );
