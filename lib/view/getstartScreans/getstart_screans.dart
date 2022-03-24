@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/view/homescreans/home_screans.dart';
 
@@ -21,20 +22,23 @@ class GetStartScreans extends StatelessWidget {
               height: 0,
             ),
             Text(
-              'New collection\nSpring 2022',
+              'Welcome\nNew collection\nSpring 2022 ! ',
               style: textTheme.headline5,
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             Row(
               children: [
-                const Text(''),
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 15),
                   child: InkWell(
-                    onTap: () {
+                    borderRadius: BorderRadius.circular(25),
+                    onTap: () async {
+                      SharedPreferences sharedPreferences =
+                          await SharedPreferences.getInstance();
+                      sharedPreferences.setInt('getStart-KEY', 0);
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

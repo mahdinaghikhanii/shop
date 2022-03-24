@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shop/model/products_model.dart';
 
-class ProductsProvider extends ChangeNotifier {
+class Repository extends ChangeNotifier {
   String url = 'https://fakestoreapi.com/products';
   // ignore: prefer_final_fields
   List<ProductsModel> _items = [];
