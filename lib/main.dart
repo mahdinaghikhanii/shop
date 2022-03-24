@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
+import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/getstart/getstart_views.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
           ) =>
                   appProvider),
           ChangeNotifierProvider<Repository>(create: (context) => Repository()),
+          ChangeNotifierProvider<BottomNavigationBarProvider>(
+            create: (context) => BottomNavigationBarProvider(),
+          )
         ],
         child: Consumer<AppProvider>(builder: (context, model, child) {
           return MaterialApp(
@@ -44,8 +48,8 @@ class MyApp extends StatelessWidget {
               title: 'Flutter shop',
               debugShowCheckedModeBanner: false,
               home: isviewWedWidgetGetStartScreans != 0
-                  ? const GetStartScreans()
-                  : const HomeScreans());
+                  ? const GetStartViews()
+                  : const HomeViews());
         }));
   }
 }

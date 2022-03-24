@@ -5,8 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/view/home/home_views.dart';
 
-class GetStartScreans extends StatelessWidget {
-  const GetStartScreans({Key? key}) : super(key: key);
+class GetStartViews extends StatelessWidget {
+  const GetStartViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class GetStartScreans extends StatelessWidget {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomeScreans()));
+                              builder: (context) => const HomeViews()));
                     },
                     child: Container(
                         height: 80,
