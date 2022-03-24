@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/view/login/login_views.dart';
@@ -13,6 +14,7 @@ class HomeViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     final bottomNavigationBar =
         Provider.of<BottomNavigationBarProvider>(context);
@@ -27,34 +29,6 @@ class HomeViews extends StatelessWidget {
     // ignore: unused_local_variable
     final productProvider = Provider.of<Repository>(context);
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginViews()));
-                },
-                icon: const Icon(
-                  Icons.person,
-                  size: 35,
-                  color: kblack,
-                )),
-          )
-        ],
-        centerTitle: false,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 6),
-          child: Text(
-            'Hi,please login !',
-            style: textTheme.headline2,
-          ),
-        ),
-      ),
       body: Screans[bottomNavigationBar.currentIndex],
       bottomNavigationBar: SafeArea(
           minimum: const EdgeInsets.all(20),
@@ -75,7 +49,9 @@ class HomeViews extends StatelessWidget {
             duration:
                 const Duration(milliseconds: 800), // tab animation duration
             gap: 10, // the tab button gap between icon and text
-            color: kblack, // unselected icon color
+            color: appProvider.brighness
+                ? kwhite
+                : kblack, // unselected icon color
             activeColor: Colors.white, // selected icon and text color
             iconSize: 24, // tab button icon sizem
             selectedIndex: bottomNavigationBar.currentIndex,
