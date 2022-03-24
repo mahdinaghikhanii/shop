@@ -31,7 +31,7 @@ class HomeViews extends StatelessWidget {
         elevation: 0,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 15),
+            padding: const EdgeInsets.only(right: 5),
             child: IconButton(
                 onPressed: () {
                   Navigator.push(
@@ -48,10 +48,10 @@ class HomeViews extends StatelessWidget {
         ],
         centerTitle: false,
         title: Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(left: 6),
           child: Text(
             'Hi,please login !',
-            style: textTheme.headline1,
+            style: textTheme.headline2,
           ),
         ),
       ),

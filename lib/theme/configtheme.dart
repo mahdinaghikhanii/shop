@@ -13,6 +13,10 @@ class ConfigTheme {
     return ThemeData(
       textTheme: TextTheme(
           headline1: TextStyle(
+              fontSize: 24,
+              color: isDarkTheme ? kwhite : kblack,
+              fontWeight: FontWeight.normal),
+          headline2: TextStyle(
               fontSize: 20,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.normal),
