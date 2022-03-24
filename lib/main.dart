@@ -6,8 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/theme/configtheme.dart';
-import 'package:shop/view/getstartScreans/getstart_screans.dart';
-import 'package:shop/view/homescreans/home_screans.dart';
+import 'package:shop/view/getstart/getstart_views.dart';
+import 'package:shop/view/home/home_views.dart';
 
 int? isviewWedWidgetGetStartScreans;
 AppProvider appProvider = AppProvider();

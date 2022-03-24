@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/view/homescreans/home_screans.dart';
+import 'package:shop/view/home/home_views.dart';
 
 class GetStartScreans extends StatelessWidget {
   const GetStartScreans({Key? key}) : super(key: key);

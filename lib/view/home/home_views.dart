@@ -7,9 +7,23 @@ class HomeScreans extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List Screans = [];
+
     // ignore: unused_local_variable
     final productProvider = Provider.of<Repository>(context);
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.person,
+                  size: 35,
+                  color: Colors.black,
+                )),
+          )),
       body: SafeArea(child: Column()),
     );
   }
