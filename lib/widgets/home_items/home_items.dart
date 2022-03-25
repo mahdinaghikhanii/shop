@@ -16,85 +16,93 @@ class HomeItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Repository>(context, listen: false);
     product.featchData();
+
     final textTheme = Theme.of(context).textTheme;
     final appProvider = Provider.of<AppProvider>(context);
-    return Consumer<Repository>(
-      builder: (context, repository, child) {
-        return Scaffold(
-          appBar: AppBar(
-            elevation: 0,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 5),
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginViews()));
-                    },
-                    icon: Icon(
-                      Icons.person,
-                      size: 35,
-                      color: appProvider.brighness ? kwhite : kblack,
-                    )),
-              )
-            ],
-            centerTitle: false,
-            title: Padding(
-              padding: const EdgeInsets.only(left: 6),
-              child: Text(
-                'Hi,please login !',
-                style: textTheme.headline2,
+
+    return FutureBuilder(
+        future: Provider.of<Repository>(context, listen: false).featchData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return Scaffold(
+              appBar: AppBar(
+                elevation: 0,
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginViews()));
+                        },
+                        icon: Icon(
+                          Icons.person,
+                          size: 35,
+                          color: appProvider.brighness ? kwhite : kblack,
+                        )),
+                  )
+                ],
+                centerTitle: false,
+                title: Padding(
+                  padding: const EdgeInsets.only(left: 6),
+                  child: Text(
+                    'Hi,please login !',
+                    style: textTheme.headline2,
+                  ),
+                ),
               ),
-            ),
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'The most popular',
-                    style: textTheme.subtitle1,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'clothes today',
-                    style: textTheme.headline1,
-                  ),
-                  Row(
-                    children: const [
-                      BuildChip(text: "All", color: kred),
-                      BuildChip(text: "Men", color: kred),
-                      BuildChip(text: "Women", color: kred),
-                      BuildChip(text: "Kids", color: kred)
+              body: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'The most popular',
+                        style: textTheme.subtitle1,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'clothes today',
+                        style: textTheme.headline1,
+                      ),
+                      Row(
+                        children: const [
+                          BuildChip(text: "All", color: kred),
+                          BuildChip(text: "Men", color: kred),
+                          BuildChip(text: "Women", color: kred),
+                          BuildChip(text: "Kids", color: kred)
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Expanded(
+                          child: GridView.builder(
+                              itemCount: product.items.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2),
+                              itemBuilder: (context, index) {
+                                return ShopList(
+                                  productsMode: product.items[index],
+                                  ontap: () {},
+                                );
+                              }))
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Expanded(
-                      child: GridView.builder(
-                          itemCount: repository.items.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2),
-                          itemBuilder: (context, index) {
-                            return ShopList(
-                              productsMode: product.items[index],
-                              ontap: () {},
-                            );
-                          }))
-                ],
+                ),
               ),
-            ),
-          ),
-        );
-      },
-    );
+            );
+          }
+        });
   }
 }
