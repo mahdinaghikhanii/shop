@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/repository/repository.dart';
+import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
 
@@ -87,14 +87,25 @@ class HomeItems extends StatelessWidget {
                       ),
                       Expanded(
                           child: GridView.builder(
+                              padding: EdgeInsets.all(0),
                               itemCount: product.items.length,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2),
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 20,
+                                      childAspectRatio: 0.80,
+                                      mainAxisSpacing: 20),
                               itemBuilder: (context, index) {
                                 return ShopList(
                                   productsMode: product.items[index],
-                                  ontap: () {},
+                                  ontap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailViews(
+                                                productsModel:
+                                                    product.items[index])));
+                                  },
                                 );
                               }))
                     ],

@@ -23,6 +23,7 @@ class Constans {
   static const double padding = 20;
   static const double avatarRadius = 45;
   static const double kborderRadios = 18;
+  static const double defualtIconSize = 30;
   static var coinIconUrl =
       "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
 }

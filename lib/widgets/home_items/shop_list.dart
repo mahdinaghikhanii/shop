@@ -2,11 +2,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/model/products_model.dart';
+import 'package:shop/model/rating_model.dart';
 import 'package:shop/theme/constant.dart';
 
 class ShopList extends StatelessWidget {
-  ShopList({Key? key, required this.productsMode, required this.ontap})
-      : super(key: key);
+  ShopList({
+    Key? key,
+    required this.productsMode,
+    required this.ontap,
+  }) : super(key: key);
   ProductsModel productsMode;
   final Function()? ontap;
 
@@ -24,10 +28,11 @@ class ShopList extends StatelessWidget {
             Center(
               child: Container(
                 color: kwhite,
-                width: 100,
-                height: 100,
+                width: 110,
+                height: 130,
                 child: CachedNetworkImage(
                   imageUrl: productsMode.imagee,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -41,8 +46,25 @@ class ShopList extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Row(
-              children: [Text('€' + productsMode.price), Icon(Icons.start)],
+            Padding(
+              padding: const EdgeInsets.all(4),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('€' + productsMode.price),
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.star_rate,
+                        size: 18,
+                        color: kyellow,
+                      ),
+                      Text('4.1')
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
