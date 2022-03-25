@@ -20,6 +20,10 @@ class ConfigTheme {
               fontSize: 20,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.normal),
+          headline3: TextStyle(
+              fontSize: 24,
+              color: isDarkTheme ? kwhite : Colors.black,
+              fontWeight: FontWeight.bold),
           headline4:
               TextStyle(fontSize: 14, color: isDarkTheme ? kwhite : kblack),
           headline6: TextStyle(

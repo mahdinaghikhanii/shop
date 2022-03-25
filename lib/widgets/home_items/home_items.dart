@@ -33,7 +33,7 @@ class HomeItems extends StatelessWidget {
                 elevation: 0,
                 actions: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 5),
+                    padding: const EdgeInsets.only(right: 10),
                     child: IconButton(
                         onPressed: () {
                           Navigator.push(
@@ -87,7 +87,6 @@ class HomeItems extends StatelessWidget {
                       ),
                       Expanded(
                           child: GridView.builder(
-                              padding: EdgeInsets.all(0),
                               itemCount: product.items.length,
                               gridDelegate:
                                   const SliverGridDelegateWithFixedCrossAxisCount(

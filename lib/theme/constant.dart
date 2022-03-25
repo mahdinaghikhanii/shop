@@ -8,7 +8,7 @@ const Color kwhitemeloo = Color(0xFFECEFF1);
 const Color kblack = Color(0xFF424242);
 const Color kred = Color(0xFFE53935);
 const Color kpurple = Color(0xFF6A1B9A);
-const Color kyellow = Color(0xFFFF9800);
+const Color kyellow = Color(0xFFFEAC5D);
 const Color klightgrean = Color(0xFFAFB42B);
 const Color kblackappbar = Color(0xFF000000);
 const Color kblue = Color(0xFF133D8E);
@@ -24,6 +24,4 @@ class Constans {
   static const double avatarRadius = 45;
   static const double kborderRadios = 18;
   static const double defualtIconSize = 30;
-  static var coinIconUrl =
-      "https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/";
 }

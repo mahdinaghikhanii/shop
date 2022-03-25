@@ -12,7 +12,26 @@ class DetailViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+            right: Constans.padding, left: Constans.padding),
+        child: SafeArea(
+          child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: kyellow,
+              ),
+              width: double.infinity,
+              height: 70,
+              child: Center(
+                  child: Text(
+                'Add Cart',
+                style: textTheme.subtitle2,
+              ))),
+        ),
+      ),
       appBar: AppBar(
         actions: const [
           Padding(
@@ -31,14 +50,23 @@ class DetailViews extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(Constans.padding),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               AspectRatio(
                 aspectRatio: 1,
                 child: Hero(
                     tag: productsModel.id,
                     child: CachedNetworkImage(imageUrl: productsModel.imagee)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Text(
+                  productsModel.title,
+                  style: textTheme.headline3,
+                ),
               )
             ],
           ),
