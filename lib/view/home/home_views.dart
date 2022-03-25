@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
@@ -5,7 +7,6 @@ import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/util/repository/repository.dart';
-import 'package:shop/view/login/login_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
 
@@ -26,7 +27,6 @@ class HomeViews extends StatelessWidget {
       const SettingViews(),
     ];
 
-    // ignore: unused_local_variable
     final productProvider = Provider.of<Repository>(context);
     return Scaffold(
       body: Screans[bottomNavigationBar.currentIndex],

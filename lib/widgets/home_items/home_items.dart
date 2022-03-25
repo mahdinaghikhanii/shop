@@ -2,8 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
+import 'package:shop/widgets/home_items/shop_list.dart';
 
 import '../../view/login/login_views.dart';
 
@@ -12,7 +14,10 @@ class HomeItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final product = Provider.of<Repository>(context, listen: false);
+    product.featchData();
     final textTheme = Theme.of(context).textTheme;
+    final appProvider = Provider.of<AppProvider>(context);
     return Consumer<Repository>(
       builder: (context, repository, child) {
         return Scaffold(
@@ -28,10 +33,10 @@ class HomeItems extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const LoginViews()));
                     },
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.person,
                       size: 35,
-                      color: kblack,
+                      color: appProvider.brighness ? kwhite : kblack,
                     )),
               )
             ],
@@ -79,7 +84,10 @@ class HomeItems extends StatelessWidget {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2),
                           itemBuilder: (context, index) {
-                            return Card();
+                            return ShopList(
+                              productsMode: product.items[index],
+                              ontap: () {},
+                            );
                           }))
                 ],
               ),

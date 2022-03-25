@@ -4,7 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:shop/model/products_model.dart';
 
 class Repository extends ChangeNotifier {
-  String url = 'https://fakestoreapi.com/products/category/men\' sclothing';
+  String url = 'https://fakestoreapi.com/products';
+  // String url = 'https://fakestoreapi.com/products/category/men\'s clothing';
   // ignore: prefer_final_fields
   List<ProductsModel> _items = [];
   List<ProductsModel> get items => _items;
