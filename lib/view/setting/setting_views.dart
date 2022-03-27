@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
+import 'package:shop/view/favorite/Favorite_views.dart';
 
 class SettingViews extends StatelessWidget {
   const SettingViews({Key? key}) : super(key: key);
@@ -48,16 +49,22 @@ class SettingViews extends StatelessWidget {
                 height: 20,
               ),
               InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FavoriteViews()));
+                },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.favorite,
                     ),
                     SizedBox(
                       width: size.width * 0.02,
                     ),
-                    Text('Favorite')
+                    const Text('Favorite')
                   ],
                 ),
               )

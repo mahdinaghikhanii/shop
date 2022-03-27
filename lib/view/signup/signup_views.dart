@@ -19,7 +19,7 @@ class SignUpViews extends StatelessWidget {
         child: SmallBottomNavigationBar(
           text: 'Sign in',
           ontap: () {
-            Navigator.push(context,
+            Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const LoginViews()));
           },
         ),
