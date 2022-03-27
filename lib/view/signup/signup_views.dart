@@ -15,7 +15,7 @@ class SignUpViews extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(left: 12),
         child: SmallBottomNavigationBar(
           text: 'Sign in',
           ontap: () {

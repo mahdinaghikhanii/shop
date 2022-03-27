@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/util/app_provider/app_provider.dart';
 
 class SmallBottomNavigationBar extends StatelessWidget {
   const SmallBottomNavigationBar(
@@ -10,6 +12,7 @@ class SmallBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appProvider = Provider.of<AppProvider>(context);
     return InkWell(
       highlightColor: kwhite,
       onTap: ontap,
@@ -22,8 +25,8 @@ class SmallBottomNavigationBar extends StatelessWidget {
           color: Colors.transparent,
           child: Text(
             text,
-            style: const TextStyle(
-              color: kblackappbar,
+            style: TextStyle(
+              color: appProvider.brighness ? kwhite : kblackappbar,
               fontSize: 15,
             ),
             textAlign: TextAlign.start,

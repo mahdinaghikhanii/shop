@@ -30,9 +30,12 @@ class ShopList extends StatelessWidget {
                 color: kwhite,
                 width: 110,
                 height: 130,
-                child: CachedNetworkImage(
-                  imageUrl: productsMode.imagee,
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: productsMode.id,
+                  child: CachedNetworkImage(
+                    imageUrl: productsMode.imagee,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),
