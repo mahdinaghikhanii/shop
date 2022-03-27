@@ -44,7 +44,7 @@ class HomeItems extends StatelessWidget {
                         icon: Icon(
                           Icons.person,
                           size: 35,
-                          color: appProvider.brighness ? kwhite : kblack,
+                          color: appProvider.brighness ? kwhite : kblackappbar,
                         )),
                   )
                 ],
@@ -59,7 +59,7 @@ class HomeItems extends StatelessWidget {
               ),
               body: SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
