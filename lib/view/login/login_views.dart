@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
+import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import 'package:shop/widgets/small_btmnavigationbar/small_btmnavigationbar.dart';
 
@@ -16,18 +17,28 @@ class LoginViews extends StatelessWidget {
         foregroundColor: appProvider.brighness ? kwhite : kblackappbar,
         elevation: 0,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SafeArea(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            SmallBottomNavigationBar(
-              text: 'Sign Up',
-            ),
-            SmallBottomNavigationBar(
-              text: 'Forgot Passwords',
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 30, right: 30, bottom: 15),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SmallBottomNavigationBar(
+                text: 'Sign up',
+                ontap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignUpViews()));
+                },
+              ),
+              const Spacer(),
+              SmallBottomNavigationBar(
+                text: 'Forgot Password',
+                ontap: () {},
+              )
+            ],
+          ),
         ),
       ),
       body: SafeArea(
@@ -45,21 +56,21 @@ class LoginViews extends StatelessWidget {
                       fontWeight: FontWeight.w800,
                       color: appProvider.brighness ? kwhite : kblackappbar)),
               const SizedBox(
-                height: 160,
+                height: 140,
               ),
               const InputText(
                 hintText: 'Enter your username',
                 labelText: 'Username',
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const InputText(
                 hintText: 'Enter your password',
                 labelText: 'Password',
               ),
               const SizedBox(
-                height: 30,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

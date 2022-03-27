@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
@@ -74,13 +75,16 @@ class HomeItems extends StatelessWidget {
                         'clothes today',
                         style: textTheme.headline1,
                       ),
-                      Row(
-                        children: const [
-                          BuildChip(text: "All", color: kred),
-                          BuildChip(text: "Men", color: kred),
-                          BuildChip(text: "Women", color: kred),
-                          BuildChip(text: "Kids", color: kred)
-                        ],
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: const [
+                            BuildChip(text: "All", color: kred),
+                            BuildChip(text: "Men", color: kred),
+                            BuildChip(text: "Women", color: kred),
+                            BuildChip(text: "Kids", color: kred)
+                          ],
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
