@@ -30,10 +30,21 @@ class HomeItems extends StatelessWidget {
           } else {
             return Scaffold(
               appBar: AppBar(
+                centerTitle: false,
+                titleSpacing: 0,
+                title: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    'Hi,pleaselogin!',
+                    style: textTheme.headline2,
+                  ),
+                ),
+                leadingWidth: 1000,
+                automaticallyImplyLeading: false,
                 elevation: 0,
                 actions: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 10),
+                    padding: const EdgeInsets.only(right: 20),
                     child: IconButton(
                         onPressed: () {
                           Navigator.push(
@@ -48,14 +59,6 @@ class HomeItems extends StatelessWidget {
                         )),
                   )
                 ],
-                centerTitle: false,
-                title: Padding(
-                  padding: const EdgeInsets.only(left: 6),
-                  child: Text(
-                    'Hi,please login !',
-                    style: textTheme.headline2,
-                  ),
-                ),
               ),
               body: SafeArea(
                 child: Padding(

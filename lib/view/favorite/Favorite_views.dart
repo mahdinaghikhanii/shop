@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/widgets/nothing_is_here/nothing_is_here.dart';
 
 class FavoriteViews extends StatelessWidget {
   const FavoriteViews({Key? key}) : super(key: key);
@@ -13,7 +12,8 @@ class FavoriteViews extends StatelessWidget {
         elevation: 0,
         leadingWidth: 120,
         leading: Padding(
-          padding: const EdgeInsets.only(left: Constans.padding),
+          padding: const EdgeInsets.only(
+              left: Constans.padding, top: Constans.padding),
           child: Text(
             'Favorite',
             style: Theme.of(context).textTheme.subtitle1,
@@ -26,14 +26,7 @@ class FavoriteViews extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 30,
-              ),
-              NothingIsHere(
-                text: "You have no\nCart :(",
-              ),
-            ],
+            children: [],
           ),
         ),
       ),
