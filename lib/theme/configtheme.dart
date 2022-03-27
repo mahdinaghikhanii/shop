@@ -12,7 +12,7 @@ class ConfigTheme {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
       textTheme: TextTheme(
-          labelMedium: TextStyle(fontSize: 18, color: grey),
+          labelMedium: const TextStyle(fontSize: 18, color: grey),
           headline1: TextStyle(
               fontSize: 24,
               color: isDarkTheme ? kwhite : kblack,

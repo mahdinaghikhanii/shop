@@ -2,7 +2,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop/model/products_model.dart';
-import 'package:shop/model/rating_model.dart';
 import 'package:shop/theme/constant.dart';
 
 class ShopList extends StatelessWidget {

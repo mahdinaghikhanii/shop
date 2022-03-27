@@ -74,7 +74,7 @@ class HomeViews extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.settings,
-                text: 'Profile',
+                text: 'Setting',
               ),
             ],
             onTabChange: (index) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop/theme/constant.dart';
 
 class InputText extends StatelessWidget {
   const InputText({Key? key, required this.hintText, required this.labelText})

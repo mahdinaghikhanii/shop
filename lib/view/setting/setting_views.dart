@@ -12,19 +12,19 @@ class SettingViews extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: false,
-          title: Text(
-            'Setting',
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 16, top: 20),
-              child: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(Constans.padding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Setting',
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Center(
                   child: Row(
                 children: [
                   Icon(appProvider.brighness
@@ -44,8 +44,25 @@ class SettingViews extends StatelessWidget {
                   ),
                 ],
               )),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.favorite,
+                    ),
+                    SizedBox(
+                      width: size.width * 0.02,
+                    ),
+                    Text('Favorite')
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
