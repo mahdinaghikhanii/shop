@@ -1,4 +1,5 @@
 // ignore_for_file: unused_local_variable
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,108 +58,110 @@ class _OnBoardViewsState extends State<OnBoardViews> {
               onboardProvider.setCurentIndexGetStart(index);
             },
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  SafeArea(
-                      child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 0,
-                        ),
-                        Text(
-                          screans[index].title,
-                          style: textTheme.headline5,
-                        ),
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 10.0,
-                              child: ListView.builder(
-                                itemCount: screans.length,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          margin: const EdgeInsets.symmetric(
-                                              horizontal: 3.0),
-                                          width: onboardProvider
-                                                      .getCurentIndexOnBoard ==
-                                                  index
-                                              ? 30
-                                              : 8,
-                                          height: 8,
-                                          decoration: BoxDecoration(
-                                            color: onboardProvider
+              return FadeInRight(
+                child: Column(
+                  children: [
+                    SafeArea(
+                        child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 0,
+                          ),
+                          Text(
+                            screans[index].title,
+                            style: textTheme.headline5,
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                height: 10.0,
+                                child: ListView.builder(
+                                  itemCount: screans.length,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 3.0),
+                                            width: onboardProvider
                                                         .getCurentIndexOnBoard ==
                                                     index
-                                                ? kblackappbar
-                                                : kwhite,
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                ? 30
+                                                : 8,
+                                            height: 8,
+                                            decoration: BoxDecoration(
+                                              color: onboardProvider
+                                                          .getCurentIndexOnBoard ==
+                                                      index
+                                                  ? kblackappbar
+                                                  : kwhite,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
                                           ),
-                                        ),
-                                      ]);
-                                },
+                                        ]);
+                                  },
+                                ),
                               ),
-                            ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 15),
-                              child: InkWell(
-                                borderRadius: BorderRadius.circular(25),
-                                onTap: () async {
-                                  if (index == screans.length - 1) {
-                                    await _storeOnboardInfo();
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const HomeViews()));
-                                  }
-                                  _pageController.nextPage(
-                                      duration:
-                                          const Duration(microseconds: 400),
-                                      curve: Curves.bounceIn);
-                                },
-                                child: Container(
-                                    height: 80,
-                                    width: 80,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.black,
-                                        shape: BoxShape.circle),
-                                    child: const Icon(
-                                      Icons.keyboard_arrow_right,
-                                      color: kwhite,
-                                      size: 30,
-                                    )),
+                              const Spacer(),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 15),
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(25),
+                                  onTap: () async {
+                                    if (index == screans.length - 1) {
+                                      await _storeOnboardInfo();
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const HomeViews()));
+                                    }
+                                    _pageController.nextPage(
+                                        duration:
+                                            const Duration(microseconds: 400),
+                                        curve: Curves.bounceIn);
+                                  },
+                                  child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.black,
+                                          shape: BoxShape.circle),
+                                      child: const Icon(
+                                        Icons.keyboard_arrow_right,
+                                        color: kwhite,
+                                        size: 30,
+                                      )),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Center(
-                            child: SizedBox(
-                                width:
-                                    onboardProvider.getCurentIndexOnBoard != 2
-                                        ? 300
-                                        : 250,
-                                child: Image.asset(screans[index].img)))
-                      ],
-                    ),
-                  )),
-                ],
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Center(
+                              child: SizedBox(
+                                  width:
+                                      onboardProvider.getCurentIndexOnBoard != 2
+                                          ? 300
+                                          : 250,
+                                  child: Image.asset(screans[index].img)))
+                        ],
+                      ),
+                    )),
+                  ],
+                ),
               );
             }));
   }
