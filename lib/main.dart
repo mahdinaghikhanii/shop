@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/util/onboard_provider/onboard_provider.dart';
+import 'package:shop/util/products_provider/products_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => ProductsProvider()),
           ChangeNotifierProvider<OnBoardProvider>(
               create: (context) => OnBoardProvider()),
           ChangeNotifierProvider<AppProvider>(

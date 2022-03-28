@@ -27,7 +27,7 @@ class _OnBoardViewsState extends State<OnBoardViews> {
       img: 'assets/img/cloth2.png',
     ),
     OnboardModel(
-      title: 'See All\nand choice!',
+      title: 'See All\nand choice !',
       img: 'assets/img/cloth3.png',
     )
   ];
@@ -104,7 +104,7 @@ class _OnBoardViewsState extends State<OnBoardViews> {
                                                           .getCurentIndexOnBoard ==
                                                       index
                                                   ? kblackappbar
-                                                  : kwhite,
+                                                  : grey,
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                             ),
