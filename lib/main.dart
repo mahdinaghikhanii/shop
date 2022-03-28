@@ -1,14 +1,13 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
+import 'package:shop/util/onboard_provider/onboard_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/theme/configtheme.dart';
-import 'package:shop/view/getstart/getstart_views.dart';
 import 'package:shop/view/home/home_views.dart';
+import 'package:shop/view/onboard/onboard_views.dart';
 
 int? isviewWedWidgetGetStartScreans;
 AppProvider appProvider = AppProvider();
@@ -32,6 +31,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider<OnBoardProvider>(
+              create: (context) => OnBoardProvider()),
           ChangeNotifierProvider<AppProvider>(
               create: (
             context,
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
               title: 'Flutter shop',
               debugShowCheckedModeBanner: false,
               home: isviewWedWidgetGetStartScreans != 1
-                  ? const GetStartViews()
+                  ? const OnBoardViews()
                   : const HomeViews());
         }));
   }
