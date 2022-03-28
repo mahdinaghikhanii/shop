@@ -2,13 +2,13 @@ import 'package:shop/model/rating_model.dart';
 
 class ProductsModel {
   ProductsModel(this.id, this.title, this.price, this.description,
-      this.catrgory, this.imagee, this.ratingModel);
+      this.catrgory, this.image, this.ratingModel);
   final int id;
   final String title;
   final String price;
   final String description;
   final String catrgory;
-  final String imagee;
+  final String image;
 
   final RatingModel ratingModel;
 

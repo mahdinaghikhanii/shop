@@ -32,7 +32,7 @@ class ShopList extends StatelessWidget {
                 child: Hero(
                   tag: productsMode.id,
                   child: CachedNetworkImage(
-                    imageUrl: productsMode.imagee,
+                    imageUrl: productsMode.image,
                     fit: BoxFit.fill,
                   ),
                 ),

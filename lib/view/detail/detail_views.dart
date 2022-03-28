@@ -16,7 +16,7 @@ class DetailViews extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
-            right: Constans.padding, left: Constans.padding),
+            right: Constans.padding, left: Constans.padding, bottom: 10),
         child: SafeArea(
           child: Container(
               decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class DetailViews extends StatelessWidget {
                 color: kyellow,
               ),
               width: double.infinity,
-              height: 70,
+              height: 60,
               child: Center(
                   child: Text(
                 'Add Cart',
@@ -33,10 +33,18 @@ class DetailViews extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: Padding(
+            padding: const EdgeInsets.only(left: Constans.padding, top: 4),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios))),
         actions: const [
           Padding(
             // ignore: unnecessary_const
-            padding: const EdgeInsets.only(right: Constans.padding),
+            padding: const EdgeInsets.only(right: Constans.padding, top: 4),
             child: Icon(
               Icons.favorite_border_sharp,
               color: kred,
@@ -56,13 +64,15 @@ class DetailViews extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               AspectRatio(
-                aspectRatio: 1,
+                aspectRatio: 3 / 2,
                 child: Hero(
                     tag: productsModel.id,
-                    child: CachedNetworkImage(imageUrl: productsModel.imagee)),
+                    child: CachedNetworkImage(imageUrl: productsModel.image)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
                 child: Text(
                   productsModel.title,
                   style: textTheme.headline3,

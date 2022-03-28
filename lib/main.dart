@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               theme: ConfigTheme.themeData(model.brighness, context),
               title: 'Flutter shop',
               debugShowCheckedModeBanner: false,
-              home: isviewWedWidgetGetStartScreans != 1
+              home: isviewWedWidgetGetStartScreans != 0
                   ? const OnBoardViews()
                   : const HomeViews());
         }));

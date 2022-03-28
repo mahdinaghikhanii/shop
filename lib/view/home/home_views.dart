@@ -10,6 +10,7 @@ import 'package:shop/util/repository/repository.dart';
 import 'package:shop/view/cart/cart_views.dart';
 import 'package:shop/view/search/search_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
+import 'package:shop/widgets/home_items/home_items.dart';
 
 class HomeViews extends StatelessWidget {
   const HomeViews({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class HomeViews extends StatelessWidget {
         Provider.of<BottomNavigationBarProvider>(context);
     // ignore: non_constant_identifier_names
     List Screans = [
-      const SearchViews(),
+      const HomeItems(),
       const SearchViews(),
       const CartViews(),
       const SettingViews(),
