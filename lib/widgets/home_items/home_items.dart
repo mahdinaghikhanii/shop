@@ -77,17 +77,10 @@ class HomeItems extends StatelessWidget {
                         'clothes today',
                         style: textTheme.headline1,
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: const [
-                            BuildChip(text: "All", color: kred),
-                            BuildChip(text: "Men", color: kred),
-                            BuildChip(text: "Women", color: kred),
-                            BuildChip(text: "Kids", color: kred)
-                          ],
-                        ),
-                      ),
+                      const SizedBox(
+                          height: 70,
+                          width: double.infinity,
+                          child: BuildChip()),
                       const SizedBox(
                         height: 20,
                       ),
