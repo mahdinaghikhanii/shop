@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/util/app_provider/app_provider.dart';
+import 'package:shop/util/detail_provider/detail_provider.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
@@ -13,6 +14,8 @@ class DetailViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final detailsProvider = Provider.of<DetailProvider>(context);
+
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
@@ -71,13 +74,40 @@ class DetailViews extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20,
+                  top: 30,
                 ),
                 child: Text(
                   productsModel.title,
                   style: textTheme.headline3,
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(productsModel.description,
+                      maxLines: detailsProvider.getdescTextShowFlag ? 14 : 2,
+                      textAlign: TextAlign.start,
+                      style: textTheme.caption),
+                  InkWell(
+                    onTap: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        detailsProvider.getdescTextShowFlag
+                            ? const Text(
+                                "Show Less",
+                                style: TextStyle(color: kyellow, fontSize: 16),
+                              )
+                            : const Text("Show More",
+                                style: TextStyle(color: kyellow, fontSize: 16))
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

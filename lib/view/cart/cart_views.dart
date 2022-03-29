@@ -31,7 +31,7 @@ class CartViews extends StatelessWidget {
               height: 30,
             ),
             NothingIsHere(
-                text: productProvider.cartlist == null
+                text: productProvider.cartlist != null
                     ? "You have no\nCart :("
                     : "hi"),
           ],

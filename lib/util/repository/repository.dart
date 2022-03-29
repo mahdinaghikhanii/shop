@@ -13,7 +13,7 @@ class Repository extends ChangeNotifier {
 
   List url = [
     'https://fakestoreapi.com/products',
-    'https://fakestoreapi.com/products/category/men\'s clothing'
+    'https://fakestoreapi.com/products/category/men\'s clothing',
   ];
   String allProducts = 'https://fakestoreapi.com/products';
   String menProducts =
@@ -23,7 +23,7 @@ class Repository extends ChangeNotifier {
   List<ProductsModel> get items => _items;
 
   Future featchData() async {
-    var respone = await http.get(Uri.parse(allProducts));
+    var respone = await http.get(Uri.parse(url[_currentIndexBildChip]));
     // ignore: unused_local_variable
     List data = jsonDecode(utf8.decode(respone.bodyBytes));
     List<ProductsModel> loadedProduct = [];
@@ -33,7 +33,5 @@ class Repository extends ChangeNotifier {
       loadedProduct.add(result);
     }
     _items = loadedProduct;
-
-    notifyListeners();
   }
 }

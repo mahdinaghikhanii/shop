@@ -49,6 +49,8 @@ class SettingViews extends StatelessWidget {
                 height: 20,
               ),
               InkWell(
+                borderRadius: BorderRadius.circular(20),
+                highlightColor: appProvider.brighness ? kblack : kwhitemeloo,
                 onTap: () {
                   Navigator.push(
                       context,
