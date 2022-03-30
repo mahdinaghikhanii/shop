@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shop/model/products_model.dart';
 
 class Repository extends ChangeNotifier {
-  int _currentIndexBildChip = 0;
+  int _currentIndexBildChip = 2;
   get currentIndexBuildChip => _currentIndexBildChip;
   setcurrentIndexBuildChip(int index) {
     _currentIndexBildChip = index;
@@ -14,6 +14,7 @@ class Repository extends ChangeNotifier {
   List url = [
     'https://fakestoreapi.com/products',
     'https://fakestoreapi.com/products/category/men\'s clothing',
+    'https://fakestoreapi.com/products/category/women\'s clothing',
   ];
   String allProducts = 'https://fakestoreapi.com/products';
   String menProducts =

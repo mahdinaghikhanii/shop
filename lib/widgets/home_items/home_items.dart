@@ -5,6 +5,7 @@ import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
+import 'package:shop/widgets/erorr/erorr.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
 
 import '../../view/login/login_views.dart';
@@ -27,6 +28,8 @@ class HomeItems extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
+          } else if (snapshot.connectionState == ConnectionState.done) {
+            return const Erorr();
           } else {
             return Scaffold(
               appBar: AppBar(

@@ -17,12 +17,15 @@ class BuildChip extends StatelessWidget {
         itemCount: _choice.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
-          return ChoiceChip(
-            label: Text(_choice[index]),
-            selected: choiceProvider.currentIndexBuildChip == index,
-            onSelected: (bool select) {
-              choiceProvider.setcurrentIndexBuildChip(index);
-            },
+          return Container(
+            padding: const EdgeInsets.only(right: 10),
+            child: ChoiceChip(
+              label: Text(_choice[index]),
+              selected: choiceProvider.setcurrentIndexBuildChip(index) == index,
+              onSelected: (value) {
+                choiceProvider.setcurrentIndexBuildChip(index);
+              },
+            ),
           );
         },
       ),
