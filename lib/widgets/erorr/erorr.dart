@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/view/home/home_views.dart';
 
 class Erorr extends StatelessWidget {
   const Erorr({Key? key}) : super(key: key);
@@ -21,22 +22,37 @@ class Erorr extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          Container(
-            width: 200,
-            height: 50,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: kyellow,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text('Try Again'),
-                SizedBox(
-                  width: 8,
-                ),
-                Icon(Icons.refresh)
-              ],
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeViews()));
+            },
+            child: Container(
+              width: 200,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: kyellow,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Try Again',
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 0,
+                  ),
+                  const Icon(
+                    Icons.refresh,
+                    color: kwhite,
+                  )
+                ],
+              ),
             ),
           ),
         ],

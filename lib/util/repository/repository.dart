@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shop/model/products_model.dart';
 
 class Repository extends ChangeNotifier {
-  int _currentIndexBildChip = 2;
+  int _currentIndexBildChip = 0;
   get currentIndexBuildChip => _currentIndexBildChip;
   setcurrentIndexBuildChip(int index) {
     _currentIndexBildChip = index;
