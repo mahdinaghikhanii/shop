@@ -3,7 +3,7 @@ import 'package:shop/model/products_model.dart';
 import 'package:shop/model/rating_model.dart';
 
 class ProductsProvider extends ChangeNotifier {
-  List<ProductsModel> _lst = [];
+  final List<ProductsModel> _lst = [];
   get cartlist => _lst;
   add(String image, String title, int id, String price, String description,
       String catrgory, RatingModel ratingModel) {

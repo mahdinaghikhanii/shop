@@ -21,7 +21,7 @@ class BuildChip extends StatelessWidget {
             padding: const EdgeInsets.only(right: 10),
             child: ChoiceChip(
               label: Text(_choice[index]),
-              selected: choiceProvider.setcurrentIndexBuildChip(index) == index,
+              selected: choiceProvider.currentIndexBuildChip == index,
               onSelected: (value) {
                 choiceProvider.setcurrentIndexBuildChip(index);
               },

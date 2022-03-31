@@ -16,7 +16,7 @@ class Erorr extends StatelessWidget {
           Image.asset('assets/gif/erorr.gif'),
           Text(
             'Sory !\nWe have Problems Here!',
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.headline2,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
@@ -24,12 +24,12 @@ class Erorr extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomeViews()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const HomeViews()));
             },
             child: Container(
-              width: 200,
-              height: 60,
+              width: 180,
+              height: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: kyellow,
