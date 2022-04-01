@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/model/products_model.dart';
 import 'package:shop/util/repository/repository.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
 
@@ -12,8 +10,6 @@ class BuildChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProductsModel productsModel;
-
     final choiceProvider = Provider.of<Repository>(context, listen: true);
     List _choice = ["All", "Men", "Women", "Kids"];
     return Padding(
@@ -31,7 +27,7 @@ class BuildChip extends StatelessWidget {
               onSelected: (value) {
                 choiceProvider.setcurrentIndexBuildChip(index, value);
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomeItems()));
+                    MaterialPageRoute(builder: (context) => const HomeItems()));
               },
             ),
           );

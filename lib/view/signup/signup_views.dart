@@ -11,6 +11,9 @@ class SignUpViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _nameContoroloer = TextEditingController();
+    TextEditingController _emailContoroller = TextEditingController();
+    TextEditingController _passwordContoroller = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
@@ -44,23 +47,26 @@ class SignUpViews extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              const InputText(
+              InputText(
                 hintText: 'Enter your name',
                 labelText: 'Name',
+                contoroller: _nameContoroloer,
               ),
               const SizedBox(
                 height: 15,
               ),
-              const InputText(
+              InputText(
                 hintText: 'Enter your Email',
                 labelText: 'Email',
+                contoroller: _emailContoroller,
               ),
               const SizedBox(
                 height: 15,
               ),
-              const InputText(
+              InputText(
                 hintText: 'Enter your password',
                 labelText: 'Password',
+                contoroller: _passwordContoroller,
               ),
               const SizedBox(
                 height: 60,
@@ -73,18 +79,26 @@ class SignUpViews extends StatelessWidget {
                       'Sign in',
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
-                    Container(
-                      height: 80,
-                      width: 80,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: appProvider.brighness ? kwhite : kblackappbar,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_right_alt_outlined,
-                          size: 45,
-                          color: appProvider.brighness ? kblackappbar : kwhite,
+                    InkWell(
+                      onTap: () async {
+                        String _name = _nameContoroloer.text;
+                        String _email = _emailContoroller.text;
+                        String _password = _passwordContoroller.text;
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: appProvider.brighness ? kwhite : kblackappbar,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.arrow_right_alt_outlined,
+                            size: 45,
+                            color:
+                                appProvider.brighness ? kblackappbar : kwhite,
+                          ),
                         ),
                       ),
                     )

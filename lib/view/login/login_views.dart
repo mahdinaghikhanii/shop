@@ -11,6 +11,8 @@ class LoginViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController _nameContoroloer = TextEditingController();
+    TextEditingController _passwordContoroler = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -60,16 +62,18 @@ class LoginViews extends StatelessWidget {
               const SizedBox(
                 height: 140,
               ),
-              const InputText(
+              InputText(
                 hintText: 'Enter your username',
                 labelText: 'Username',
+                contoroller: _nameContoroloer,
               ),
               const SizedBox(
                 height: 15,
               ),
-              const InputText(
+              InputText(
                 hintText: 'Enter your password',
                 labelText: 'Password',
+                contoroller: _passwordContoroler,
               ),
               const SizedBox(
                 height: 25,

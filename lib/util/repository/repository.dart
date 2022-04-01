@@ -9,14 +9,16 @@ class Repository extends ChangeNotifier {
 
   setcurrentIndexBuildChip(int index, bool check) {
     _currentIndexBildChip = index;
-    print(_currentIndexBildChip);
     notifyListeners();
   }
+
+// first url req for all Products  url 2 for men products url 3 womens and 4 jewelery
 
   List url = [
     'https://fakestoreapi.com/products',
     'https://fakestoreapi.com/products/category/men\'s clothing',
     'https://fakestoreapi.com/products/category/women\'s clothing',
+    'https://fakestoreapi.com/products/category/jewelery'
   ];
   String allProducts = 'https://fakestoreapi.com/products';
   String menProducts =
