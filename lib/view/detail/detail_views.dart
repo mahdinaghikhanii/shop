@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/widgets/button_addcart/button_addcart.dart';
+import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
 
 import '../../provider/app_provider/app_provider.dart';
 
@@ -17,26 +19,8 @@ class DetailViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
-
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-            right: Constans.padding, left: Constans.padding, bottom: 10),
-        child: SafeArea(
-          child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: kyellow,
-              ),
-              width: double.infinity,
-              height: 60,
-              child: Center(
-                  child: Text(
-                'Add Cart',
-                style: textTheme.subtitle2,
-              ))),
-        ),
-      ),
+      bottomNavigationBar: const ButtonAddcart(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
@@ -85,11 +69,16 @@ class DetailViews extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Text(productsModel.ratingModel.rate.toString()),
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text("€ " + productsModel.price,
+                      style: textTheme.headline2),
                 ),
                 const SizedBox(
                   height: 10,
+                ),
+                RatingBars(productsModel: productsModel),
+                const SizedBox(
+                  height: 15,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,22 +115,6 @@ class DetailViews extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    RatingBar.builder(
-                      initialRating: productsModel.ratingModel.rate,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: false,
-                      itemCount: 5,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: kyellow,
-                      ),
-                      onRatingUpdate: (double value) {},
                     ),
                   ],
                 ),

@@ -9,6 +9,7 @@ class Repository extends ChangeNotifier {
 
   setcurrentIndexBuildChip(int index, bool check) {
     _currentIndexBildChip = index;
+
     notifyListeners();
   }
 
