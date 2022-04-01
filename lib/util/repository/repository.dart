@@ -6,8 +6,10 @@ import 'package:shop/model/products_model.dart';
 class Repository extends ChangeNotifier {
   int _currentIndexBildChip = 0;
   get currentIndexBuildChip => _currentIndexBildChip;
-  setcurrentIndexBuildChip(int index) {
+
+  setcurrentIndexBuildChip(int index, bool check) {
     _currentIndexBildChip = index;
+    print(_currentIndexBildChip);
     notifyListeners();
   }
 
@@ -34,5 +36,6 @@ class Repository extends ChangeNotifier {
       loadedProduct.add(result);
     }
     _items = loadedProduct;
+    notifyListeners();
   }
 }

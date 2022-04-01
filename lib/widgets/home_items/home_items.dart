@@ -19,7 +19,7 @@ class HomeItems extends StatelessWidget {
     product.featchData();
 
     final textTheme = Theme.of(context).textTheme;
-    final appProvider = Provider.of<AppProvider>(context);
+    final appProvider = Provider.of<AppProvider>(context, listen: true);
 
     return FutureBuilder(
         future: Provider.of<Repository>(context, listen: false).featchData(),
@@ -28,7 +28,7 @@ class HomeItems extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.connectionState == ConnectionState.done) {
+          } else if (snapshot.connectionState == ConnectionState.none) {
             return const Erorr();
           } else {
             return Scaffold(
