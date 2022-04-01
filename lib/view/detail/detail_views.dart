@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
@@ -60,70 +61,87 @@ class DetailViews extends StatelessWidget {
         foregroundColor:
             Provider.of<AppProvider>(context).brighness ? kwhite : kblack,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Constans.padding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              AspectRatio(
-                aspectRatio: 3 / 2,
-                child: Hero(
-                    tag: productsModel.id,
-                    child: CachedNetworkImage(imageUrl: productsModel.image)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(Constans.padding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: Hero(
+                      tag: productsModel.id,
+                      child: CachedNetworkImage(imageUrl: productsModel.image)),
                 ),
-                child: Text(
-                  productsModel.title,
-                  style: textTheme.headline3,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 30,
+                  ),
+                  child: Text(
+                    productsModel.title,
+                    style: textTheme.headline3,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(productsModel.description,
-                      maxLines: detailsProvider.getdescTextShowFlag ? 14 : 2,
-                      textAlign: TextAlign.start,
-                      style: textTheme.caption),
-                  Row(
-                    children: [
-                      const Spacer(),
-                      InkWell(
-                        onTap: () {
-                          detailsProvider.getdescTextShowFlag
-                              ? detailsProvider.setdescTextShowFlag(false)
-                              : detailsProvider.setdescTextShowFlag(true);
-                        },
-                        child: SizedBox(
-                          width: 100,
-                          height: 24,
-                          child: detailsProvider.getdescTextShowFlag
-                              ? const Text(
-                                  "Show Less",
-                                  style:
-                                      TextStyle(color: kyellow, fontSize: 16),
-                                  textAlign: TextAlign.end,
-                                )
-                              : const Text(
-                                  "Show More",
-                                  style:
-                                      TextStyle(color: kyellow, fontSize: 16),
-                                  textAlign: TextAlign.end,
-                                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(productsModel.description,
+                        maxLines: detailsProvider.getdescTextShowFlag ? 14 : 2,
+                        textAlign: TextAlign.start,
+                        style: textTheme.caption),
+                    Row(
+                      children: [
+                        const Spacer(),
+                        InkWell(
+                          onTap: () {
+                            detailsProvider.getdescTextShowFlag
+                                ? detailsProvider.setdescTextShowFlag(false)
+                                : detailsProvider.setdescTextShowFlag(true);
+                          },
+                          child: SizedBox(
+                            width: 100,
+                            height: 24,
+                            child: detailsProvider.getdescTextShowFlag
+                                ? const Text(
+                                    "Show Less",
+                                    style:
+                                        TextStyle(color: kyellow, fontSize: 16),
+                                    textAlign: TextAlign.end,
+                                  )
+                                : const Text(
+                                    "Show More",
+                                    style:
+                                        TextStyle(color: kyellow, fontSize: 16),
+                                    textAlign: TextAlign.end,
+                                  ),
+                          ),
                         ),
+                      ],
+                    ),
+                    RatingBar.builder(
+                      initialRating: 4.1,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: kyellow,
                       ),
-                    ],
-                  )
-                ],
-              ),
-            ],
+                      onRatingUpdate: (rating) {
+                        print(rating);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
