@@ -2,23 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
+import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
 
 import '../../provider/app_provider/app_provider.dart';
-import '../../provider/detail_provider/detail_provider.dart';
 
 // ignore: must_be_immutable
-class DetailViews extends StatefulWidget {
+class DetailViews extends StatelessWidget {
   DetailViews({Key? key, required this.productsModel}) : super(key: key);
   ProductsModel productsModel;
 
-  @override
-  State<DetailViews> createState() => _DetailViewsState();
-}
-
-bool showDetailText = false;
-
-class _DetailViewsState extends State<DetailViews> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -77,16 +70,15 @@ class _DetailViewsState extends State<DetailViews> {
               AspectRatio(
                 aspectRatio: 3 / 2,
                 child: Hero(
-                    tag: widget.productsModel.id,
-                    child: CachedNetworkImage(
-                        imageUrl: widget.productsModel.image)),
+                    tag: productsModel.id,
+                    child: CachedNetworkImage(imageUrl: productsModel.image)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
                   top: 30,
                 ),
                 child: Text(
-                  widget.productsModel.title,
+                  productsModel.title,
                   style: textTheme.headline3,
                 ),
               ),
@@ -96,24 +88,23 @@ class _DetailViewsState extends State<DetailViews> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(widget.productsModel.description,
-                      maxLines: showDetailText ? 14 : 2,
+                  Text(productsModel.description,
+                      maxLines: detailsProvider.getdescTextShowFlag ? 14 : 2,
                       textAlign: TextAlign.start,
                       style: textTheme.caption),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Spacer(),
-                      SizedBox(
-                        width: 100,
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(20),
-                          onTap: () {
-                            setState(() {
-                              showDetailText = !showDetailText;
-                            });
-                          },
-                          child: showDetailText
+                      InkWell(
+                        onTap: () {
+                          detailsProvider.getdescTextShowFlag
+                              ? detailsProvider.setdescTextShowFlag(false)
+                              : detailsProvider.setdescTextShowFlag(true);
+                        },
+                        child: SizedBox(
+                          width: 100,
+                          height: 24,
+                          child: detailsProvider.getdescTextShowFlag
                               ? const Text(
                                   "Show Less",
                                   style:
