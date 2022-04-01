@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
-import 'package:shop/util/repository/repository.dart';
+
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
 
+import '../../provider/app_provider/app_provider.dart';
+import '../../provider/repository/repository.dart';
 import '../../view/login/login_views.dart';
 
 class HomeItems extends StatelessWidget {

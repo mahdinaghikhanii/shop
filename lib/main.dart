@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
-import 'package:shop/util/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
-import 'package:shop/util/detail_provider/detail_provider.dart';
-import 'package:shop/util/onboard_provider/onboard_provider.dart';
-import 'package:shop/util/products_provider/products_provider.dart';
-import 'package:shop/util/repository/repository.dart';
+import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
+import 'package:shop/provider/detail_provider/detail_provider.dart';
+import 'package:shop/provider/onboard_provider/onboard_provider.dart';
+import 'package:shop/provider/products_provider/products_provider.dart';
+import 'package:shop/provider/repository/repository.dart';
+
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
+
+import 'provider/app_provider/app_provider.dart';
 
 int? isviewWedWidgetGetStartScreans;
 AppProvider appProvider = AppProvider();

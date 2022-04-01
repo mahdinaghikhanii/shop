@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/util/repository/repository.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
+
+import '../../provider/repository/repository.dart';
 
 class BuildChip extends StatelessWidget {
   const BuildChip({

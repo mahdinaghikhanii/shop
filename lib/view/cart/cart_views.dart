@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/products_provider/products_provider.dart';
 import 'package:shop/widgets/nothing_is_here/nothing_is_here.dart';
+
+import '../../provider/products_provider/products_provider.dart';
 
 class CartViews extends StatelessWidget {
   const CartViews({Key? key}) : super(key: key);

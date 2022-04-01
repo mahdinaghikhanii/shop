@@ -9,11 +9,13 @@ class InputText extends StatelessWidget {
       : super(key: key);
   final String labelText;
   final String hintText;
+
   final TextEditingController contoroller;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+        autofocus: false,
         controller: contoroller,
         decoration: InputDecoration(
             labelText: labelText,

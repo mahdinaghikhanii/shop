@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
-import 'package:shop/util/detail_provider/detail_provider.dart';
+
+import '../../provider/app_provider/app_provider.dart';
+import '../../provider/detail_provider/detail_provider.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {

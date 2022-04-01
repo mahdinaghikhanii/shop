@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
+
 import 'package:shop/view/favorite/Favorite_views.dart';
+
+import '../../provider/app_provider/app_provider.dart';
 
 class SettingViews extends StatelessWidget {
   const SettingViews({Key? key}) : super(key: key);

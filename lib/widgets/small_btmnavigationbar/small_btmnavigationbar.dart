@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/provider/app_provider/app_provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
 
 class SmallBottomNavigationBar extends StatelessWidget {
   const SmallBottomNavigationBar(

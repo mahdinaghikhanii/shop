@@ -5,8 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/model/onoard_model.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/onboard_provider/onboard_provider.dart';
 import 'package:shop/view/home/home_views.dart';
+
+import '../../provider/onboard_provider/onboard_provider.dart';
 
 class OnBoardViews extends StatefulWidget {
   const OnBoardViews({Key? key}) : super(key: key);

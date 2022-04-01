@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/util/app_provider/app_provider.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import 'package:shop/widgets/small_btmnavigationbar/small_btmnavigationbar.dart';
+
+import '../../provider/app_provider/app_provider.dart';
 
 class LoginViews extends StatelessWidget {
   const LoginViews({Key? key}) : super(key: key);
