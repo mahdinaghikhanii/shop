@@ -8,10 +8,17 @@ import '../../provider/app_provider/app_provider.dart';
 import '../../provider/detail_provider/detail_provider.dart';
 
 // ignore: must_be_immutable
-class DetailViews extends StatelessWidget {
+class DetailViews extends StatefulWidget {
   DetailViews({Key? key, required this.productsModel}) : super(key: key);
   ProductsModel productsModel;
 
+  @override
+  State<DetailViews> createState() => _DetailViewsState();
+}
+
+bool showDetailText = false;
+
+class _DetailViewsState extends State<DetailViews> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -70,15 +77,16 @@ class DetailViews extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 3 / 2,
                 child: Hero(
-                    tag: productsModel.id,
-                    child: CachedNetworkImage(imageUrl: productsModel.image)),
+                    tag: widget.productsModel.id,
+                    child: CachedNetworkImage(
+                        imageUrl: widget.productsModel.image)),
               ),
               Padding(
                 padding: const EdgeInsets.only(
                   top: 30,
                 ),
                 child: Text(
-                  productsModel.title,
+                  widget.productsModel.title,
                   style: textTheme.headline3,
                 ),
               ),
@@ -88,25 +96,40 @@ class DetailViews extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(productsModel.description,
-                      maxLines: detailsProvider.getdescTextShowFlag ? 14 : 2,
+                  Text(widget.productsModel.description,
+                      maxLines: showDetailText ? 14 : 2,
                       textAlign: TextAlign.start,
                       style: textTheme.caption),
-                  InkWell(
-                    onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        detailsProvider.getdescTextShowFlag
-                            ? const Text(
-                                "Show Less",
-                                style: TextStyle(color: kyellow, fontSize: 16),
-                              )
-                            : const Text("Show More",
-                                style: TextStyle(color: kyellow, fontSize: 16))
-                      ],
-                    ),
-                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const Spacer(),
+                      SizedBox(
+                        width: 100,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {
+                            setState(() {
+                              showDetailText = !showDetailText;
+                            });
+                          },
+                          child: showDetailText
+                              ? const Text(
+                                  "Show Less",
+                                  style:
+                                      TextStyle(color: kyellow, fontSize: 16),
+                                  textAlign: TextAlign.end,
+                                )
+                              : const Text(
+                                  "Show More",
+                                  style:
+                                      TextStyle(color: kyellow, fontSize: 16),
+                                  textAlign: TextAlign.end,
+                                ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ],
