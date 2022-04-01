@@ -84,8 +84,12 @@ class DetailViews extends StatelessWidget {
                     style: textTheme.headline3,
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text(productsModel.ratingModel.rate.toString()),
+                ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,20 +127,21 @@ class DetailViews extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
                     RatingBar.builder(
-                      initialRating: 4.1,
+                      initialRating: productsModel.ratingModel.rate,
                       minRating: 1,
                       direction: Axis.horizontal,
-                      allowHalfRating: true,
+                      allowHalfRating: false,
                       itemCount: 5,
                       itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                       itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: kyellow,
                       ),
-                      onRatingUpdate: (rating) {
-                        print(rating);
-                      },
+                      onRatingUpdate: (double value) {},
                     ),
                   ],
                 ),

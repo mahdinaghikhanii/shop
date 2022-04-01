@@ -56,13 +56,13 @@ class ShopList extends StatelessWidget {
                 children: [
                   Text('€' + productsMode.price),
                   Row(
-                    children: const [
-                      Icon(
+                    children: [
+                      const Icon(
                         Icons.star_rate,
                         size: 18,
                         color: kyellow,
                       ),
-                      Text('4.1')
+                      Text(productsMode.ratingModel.rate.toString())
                     ],
                   )
                 ],
