@@ -31,7 +31,7 @@ class AddOrRemoveProducts extends StatelessWidget {
             const Spacer(),
             InkWell(
               borderRadius: BorderRadius.circular(Constans.kborderRadios),
-              onTap: add,
+              onTap: remove,
               child: Container(
                 width: 70,
                 height: 40,
