@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
@@ -6,7 +7,6 @@ import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
-
 import '../../provider/app_provider/app_provider.dart';
 import '../../widgets/add_remove_products_button/add_remove_products.dart';
 
@@ -47,16 +47,17 @@ class DetailViews extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.arrow_back_ios))),
-        actions: const [
+        actions: [
           Padding(
-            // ignore: unnecessary_const
-            padding: const EdgeInsets.only(right: Constans.padding, top: 4),
-            child: Icon(
-              Icons.favorite_border_sharp,
-              color: kred,
-              size: Constans.defualtIconSize,
-            ),
-          )
+              // ignore: unnecessary_const
+              padding: const EdgeInsets.only(right: Constans.padding, top: 4),
+              child: FavoriteButton(
+                iconSize: 40,
+                iconDisabledColor: grey,
+                valueChanged: (_isFavorite) {
+                  print('Is Favorite $_isFavorite)');
+                },
+              ))
         ],
         elevation: 0,
         foregroundColor:
