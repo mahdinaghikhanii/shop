@@ -5,7 +5,7 @@ class ProductsModel {
       this.catrgory, this.image, this.ratingModel);
   final int id;
   final String title;
-  final String price;
+  final double price;
   final String description;
   final String catrgory;
   final String image;
@@ -16,7 +16,7 @@ class ProductsModel {
         json["id"] as int,
         json["title"] as String,
         // ignore: unnecessary_cast
-        json["price"].toString() as String,
+        json["price"].toDouble() as double,
         json["description"] as String,
         json["category"] as String,
         json["image"] as String,

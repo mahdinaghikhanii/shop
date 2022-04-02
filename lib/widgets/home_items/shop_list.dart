@@ -54,7 +54,7 @@ class ShopList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('€' + productsMode.price),
+                  Text('€' + productsMode.price.toString()),
                   Row(
                     children: [
                       const Icon(
