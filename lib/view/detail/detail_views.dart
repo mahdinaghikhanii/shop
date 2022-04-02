@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
-import 'package:shop/widgets/add_remove_products/add_remove_products.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
 
 import '../../provider/app_provider/app_provider.dart';
+import '../../widgets/add_remove_products_button/add_remove_products.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
@@ -28,7 +28,12 @@ class DetailViews extends StatelessWidget {
               },
               price: productsModel.price.toString(),
             )
-          : AddOrRemoveProducts(),
+          : AddOrRemoveProducts(
+              add: () {},
+              price: productsModel.price.toString(),
+              remove: () {},
+              quantity: detailsProvider.currnetindexAddCart.toString(),
+            ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
