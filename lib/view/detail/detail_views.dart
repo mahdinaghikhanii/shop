@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
+import 'package:shop/widgets/add_remove_products/add_remove_products.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
 
@@ -19,7 +20,15 @@ class DetailViews extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
     return Scaffold(
-      bottomNavigationBar: const ButtonAddcart(),
+      bottomNavigationBar: detailsProvider.currnetindexAddCart == 0
+          ? ButtonAddcart(
+              detailBTN: 'Buy Now',
+              ontap: () {
+                detailsProvider.addinAddCart();
+              },
+              price: productsModel.price.toString(),
+            )
+          : AddOrRemoveProducts(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
@@ -67,17 +76,15 @@ class DetailViews extends StatelessWidget {
                     style: textTheme.headline3,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text("€ " + productsModel.price,
-                      style: textTheme.headline2),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Product info',
+                  style: textTheme.headline6,
                 ),
                 const SizedBox(
-                  height: 10,
-                ),
-                RatingBars(productsModel: productsModel),
-                const SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,6 +122,40 @@ class DetailViews extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Reviews(${productsModel.ratingModel.count.toString()})',
+                      style: textTheme.headline6,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                productsModel.ratingModel.rate.toString(),
+                                style: textTheme.headline5,
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Text('/5',
+                                  style: TextStyle(color: grey, fontSize: 16)),
+                              const Spacer(),
+                              RatingBars(productsModel: productsModel),
+                            ],
+                          ),
+                          Text(
+                            'Based on ${productsModel.ratingModel.count.toString()} Reviews',
+                            style: const TextStyle(color: grey, fontSize: 11),
+                          )
+                        ]),
                   ],
                 ),
               ],

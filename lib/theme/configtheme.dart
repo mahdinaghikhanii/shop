@@ -28,7 +28,7 @@ class ConfigTheme {
           headline4:
               TextStyle(fontSize: 14, color: isDarkTheme ? kwhite : kblack),
           headline6: TextStyle(
-              fontSize: 14,
+              fontSize: 20,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.bold),
           bodyText1:
@@ -44,8 +44,8 @@ class ConfigTheme {
           button: TextStyle(
               color: isDarkTheme ? kwhite : kblack,
               fontSize: Constans.fontButtonSisze),
-          caption:
-              TextStyle(fontSize: 20, color: isDarkTheme ? kwhite : kblack),
+          caption: TextStyle(
+              fontSize: 16, color: isDarkTheme ? kwhite : kblack, height: 1.5),
           headlineLarge: const TextStyle(
               fontWeight: FontWeight.bold, fontSize: 20, color: korange),
           headline5: TextStyle(

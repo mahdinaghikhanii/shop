@@ -13,6 +13,7 @@ class RatingBars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RatingBar.builder(
+      itemSize: 30,
       initialRating: productsModel.ratingModel.rate,
       minRating: 1,
       direction: Axis.horizontal,
@@ -23,7 +24,7 @@ class RatingBars extends StatelessWidget {
         Icons.star,
         color: kyellow,
       ),
-      onRatingUpdate: (Null) {},
+      onRatingUpdate: (v) {},
     );
   }
 }
