@@ -13,10 +13,8 @@ import '../../widgets/add_remove_products_button/add_remove_products.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
-  DetailViews({Key? key, required this.productsModel, required this.index})
-      : super(key: key);
+  DetailViews({Key? key, required this.productsModel}) : super(key: key);
   ProductsModel productsModel;
-  int index;
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +26,19 @@ class DetailViews extends StatelessWidget {
           ? ButtonAddcart(
               detailBTN: 'Buy Now',
               ontap: () {
-                productsProvider.add(productsModel);
+                productsProvider.addProductsCart(productsModel);
               },
               price: productsModel.price.toString(),
             )
           : AddOrRemoveProducts(
-              add: () {},
+              add: () {
+                productsProvider.addProductsCart(productsModel);
+              },
               price: productsModel.price.toString(),
-              remove: () {},
-              quantity: '0',
-            ),
+              remove: () {
+                productsProvider.removeProductsCart(productsModel);
+              },
+              quantity: productsProvider.countProducts.toString()),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
@@ -55,7 +56,7 @@ class DetailViews extends StatelessWidget {
                 iconSize: 40,
                 iconDisabledColor: grey,
                 valueChanged: (_isFavorite) {
-                  productsProvider.add(productsModel);
+                  productsProvider.addProductsCart(productsModel);
                 },
               ))
         ],

@@ -30,4 +30,10 @@ class Constans {
   static const double smallBorderRadios = 10;
   static const double mediumBorderRadios = 18;
   static const double bigBorderRadios = 30;
+
+  //sizebox
+  static const double smallSizedBox = 10;
+
+  // size Icon
+  static const double smallIconSize = 14;
 }

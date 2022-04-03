@@ -7,7 +7,7 @@ class ProductsProvider extends ChangeNotifier {
   double _price = 0.0;
   get addcartPrice => _price;
 
-  add(ProductsModel productsModel) {
+  addProductsCart(ProductsModel productsModel) {
     _items.add(productsModel);
     _price += productsModel.price;
     notifyListeners();
@@ -19,8 +19,9 @@ class ProductsProvider extends ChangeNotifier {
 
   List<ProductsModel> get baskeIteam => _items;
 
-  remove(int index) {
-    _items.removeAt(index);
+  removeProductsCart(ProductsModel productsModel) {
+    _items.remove(productsModel);
+    _price -= productsModel.price;
     notifyListeners();
   }
 }

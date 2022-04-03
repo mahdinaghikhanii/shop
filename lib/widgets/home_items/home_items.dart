@@ -107,7 +107,6 @@ class HomeItems extends StatelessWidget {
                                             builder: (context) => DetailViews(
                                                   productsModel:
                                                       product.items[index],
-                                                  index: index,
                                                 )));
                                   },
                                 );
