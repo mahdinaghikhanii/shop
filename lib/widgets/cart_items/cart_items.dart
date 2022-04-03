@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/main.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
 
@@ -9,7 +12,11 @@ class CartItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textPriceStyle = const TextStyle(color: grey, fontSize: 14);
+    final textTitleStyle = TextStyle(
+        color: appProvider.brighness ? kwhite : kblackappbar,
+        fontSize: 14,
+        fontWeight: FontWeight.w500);
     final size = MediaQuery.of(context).size;
     return Consumer<ProductsProvider>(builder: (context, cart, child) {
       return Expanded(
@@ -19,7 +26,7 @@ class CartItems extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(Constans.padding),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
@@ -34,13 +41,17 @@ class CartItems extends StatelessWidget {
                   ),
                   Expanded(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(cart.baskeIteam[index].title,
                             textAlign: TextAlign.left,
                             maxLines: 2,
-                            style: textTheme.headline3)
+                            style: textTitleStyle),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(cart.baskeIteam[index].price.toString())
                       ],
                     ),
                   )

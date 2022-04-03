@@ -80,7 +80,7 @@ class HomeViews extends StatelessWidget {
                 icon: Icons.badge_outlined,
                 text: productProvider.countProducts == 0
                     ? "Cart"
-                    : "Cart" + productProvider.countProducts.toString(),
+                    : "Cart " + productProvider.countProducts.toString(),
               ),
               const GButton(
                 icon: Icons.settings,
