@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:shop/model/products_model.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 class RatingBars extends StatelessWidget {
   RatingBars({Key? key, required this.productsModel}) : super(key: key);

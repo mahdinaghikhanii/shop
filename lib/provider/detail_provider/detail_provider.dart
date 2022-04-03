@@ -10,7 +10,7 @@ class DetailProvider extends ChangeNotifier {
   }
 
 // here for btn detail Add cart or remove
-  int _currentIndexAddCart = 0;
+  /*int _currentIndexAddCart = 0;
   get currnetindexAddCart => _currentIndexAddCart;
 
   setcurrentIndeXAddCart(int index) {
@@ -26,5 +26,5 @@ class DetailProvider extends ChangeNotifier {
   removeinAddcart() {
     _currentIndexAddCart--;
     notifyListeners();
-  }
+  }*/
 }

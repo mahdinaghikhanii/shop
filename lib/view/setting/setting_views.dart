@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 import 'package:shop/view/favorite/Favorite_views.dart';
 

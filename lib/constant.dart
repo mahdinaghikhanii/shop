@@ -23,8 +23,7 @@ class Constans {
 
   // pading
   static const double padding = 20;
-  static const double avatarRadius = 45;
-  static const double kborderRadios = 18;
+
   static const double defualtIconSize = 30;
 
   // borderRadios

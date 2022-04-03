@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 class AddOrRemoveProducts extends StatelessWidget {
   const AddOrRemoveProducts(
@@ -30,13 +30,14 @@ class AddOrRemoveProducts extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              borderRadius: BorderRadius.circular(Constans.kborderRadios),
+              borderRadius: BorderRadius.circular(Constans.mediumBorderRadios),
               onTap: remove,
               child: Container(
                 width: 70,
                 height: 40,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Constans.kborderRadios),
+                    borderRadius:
+                        BorderRadius.circular(Constans.mediumBorderRadios),
                     color: kyellow),
                 child: const Icon(Icons.remove, color: kwhite),
               ),
@@ -47,13 +48,14 @@ class AddOrRemoveProducts extends StatelessWidget {
               child: Text(quantity),
             ),
             InkWell(
-              borderRadius: BorderRadius.circular(Constans.kborderRadios),
+              borderRadius: BorderRadius.circular(Constans.mediumBorderRadios),
               onTap: add,
               child: Container(
                 width: 70,
                 height: 40,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Constans.kborderRadios),
+                    borderRadius:
+                        BorderRadius.circular(Constans.mediumBorderRadios),
                     color: kyellow),
                 child: const Icon(Icons.add, color: kwhite),
               ),

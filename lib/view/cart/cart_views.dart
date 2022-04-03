@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/model/products_model.dart';
-import 'package:shop/provider/detail_provider/detail_provider.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 import 'package:shop/widgets/cart_items/cart_items.dart';
 import 'package:shop/widgets/nothing_is_here/nothing_is_here.dart';
 
@@ -16,7 +14,6 @@ class CartViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productProvider = Provider.of<ProductsProvider>(context);
-    final detailsProvider = Provider.of<DetailProvider>(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -26,20 +23,23 @@ class CartViews extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: Constans.padding, top: 20),
             child: Text(
-              'Cart',
+              'My Cart',
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: productProvider.countProducts == 0
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 30,
+              height: 00,
             ),
-            detailsProvider.currnetindexAddCart == 0
+            productProvider.countProducts == 0
                 ? const NothingIsHere(text: "You have no\nCart :(")
-                : CartItems(),
+                : const CartItems(),
           ],
         ),
       ),

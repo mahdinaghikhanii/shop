@@ -3,9 +3,10 @@ import 'package:shop/model/products_model.dart';
 
 class ProductsProvider extends ChangeNotifier {
   final List<ProductsModel> _items = [];
-  get cartlist => _items;
+
   double _price = 0.0;
   get addcartPrice => _price;
+
   add(ProductsModel productsModel) {
     _items.add(productsModel);
     _price += productsModel.price;
@@ -15,6 +16,8 @@ class ProductsProvider extends ChangeNotifier {
   int get countProducts => _items.length;
 
   double get totoalPrice => _price;
+
+  List<ProductsModel> get baskeIteam => _items;
 
   remove(int index) {
     _items.removeAt(index);

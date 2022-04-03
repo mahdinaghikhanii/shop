@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 class FavoriteViews extends StatelessWidget {
   const FavoriteViews({Key? key}) : super(key: key);

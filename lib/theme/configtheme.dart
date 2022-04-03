@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 class ConfigTheme {
   String faPrimaryFontFamily = "IranYekan";

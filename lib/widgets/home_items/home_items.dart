@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
@@ -105,8 +105,10 @@ class HomeItems extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => DetailViews(
-                                                productsModel:
-                                                    product.items[index])));
+                                                  productsModel:
+                                                      product.items[index],
+                                                  index: index,
+                                                )));
                                   },
                                 );
                               }))

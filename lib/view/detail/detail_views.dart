@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/constant.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -13,8 +13,10 @@ import '../../widgets/add_remove_products_button/add_remove_products.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
-  DetailViews({Key? key, required this.productsModel}) : super(key: key);
+  DetailViews({Key? key, required this.productsModel, required this.index})
+      : super(key: key);
   ProductsModel productsModel;
+  int index;
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +24,19 @@ class DetailViews extends StatelessWidget {
     final detailsProvider = Provider.of<DetailProvider>(context);
     final productsProvider = Provider.of<ProductsProvider>(context);
     return Scaffold(
-      bottomNavigationBar: detailsProvider.currnetindexAddCart == 0
+      bottomNavigationBar: productsProvider.countProducts == 0
           ? ButtonAddcart(
               detailBTN: 'Buy Now',
               ontap: () {
-                detailsProvider.addinAddCart();
+                productsProvider.add(productsModel);
               },
               price: productsModel.price.toString(),
             )
           : AddOrRemoveProducts(
-              add: () {
-                detailsProvider.addinAddCart();
-              },
+              add: () {},
               price: productsModel.price.toString(),
-              remove: () {
-                detailsProvider.removeinAddcart();
-              },
-              quantity: detailsProvider.currnetindexAddCart.toString(),
+              remove: () {},
+              quantity: '0',
             ),
       appBar: AppBar(
         automaticallyImplyLeading: false,

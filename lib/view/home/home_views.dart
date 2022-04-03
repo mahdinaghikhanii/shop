@@ -5,7 +5,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
-import 'package:shop/theme/constant.dart';
+import 'package:shop/provider/products_provider/products_provider.dart';
+import 'package:shop/constant.dart';
 
 import 'package:shop/view/cart/cart_views.dart';
 import 'package:shop/view/search/search_views.dart';
@@ -22,6 +23,7 @@ class HomeViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final detailProvider = Provider.of<DetailProvider>(context);
     final appProvider = Provider.of<AppProvider>(context);
+    final productProvider = Provider.of<ProductsProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     final bottomNavigationBar =
         Provider.of<BottomNavigationBarProvider>(context);
@@ -33,7 +35,7 @@ class HomeViews extends StatelessWidget {
       const SettingViews(),
     ];
 
-    final productProvider = Provider.of<Repository>(context);
+    final repository = Provider.of<Repository>(context);
     return Scaffold(
       body: Screans[bottomNavigationBar.currentIndex],
       bottomNavigationBar: SafeArea(
@@ -76,9 +78,9 @@ class HomeViews extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.badge_outlined,
-                text: detailProvider.currnetindexAddCart == 0
+                text: productProvider.countProducts == 0
                     ? "Cart"
-                    : "Cart" + detailProvider.currnetindexAddCart.toString(),
+                    : "Cart" + productProvider.countProducts.toString(),
               ),
               const GButton(
                 icon: Icons.settings,
