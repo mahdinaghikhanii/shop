@@ -1,21 +1,18 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/main.dart';
-import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/add_remove_products_btn_cart/add_remove_products_btn_cart.dart';
 
 class CartItems extends StatelessWidget {
+  static const textPriceStyle = TextStyle(color: grey, fontSize: 14);
   const CartItems({Key? key, l}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const textPriceStyle = TextStyle(color: grey, fontSize: 14);
     final textTitleStyle = TextStyle(
         color: appProvider.brighness ? kwhite : kblackappbar,
         fontSize: 14,
@@ -36,7 +33,11 @@ class CartItems extends StatelessWidget {
                             )));
               },
               child: Padding(
-                padding: const EdgeInsets.all(Constans.padding),
+                padding: const EdgeInsets.only(
+                    left: Constans.padding,
+                    right: Constans.padding,
+                    top: Constans.padding,
+                    bottom: 5),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -67,7 +68,9 @@ class CartItems extends StatelessWidget {
                           const SizedBox(
                             height: Constans.smallSizedBox,
                           ),
-                          AddRemoveProductsBtnCart()
+                          AddRemoveProductsButtonCart(
+                            productsModel: cart.baskeIteam[index],
+                          )
                         ],
                       ),
                     )

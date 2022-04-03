@@ -36,7 +36,7 @@ class DetailViews extends StatelessWidget {
               },
               price: productsModel.price.toString(),
               remove: () {
-                productsProvider.removeProductsCart(productsModel);
+                productsProvider.removeOneProductsCart(productsModel);
               },
               quantity: productsProvider.countProducts.toString()),
       appBar: AppBar(

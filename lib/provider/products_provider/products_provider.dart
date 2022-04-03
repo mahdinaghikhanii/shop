@@ -19,7 +19,7 @@ class ProductsProvider extends ChangeNotifier {
 
   List<ProductsModel> get baskeIteam => _items;
 
-  removeProductsCart(ProductsModel productsModel) {
+  removeOneProductsCart(ProductsModel productsModel) {
     _items.remove(productsModel);
     _price -= productsModel.price;
     notifyListeners();

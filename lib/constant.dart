@@ -35,5 +35,5 @@ class Constans {
   static const double smallSizedBox = 10;
 
   // size Icon
-  static const double smallIconSize = 14;
+  static const double smallIconSize = 16;
 }
