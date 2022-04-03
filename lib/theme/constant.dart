@@ -20,8 +20,15 @@ const IconData arrowupright = CupertinoIcons.arrow_up_right;
 
 class Constans {
   static const double fontButtonSisze = 14;
+
+  // pading
   static const double padding = 20;
   static const double avatarRadius = 45;
   static const double kborderRadios = 18;
   static const double defualtIconSize = 30;
+
+  // borderRadios
+  static const double smallBorderRadios = 10;
+  static const double mediumBorderRadios = 18;
+  static const double bigBorderRadios = 30;
 }

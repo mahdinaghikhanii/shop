@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
+import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/theme/constant.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
@@ -19,6 +20,7 @@ class DetailViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
+    final productsProvider = Provider.of<ProductsProvider>(context);
     return Scaffold(
       bottomNavigationBar: detailsProvider.currnetindexAddCart == 0
           ? ButtonAddcart(
@@ -55,7 +57,7 @@ class DetailViews extends StatelessWidget {
                 iconSize: 40,
                 iconDisabledColor: grey,
                 valueChanged: (_isFavorite) {
-                  print('Is Favorite $_isFavorite)');
+                  productsProvider.add(productsModel);
                 },
               ))
         ],

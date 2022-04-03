@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
+import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/theme/constant.dart';
 
 import 'package:shop/view/cart/cart_views.dart';
@@ -19,6 +20,7 @@ class HomeViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final detailProvider = Provider.of<DetailProvider>(context);
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     final bottomNavigationBar =
@@ -63,20 +65,22 @@ class HomeViews extends StatelessWidget {
             tabBackgroundColor: const Color(0xFFFEAC5D)
                 .withOpacity(1), // selected tab background color
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            tabs: const [
-              GButton(
+            tabs: [
+              const GButton(
                 icon: Icons.home,
                 text: 'Home',
               ),
-              GButton(
+              const GButton(
                 icon: Icons.search,
                 text: 'Search',
               ),
               GButton(
                 icon: Icons.badge_outlined,
-                text: 'Cart',
+                text: detailProvider.currnetindexAddCart == 0
+                    ? "Cart"
+                    : "Cart" + detailProvider.currnetindexAddCart.toString(),
               ),
-              GButton(
+              const GButton(
                 icon: Icons.settings,
                 text: 'Setting',
               ),
