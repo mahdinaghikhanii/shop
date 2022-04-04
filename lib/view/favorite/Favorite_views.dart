@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/widgets/favorite_items/favorite_items.dart';
 
 class FavoriteViews extends StatelessWidget {
   const FavoriteViews({Key? key}) : super(key: key);
@@ -23,14 +24,7 @@ class FavoriteViews extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Constans.padding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [],
-          ),
-        ),
+        child: FavoriteItems(),
       ),
     );
   }

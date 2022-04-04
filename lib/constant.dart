@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,4 +38,10 @@ class Constans {
 
   // size Icon
   static const double smallIconSize = 16;
+
+  //TextStyle
+  static const textStyleFavoriteAndCartGrayStyle =
+      TextStyle(color: grey, fontSize: 14);
+  static const textStyleFavoriteViewAndBuy =
+      TextStyle(color: kyellow, fontSize: 14);
 }
