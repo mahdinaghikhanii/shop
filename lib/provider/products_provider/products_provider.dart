@@ -3,6 +3,7 @@ import 'package:shop/model/products_model.dart';
 
 class ProductsProvider extends ChangeNotifier {
   final List<ProductsModel> _items = [];
+  List<ProductsModel> get baskeIteam => _items;
 
   double _price = 0.0;
   get addcartPrice => _price;
@@ -16,8 +17,6 @@ class ProductsProvider extends ChangeNotifier {
   int get countProducts => _items.length;
 
   double get totoalPrice => _price;
-
-  List<ProductsModel> get baskeIteam => _items;
 
   removeOneProductsCart(ProductsModel productsModel) {
     _items.remove(productsModel);

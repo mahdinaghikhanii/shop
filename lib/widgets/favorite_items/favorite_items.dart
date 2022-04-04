@@ -70,8 +70,7 @@ class FavoriteItems extends StatelessWidget {
                                 maxLines: 2,
                                 style: textTitleStyle),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 6, bottom: 12),
+                              padding: const EdgeInsets.only(top: 6, bottom: 8),
                               child: Row(
                                 children: [
                                   const Icon(
