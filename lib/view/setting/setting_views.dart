@@ -15,7 +15,7 @@ class SettingViews extends StatelessWidget {
     final appProvider = Provider.of<AppProvider>(context);
     final size = MediaQuery.of(context).size;
     final textTheme = Theme.of(context).textTheme;
-    final theme = Theme.of(context);
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -35,17 +35,10 @@ class SettingViews extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BuildListTile(
-                  ontap: () {},
-                  color: korange,
-                  icon: Icons.language,
-                  title: "Language",
-                  trailing: "English"),
               Text("Account",
-                  style: textTheme.headline6
-                      ?.copyWith(fontWeight: FontWeight.w400, fontSize: 20)),
+                  style: textTheme.subtitle1?.copyWith(fontSize: 18)),
               const SizedBox(
-                height: 10,
+                height: 14,
               ),
               Container(
                 height: 80,
@@ -77,6 +70,46 @@ class SettingViews extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 25,
+              ),
+              Text("Settings",
+                  style: textTheme.subtitle1?.copyWith(fontSize: 18)),
+              const SizedBox(
+                height: 15,
+              ),
+              BuildListTile(
+                  ontap: () {},
+                  color: kpurple,
+                  icon: appProvider.brighness
+                      ? Icons.dark_mode
+                      : Icons.light_mode,
+                  title: "Appearance",
+                  trailing: "Dark"),
+              BuildListTile(
+                  ontap: () {},
+                  color: korange,
+                  icon: Icons.language,
+                  title: "Language",
+                  trailing: "English"),
+              BuildListTile(
+                  ontap: () {},
+                  color: kred,
+                  icon: Icons.favorite,
+                  title: "Favorite",
+                  trailing: ""),
+              BuildListTile(
+                  ontap: () {},
+                  color: kgreen,
+                  icon: Icons.favorite,
+                  title: "Help",
+                  trailing: ""),
+              BuildListTile(
+                  ontap: () {},
+                  color: kpink,
+                  icon: Icons.logout,
+                  title: "Logout",
+                  trailing: ""),
               Center(
                   child: Row(
                 children: [
@@ -102,28 +135,6 @@ class SettingViews extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              InkWell(
-                borderRadius: BorderRadius.circular(20),
-                highlightColor: appProvider.brighness ? kblack : kwhitemeloo,
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const FavoriteViews()));
-                },
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.favorite,
-                    ),
-                    SizedBox(
-                      width: size.width * 0.02,
-                    ),
-                    const Text('Favorite')
-                  ],
-                ),
-              )
             ],
           ),
         ),

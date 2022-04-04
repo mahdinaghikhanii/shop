@@ -7,13 +7,15 @@ const Color kwhite = Color(0xFFFFFFFF);
 const Color kwhitemeloo = Color(0xFFECEFF1);
 const Color kblack = Color(0xFF424242);
 const Color kred = Color(0xFFE53935);
-const Color kpurple = Color(0xFF6A1B9A);
+//const Color kpurple = Color(0xFF6A1B9A);
 const Color kyellow = Color(0xFFFEAC5D);
 const Color klightgrean = Color(0xFFAFB42B);
 const Color kblackappbar = Color(0xFF000000);
 const Color kblue = Color(0xFF133D8E);
 const Color korange = Color(0xFFFFA726);
 const Color grey = Colors.grey;
+const Color kpurple = Colors.purple;
+const Color kgreen = Colors.green;
 
 const IconData arrowdownleft = CupertinoIcons.arrow_down_left;
 const IconData arrowupright = CupertinoIcons.arrow_up_right;
