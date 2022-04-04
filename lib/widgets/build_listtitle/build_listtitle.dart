@@ -32,15 +32,16 @@ class BuildListTile extends StatelessWidget {
               ),
             ),
           ),
-          title: Text(title, style: textTheme.headline6),
+          title:
+              Text(title, style: textTheme.headline6?.copyWith(fontSize: 17)),
           trailing: SizedBox(
             width: 90,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(trailing,
-                    style: textTheme.bodyText1
-                        ?.copyWith(color: Colors.grey.shade600)),
+                    style: textTheme.headline6
+                        ?.copyWith(color: Colors.grey.shade600, fontSize: 15)),
                 const Icon(
                   Icons.arrow_forward_ios,
                   size: 16,

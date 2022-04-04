@@ -33,37 +33,7 @@ class HomeItems extends StatelessWidget {
             return const Erorr();
           } else {
             return Scaffold(
-              appBar: AppBar(
-                centerTitle: false,
-                titleSpacing: 0,
-                title: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Text(
-                    'Hi,pleaselogin!',
-                    style: textTheme.headline2,
-                  ),
-                ),
-                leadingWidth: 1000,
-                automaticallyImplyLeading: false,
-                elevation: 0,
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginViews()));
-                        },
-                        icon: Icon(
-                          Icons.person,
-                          size: 35,
-                          color: appProvider.brighness ? kwhite : kblackappbar,
-                        )),
-                  )
-                ],
-              ),
+              //ppBar: AppBar(),
               body: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
