@@ -29,7 +29,7 @@ class HomeItems extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.connectionState == ConnectionState.none) {
+          } else if (snapshot.connectionState == ConnectionState.active) {
             return const Erorr();
           } else {
             return Scaffold(

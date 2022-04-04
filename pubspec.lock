@@ -191,6 +191,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  iconly:
+    dependency: "direct main"
+    description:
+      name: iconly
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   js:
     dependency: transitive
     description:

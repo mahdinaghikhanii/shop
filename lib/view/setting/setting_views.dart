@@ -13,19 +13,64 @@ class SettingViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final appProvider = Provider.of<AppProvider>(context);
     final size = MediaQuery.of(context).size;
+    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Padding(
+            padding: const EdgeInsets.all(Constans.padding),
+            child: Text(
+              'Settings',
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+          ),
+          centerTitle: false,
+          titleSpacing: 0,
+          elevation: 0,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(Constans.padding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Setting',
-                style: Theme.of(context).textTheme.subtitle1,
-              ),
+              _buildListTile('Language', Icons.language, 'English',
+                  Colors.orange, textTheme),
+              Text("Account",
+                  style: textTheme.headline6
+                      ?.copyWith(fontWeight: FontWeight.w400, fontSize: 20)),
               const SizedBox(
-                height: 40,
+                height: 10,
+              ),
+              Container(
+                height: 80,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: appProvider.brighness
+                        ? Colors.grey.shade400.withAlpha(100)
+                        : Colors.grey.shade200),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 52,
+                      height: 52,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: appProvider.brighness
+                              ? Colors.grey.shade700
+                              : Colors.grey.shade300),
+                      child: Center(
+                        child: Icon(Icons.person,
+                            size: 32, color: Colors.grey.shade500),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Text("Login / Register",
+                        style: textTheme.subtitle1?.copyWith(
+                            fontWeight: FontWeight.w400, color: kyellow)),
+                  ],
+                ),
               ),
               Center(
                   child: Row(
@@ -36,7 +81,9 @@ class SettingViews extends StatelessWidget {
                   SizedBox(
                     width: size.width * 0.02,
                   ),
-                  Text(appProvider.brighness ? "Light Mood" : "Dark mood"),
+                  Text(
+                    appProvider.brighness ? "Light Mood" : "Dark mood",
+                  ),
                   const Spacer(),
                   Switch(
                     activeColor: kwhite,
@@ -78,4 +125,40 @@ class SettingViews extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildListTile(
+    String title, IconData icon, String trailing, Color color, textTheme,
+    {onTab}) {
+  return ListTile(
+      contentPadding: EdgeInsets.all(0),
+      leading: Container(
+        width: 46,
+        height: 46,
+        decoration:
+            BoxDecoration(shape: BoxShape.circle, color: color.withAlpha(30)),
+        child: Center(
+          child: Icon(
+            icon,
+            color: color,
+          ),
+        ),
+      ),
+      title: Text(title, style: textTheme.subtitle1),
+      trailing: Container(
+        width: 90,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(trailing,
+                style:
+                    textTheme.bodyText1?.copyWith(color: Colors.grey.shade600)),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+            ),
+          ],
+        ),
+      ),
+      onTap: onTab);
 }
