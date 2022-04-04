@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 
 import 'package:shop/view/favorite/Favorite_views.dart';
+import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 
 import '../../provider/app_provider/app_provider.dart';
 
@@ -34,8 +35,12 @@ class SettingViews extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildListTile('Language', Icons.language, 'English',
-                  Colors.orange, textTheme),
+              BuildListTile(
+                  ontap: () {},
+                  color: korange,
+                  icon: Icons.language,
+                  title: "Language",
+                  trailing: "English"),
               Text("Account",
                   style: textTheme.headline6
                       ?.copyWith(fontWeight: FontWeight.w400, fontSize: 20)),
@@ -125,40 +130,4 @@ class SettingViews extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildListTile(
-    String title, IconData icon, String trailing, Color color, textTheme,
-    {onTab}) {
-  return ListTile(
-      contentPadding: EdgeInsets.all(0),
-      leading: Container(
-        width: 46,
-        height: 46,
-        decoration:
-            BoxDecoration(shape: BoxShape.circle, color: color.withAlpha(30)),
-        child: Center(
-          child: Icon(
-            icon,
-            color: color,
-          ),
-        ),
-      ),
-      title: Text(title, style: textTheme.subtitle1),
-      trailing: Container(
-        width: 90,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(trailing,
-                style:
-                    textTheme.bodyText1?.copyWith(color: Colors.grey.shade600)),
-            Icon(
-              Icons.arrow_forward_ios,
-              size: 16,
-            ),
-          ],
-        ),
-      ),
-      onTap: onTab);
 }
