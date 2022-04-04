@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/main.dart';
-import 'package:shop/provider/products_provider/products_provider.dart';
+import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/divider_defualt/divider_defualt.dart';
 
@@ -17,10 +17,10 @@ class FavoriteItems extends StatelessWidget {
         fontSize: 14,
         fontWeight: FontWeight.w500);
     final size = MediaQuery.of(context).size;
-    return Consumer<ProductsProvider>(builder: (context, cart, child) {
+    return Consumer<FavoriteProvider>(builder: (context, favorite, child) {
       return Expanded(
         child: ListView.builder(
-          itemCount: cart.baskeIteam.length,
+          itemCount: favorite.listFavorite.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
@@ -28,7 +28,7 @@ class FavoriteItems extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => DetailViews(
-                              productsModel: cart.baskeIteam[index],
+                              productsModel: favorite.listFavorite[index],
                             )));
               },
               child: Column(children: [
@@ -49,7 +49,7 @@ class FavoriteItems extends StatelessWidget {
                             width: size.width * 0.20,
                             height: size.height * 0.16,
                             child: CachedNetworkImage(
-                              imageUrl: cart.baskeIteam[index].image,
+                              imageUrl: favorite.listFavorite[index].image,
                             ),
                           ),
                         ],
@@ -65,7 +65,7 @@ class FavoriteItems extends StatelessWidget {
                             const SizedBox(
                               height: 10,
                             ),
-                            Text(cart.baskeIteam[index].title,
+                            Text(favorite.listFavorite[index].title,
                                 textAlign: TextAlign.left,
                                 maxLines: 2,
                                 style: textTitleStyle),
@@ -81,13 +81,14 @@ class FavoriteItems extends StatelessWidget {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Text(cart.baskeIteam[index].ratingModel.rate
+                                  Text(favorite
+                                      .listFavorite[index].ratingModel.rate
                                       .toString()),
                                 ],
                               ),
                             ),
-                            Text(
-                                "€ " + cart.baskeIteam[index].price.toString()),
+                            Text("€ " +
+                                favorite.listFavorite[index].price.toString()),
                             const SizedBox(
                               height: Constans.smallSizedBox,
                             ),
@@ -107,7 +108,9 @@ class FavoriteItems extends StatelessWidget {
                         highlightColor: kyellow,
                         borderRadius:
                             BorderRadius.circular(Constans.smallBorderRadios),
-                        onTap: () {},
+                        onTap: () {
+                          favorite.removeFavorite(favorite.listFavorite[index]);
+                        },
                         child: Row(
                           children: const [
                             Icon(

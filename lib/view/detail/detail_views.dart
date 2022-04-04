@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
+import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/widgets/button_addcart/button_addcart.dart';
@@ -18,6 +19,7 @@ class DetailViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final favoriteProvider = Provider.of<FavoriteProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
     final productsProvider = Provider.of<ProductsProvider>(context);
@@ -56,7 +58,7 @@ class DetailViews extends StatelessWidget {
                 iconSize: 40,
                 iconDisabledColor: grey,
                 valueChanged: (_isFavorite) {
-                  productsProvider.addProductsCart(productsModel);
+                  favoriteProvider.addFavorite(productsModel);
                 },
               ))
         ],
