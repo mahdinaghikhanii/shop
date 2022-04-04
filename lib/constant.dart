@@ -38,6 +38,7 @@ class Constans {
 
   // size Icon
   static const double smallIconSize = 16;
+  static const double mediumsize = 24;
 
   //TextStyle
   static const textStyleFavoriteAndCartGrayStyle =

@@ -62,12 +62,30 @@ class FavoriteItems extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Text(cart.baskeIteam[index].title,
                                 textAlign: TextAlign.left,
                                 maxLines: 2,
                                 style: textTitleStyle),
-                            const SizedBox(
-                              height: 8,
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 6, bottom: 12),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.star_rate,
+                                    size: Constans.smallIconSize,
+                                    color: kyellow,
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(cart.baskeIteam[index].ratingModel.rate
+                                      .toString()),
+                                ],
+                              ),
                             ),
                             Text(
                                 "€ " + cart.baskeIteam[index].price.toString()),
@@ -87,12 +105,16 @@ class FavoriteItems extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       InkWell(
+                        highlightColor: kyellow,
+                        borderRadius:
+                            BorderRadius.circular(Constans.smallBorderRadios),
+                        onTap: () {},
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.delete,
                               color: grey,
-                              size: 24,
+                              size: Constans.mediumsize,
                             ),
                             SizedBox(
                               width: 4,
@@ -104,14 +126,15 @@ class FavoriteItems extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Spacer(),
-                      Text(
+                      const Spacer(),
+                      const Text(
                         'View and buy',
                         style: Constans.textStyleFavoriteViewAndBuy,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.keyboard_arrow_right,
                         color: kyellow,
+                        size: Constans.mediumsize,
                       )
                     ],
                   ),

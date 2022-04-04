@@ -13,12 +13,13 @@ class FavoriteViews extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        leadingWidth: 120,
-        leading: Padding(
+        centerTitle: false,
+        titleSpacing: 0,
+        title: Padding(
           padding: const EdgeInsets.only(
               left: Constans.padding, top: Constans.padding),
           child: Text(
-            'Favorite',
+            'My Favorite',
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ),
