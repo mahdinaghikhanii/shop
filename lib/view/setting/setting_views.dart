@@ -100,7 +100,7 @@ class SettingViews extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => FavoriteViews()));
+                                  builder: (context) => const FavoriteViews()));
                         },
                         color: kred,
                         icon: Icons.favorite,
