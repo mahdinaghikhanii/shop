@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppProvider extends ChangeNotifier {
   var theme = ThemeData.light();
   bool _brightness = false;
+
   static const THEME_STATUS = "THEMESTATUS";
 
   bool get brighness => _brightness;

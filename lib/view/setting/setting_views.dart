@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/main.dart';
 import 'package:shop/view/favorite/Favorite_views.dart';
+import 'package:shop/widgets/bottom_sheet/appearance_bottomsheet.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
 
@@ -82,13 +84,19 @@ class SettingViews extends StatelessWidget {
                       height: 15,
                     ),
                     BuildListTile(
-                        ontap: () {},
+                        ontap: () {
+                          showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const AppearnaceBottomSheets();
+                              });
+                        },
                         color: kpurple,
                         icon: appProvider.brighness
                             ? Icons.dark_mode
                             : Icons.light_mode,
                         title: "Appearance",
-                        trailing: "Dark"),
+                        trailing: appProvider.brighness ? "Dark" : "Light"),
                     BuildListTile(
                         ontap: () {},
                         color: korange,

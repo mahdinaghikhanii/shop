@@ -7,11 +7,9 @@ import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/provider/repository/repository.dart';
-
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
-
 import 'provider/app_provider/app_provider.dart';
 
 int? isviewWedWidgetGetStartScreans;
