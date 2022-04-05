@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class BuildListTile extends StatelessWidget {
   const BuildListTile(
       {Key? key,
+      required this.visibilityArrowIcons,
       required this.ontap,
       required this.color,
       required this.icon,
@@ -12,6 +13,7 @@ class BuildListTile extends StatelessWidget {
   final String title, trailing;
   final IconData icon;
   final Color color;
+  final bool visibilityArrowIcons;
   final Function() ontap;
   @override
   Widget build(BuildContext context) {
@@ -44,9 +46,12 @@ class BuildListTile extends StatelessWidget {
                 Text(trailing,
                     style: textTheme.headline6
                         ?.copyWith(color: Colors.grey.shade600, fontSize: 15)),
-                const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 16,
+                Visibility(
+                  visible: visibilityArrowIcons,
+                  child: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                  ),
                 ),
               ],
             ),

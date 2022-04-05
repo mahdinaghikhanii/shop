@@ -119,59 +119,68 @@ class SettingViews extends StatelessWidget {
                         height: 15,
                       ),
                       BuildListTile(
-                          ontap: () {
-                            showModalBottomSheet<void>(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const AppearnaceBottomSheets();
-                                });
-                          },
-                          color: kpurple,
-                          icon: appProvider.brighness
-                              ? Icons.dark_mode
-                              : Icons.light_mode,
-                          title: "Appearance",
-                          trailing: appProvider.brighness ? "Dark" : "Light"),
+                        ontap: () {
+                          showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const AppearnaceBottomSheets();
+                              });
+                        },
+                        color: kpurple,
+                        icon: appProvider.brighness
+                            ? Icons.dark_mode
+                            : Icons.light_mode,
+                        title: "Appearance",
+                        trailing: appProvider.brighness ? "Dark" : "Light",
+                        visibilityArrowIcons: true,
+                      ),
                       BuildListTile(
-                          ontap: () {
-                            showModalBottomSheet(
-                                context: context,
-                                builder: (context) =>
-                                    const LanguageBottomSheet());
-                          },
-                          color: korange,
-                          icon: Icons.language,
-                          title: "Language",
-                          trailing: "English"),
+                        ontap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (context) =>
+                                  const LanguageBottomSheet());
+                        },
+                        color: korange,
+                        icon: Icons.language,
+                        title: "Language",
+                        trailing: "English",
+                        visibilityArrowIcons: true,
+                      ),
                       BuildListTile(
-                          ontap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const FavoriteViews()));
-                          },
-                          color: kred,
-                          icon: Icons.favorite,
-                          title: "Favorite",
-                          trailing: ""),
+                        ontap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const FavoriteViews()));
+                        },
+                        color: kred,
+                        icon: Icons.favorite,
+                        title: "Favorite",
+                        trailing: "",
+                        visibilityArrowIcons: true,
+                      ),
                       BuildListTile(
-                          ontap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HelpViews()));
-                          },
-                          color: kgreen,
-                          icon: Icons.help,
-                          title: "Help",
-                          trailing: ""),
+                        ontap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HelpViews()));
+                        },
+                        color: kgreen,
+                        icon: Icons.help,
+                        title: "Help",
+                        trailing: "",
+                        visibilityArrowIcons: true,
+                      ),
                       BuildListTile(
-                          ontap: () {},
-                          color: kpink,
-                          icon: Icons.logout,
-                          title: "Logout",
-                          trailing: ""),
+                        ontap: () {},
+                        color: kpink,
+                        icon: Icons.logout,
+                        title: "Logout",
+                        trailing: "",
+                        visibilityArrowIcons: true,
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
