@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/constant.dart';
 
 class BuildListTile extends StatelessWidget {
   const BuildListTile(
@@ -16,9 +17,11 @@ class BuildListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    var borderRadius = const BorderRadius.all(Radius.circular(32));
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: ListTile(
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
           contentPadding: const EdgeInsets.all(0),
           leading: Container(
             width: 42,

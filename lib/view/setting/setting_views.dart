@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/main.dart';
 import 'package:shop/view/favorite/Favorite_views.dart';
+import 'package:shop/view/login/login_views.dart';
+import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/bottom_sheet/appearance_bottomsheet.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -67,11 +69,43 @@ class SettingViews extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 16),
-                          Text("Login / Register",
-                              style: textTheme.subtitle1?.copyWith(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
-                                  color: kyellow)),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginViews()));
+                                },
+                                child: Text("Login",
+                                    style: textTheme.subtitle1?.copyWith(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: kyellow)),
+                              ),
+                              Text(" / ",
+                                  style: textTheme.subtitle1?.copyWith(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400,
+                                      color: kyellow)),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SignUpViews()));
+                                },
+                                child: Text("Register",
+                                    style: textTheme.subtitle1?.copyWith(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: kyellow)),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -131,28 +165,9 @@ class SettingViews extends StatelessWidget {
                     ),
                   ],
                 ),
-                Center(
-                    child: Row(
-                  children: [
-                    Icon(appProvider.brighness
-                        ? Icons.light_mode
-                        : Icons.dark_mode),
-                    SizedBox(
-                      width: size.width * 0.02,
-                    ),
-                    Text(
-                      appProvider.brighness ? "Light Mood" : "Dark mood",
-                    ),
-                    const Spacer(),
-                    Switch(
-                      activeColor: kwhite,
-                      value: appProvider.brighness,
-                      onChanged: (bool? value) {
-                        appProvider.brightnessChange = value!;
-                      },
-                    ),
-                  ],
-                )),
+                Text("Version 1.0.0",
+                    style: textTheme.bodyText2
+                        ?.copyWith(color: Colors.grey.shade500)),
               ]),
         ),
       ),
