@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop/constant.dart';
 
 class BuildListTile extends StatelessWidget {
   const BuildListTile(
