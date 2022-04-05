@@ -54,6 +54,7 @@ class ConfigTheme {
               color: isDarkTheme ? kwhite : kblack)),
       primaryColor: isDarkTheme ? Colors.black : kwhite,
       backgroundColor: isDarkTheme ? Colors.black : kwhite,
+      bottomAppBarColor: isDarkTheme ? kwhite : kblackappbar,
       scaffoldBackgroundColor: isDarkTheme ? kblack : kwhite,
       indicatorColor:
           isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),

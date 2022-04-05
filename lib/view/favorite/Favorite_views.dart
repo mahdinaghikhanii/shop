@@ -1,5 +1,4 @@
 // ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
@@ -19,9 +18,17 @@ class FavoriteViews extends StatelessWidget {
         elevation: 0,
         centerTitle: false,
         titleSpacing: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios,
+              color: Theme.of(context).bottomAppBarColor),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: Padding(
           padding: const EdgeInsets.only(
-              left: Constans.padding, top: Constans.padding),
+            left: Constans.padding,
+          ),
           child: Text(
             'My Favorite',
             style: Theme.of(context).textTheme.subtitle1,

@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/favorite/Favorite_views.dart';
+import 'package:shop/view/help/help_views.dart';
 import 'package:shop/view/login/login_views.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/bottom_sheet/appearance_bottomsheet.dart';
@@ -156,7 +156,12 @@ class SettingViews extends StatelessWidget {
                           title: "Favorite",
                           trailing: ""),
                       BuildListTile(
-                          ontap: () {},
+                          ontap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HelpViews()));
+                          },
                           color: kgreen,
                           icon: Icons.help,
                           title: "Help",
