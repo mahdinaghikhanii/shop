@@ -5,7 +5,8 @@ import 'package:shop/main.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/detail/detail_views.dart';
-import 'package:shop/widgets/add_remove_products_btn_cart/add_remove_products_btn_cart.dart';
+
+import '../buttons/add_remove_products_btn_cart/add_remove_products_btn_cart.dart';
 
 class CartItems extends StatelessWidget {
   static const textPriceStyle = TextStyle(color: grey, fontSize: 14);

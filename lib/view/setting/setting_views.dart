@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/routes/routes.dart';
-import 'package:shop/view/favorite/Favorite_views.dart';
-import 'package:shop/view/help/help_views.dart';
-import 'package:shop/view/login/login_views.dart';
-import 'package:shop/view/signup/signup_views.dart';
-import 'package:shop/widgets/bottom_sheet/appearance_bottomsheet.dart';
-import 'package:shop/widgets/bottom_sheet/language_bottomsheet.dart';
+
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
+import '../../widgets/bottom_sheet/appearance_bottomsheet.dart';
+import '../../widgets/bottom_sheet/language_bottomsheet.dart';
 
 class SettingViews extends StatelessWidget {
   const SettingViews({Key? key}) : super(key: key);

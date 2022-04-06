@@ -4,7 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
-import 'package:shop/widgets/small_button/small_button.dart';
+
+import '../small_button/small_button.dart';
 
 class AddRemoveProductsButtonCart extends StatelessWidget {
   AddRemoveProductsButtonCart({Key? key, required this.productsModel})

@@ -7,10 +7,10 @@ import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/widgets/button_addcart/button_addcart.dart';
+import 'package:shop/widgets/buttons/add_remove_products_button/add_remove_products.dart';
+import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
 import '../../provider/app_provider/app_provider.dart';
-import '../../widgets/add_remove_products_button/add_remove_products.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
@@ -23,6 +23,7 @@ class DetailViews extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
     final productsProvider = Provider.of<ProductsProvider>(context);
+
     return Scaffold(
       bottomNavigationBar: productsProvider.countProducts == 0
           ? ButtonAddcart(
@@ -48,6 +49,7 @@ class DetailViews extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
+                  detailsProvider.setdescTextShowFlag(false);
                 },
                 icon: const Icon(Icons.arrow_back_ios))),
         actions: [

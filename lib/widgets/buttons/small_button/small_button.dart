@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../constant.dart';
+import 'package:shop/constant.dart';
 
 class SmallButton extends StatelessWidget {
   const SmallButton(
