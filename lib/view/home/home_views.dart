@@ -14,7 +14,7 @@ import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
 
 import '../../provider/app_provider/app_provider.dart';
-import '../../provider/repository/repository.dart';
+import '../../repository/repository.dart';
 
 class HomeViews extends StatelessWidget {
   const HomeViews({Key? key}) : super(key: key);

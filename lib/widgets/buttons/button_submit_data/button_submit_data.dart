@@ -22,7 +22,7 @@ class ButtonSubmitData extends StatelessWidget {
                   : Colors.grey.shade300,
               borderRadius: BorderRadius.circular(Constans.bigBorderRadios)),
           width: double.infinity,
-          height: 60,
+          height: 55,
           child: Center(
             child: Text('Submit !',
                 style: textTheme.subtitle1?.copyWith(

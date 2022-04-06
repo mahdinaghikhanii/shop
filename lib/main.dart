@@ -6,7 +6,8 @@ import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
-import 'package:shop/provider/repository/repository.dart';
+import 'package:shop/repository/repository.dart';
+import 'package:shop/repository/send_email.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => SendEmail()),
           ChangeNotifierProvider(create: (context) => FavoriteProvider()),
           ChangeNotifierProvider(create: (context) => DetailProvider()),
           ChangeNotifierProvider(create: (context) => ProductsProvider()),

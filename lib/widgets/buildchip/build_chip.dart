@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/home/home_views.dart';
-import '../../provider/repository/repository.dart';
+
+import '../../repository/repository.dart';
 
 class BuildChip extends StatelessWidget {
   const BuildChip({

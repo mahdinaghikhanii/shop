@@ -18,21 +18,25 @@ class InputTextContactUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(padding),
-      child: TextFormField(
-          autofocus: false,
-          controller: contoroller,
-          decoration: InputDecoration(
-              focusedBorder: OutlineInputBorder(
+      padding: EdgeInsets.only(
+          left: Constans.padding, right: Constans.padding, top: padding),
+      child: SizedBox(
+        height: 55,
+        width: double.infinity,
+        child: TextFormField(
+            controller: contoroller,
+            decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: const BorderSide(color: kyellow)),
+                border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(25.0),
-                  borderSide: const BorderSide(color: kyellow)),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25.0),
-              ),
-              labelText: labelText,
-              hintText: hintText,
-              hintStyle: Theme.of(context).textTheme.labelMedium,
-              labelStyle: Theme.of(context).textTheme.labelMedium)),
+                ),
+                labelText: labelText,
+                hintText: hintText,
+                hintStyle: Theme.of(context).textTheme.labelMedium,
+                labelStyle: Theme.of(context).textTheme.labelMedium)),
+      ),
     );
   }
 }
