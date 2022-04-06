@@ -23,7 +23,8 @@ class HomeItems extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (snapshot.connectionState == ConnectionState.active) {
+            // ignore: unnecessary_null_comparison
+          } else if (product.featchData() == null) {
             return const Erorr();
           } else {
             return Scaffold(
@@ -33,6 +34,7 @@ class HomeItems extends StatelessWidget {
                 return CustomScrollView(
                   slivers: [
                     SliverAppBar(
+                      elevation: 0,
                       expandedHeight: 160,
                       centerTitle: false,
                       toolbarHeight: 160,

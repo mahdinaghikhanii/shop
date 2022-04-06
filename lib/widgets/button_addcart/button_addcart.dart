@@ -30,14 +30,15 @@ class ButtonAddcart extends StatelessWidget {
               color: kyellow,
             ),
             width: double.infinity,
-            height: 70,
+            height: 60,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("€ " + price + "\nUnit price", style: textTheme.subtitle2),
+                Text("€ " + price + "\nUnit price",
+                    style: textTheme.subtitle2?.copyWith(fontSize: 16)),
                 Text(
                   detailBTN,
-                  style: textTheme.subtitle2,
+                  style: textTheme.subtitle2?.copyWith(fontSize: 16),
                 ),
               ],
             ),
