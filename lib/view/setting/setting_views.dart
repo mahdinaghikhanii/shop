@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/routes/routes.dart';
 import 'package:shop/view/favorite/Favorite_views.dart';
 import 'package:shop/view/help/help_views.dart';
 import 'package:shop/view/login/login_views.dart';
@@ -74,11 +75,8 @@ class SettingViews extends StatelessWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const LoginViews()));
+                                    Navigator.pushNamed(
+                                        context, RouteManager.loginViews);
                                   },
                                   child: Text("Login",
                                       style: textTheme.subtitle1?.copyWith(
@@ -93,11 +91,8 @@ class SettingViews extends StatelessWidget {
                                         color: kyellow)),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SignUpViews()));
+                                    Navigator.pushNamed(
+                                        context, RouteManager.signUp);
                                   },
                                   child: Text("Register",
                                       style: textTheme.subtitle1?.copyWith(
@@ -149,10 +144,8 @@ class SettingViews extends StatelessWidget {
                       ),
                       BuildListTile(
                         ontap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const FavoriteViews()));
+                          Navigator.pushNamed(
+                              context, RouteManager.favoriteViews);
                         },
                         color: kred,
                         icon: Icons.favorite,
@@ -162,10 +155,8 @@ class SettingViews extends StatelessWidget {
                       ),
                       BuildListTile(
                         ontap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const HelpViews()));
+                          Navigator.of(context)
+                              .pushNamed(RouteManager.helpViews);
                         },
                         color: kgreen,
                         icon: Icons.help,
