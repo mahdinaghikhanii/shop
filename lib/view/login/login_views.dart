@@ -66,6 +66,7 @@ class LoginViews extends StatelessWidget {
                 hintText: 'Enter your username',
                 labelText: 'Username',
                 contoroller: _nameContoroloer,
+                padding: 0,
               ),
               const SizedBox(
                 height: 15,
@@ -74,6 +75,7 @@ class LoginViews extends StatelessWidget {
                 hintText: 'Enter your password',
                 labelText: 'Password',
                 contoroller: _passwordContoroler,
+                padding: 0,
               ),
               const SizedBox(
                 height: 25,

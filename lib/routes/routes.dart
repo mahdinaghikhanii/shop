@@ -21,6 +21,7 @@ class RouteManager {
   static const String searchViews = '/searchViews';
   static const String settingViews = '/settingViews';
   static const String signUp = '/signup';
+  static const String contactUs = '/contactUs';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -42,6 +43,8 @@ class RouteManager {
         return MaterialPageRoute(builder: (context) => const SettingViews());
       case signUp:
         return MaterialPageRoute(builder: (context) => const SignUpViews());
+      case contactUs:
+        return MaterialPageRoute(builder: (context) => const ContactUs());
     }
     return _errorRoute();
   }

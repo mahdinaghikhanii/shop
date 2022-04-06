@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop/constant.dart';
 
-class InputText extends StatelessWidget {
-  const InputText(
+class InputTextContactUs extends StatelessWidget {
+  const InputTextContactUs(
       {Key? key,
       required this.padding,
       required this.hintText,
@@ -22,6 +23,12 @@ class InputText extends StatelessWidget {
           autofocus: false,
           controller: contoroller,
           decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  borderSide: const BorderSide(color: kyellow)),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
               labelText: labelText,
               hintText: hintText,
               hintStyle: Theme.of(context).textTheme.labelMedium,

@@ -51,6 +51,7 @@ class SignUpViews extends StatelessWidget {
                 hintText: 'Enter your name',
                 labelText: 'Name',
                 contoroller: _nameContoroloer,
+                padding: 0,
               ),
               const SizedBox(
                 height: 15,
@@ -59,6 +60,7 @@ class SignUpViews extends StatelessWidget {
                 hintText: 'Enter your Email',
                 labelText: 'Email',
                 contoroller: _emailContoroller,
+                padding: 0,
               ),
               const SizedBox(
                 height: 15,
@@ -67,6 +69,7 @@ class SignUpViews extends StatelessWidget {
                 hintText: 'Enter your password',
                 labelText: 'Password',
                 contoroller: _passwordContoroller,
+                padding: 0,
               ),
               const SizedBox(
                 height: 60,
