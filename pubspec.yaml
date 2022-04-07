@@ -42,9 +42,10 @@ dependencies:
   cached_network_image: ^3.2.0
   animate_do: ^2.1.0
   flutter_rating_bar: ^4.0.0
+  awesome_dialog: ^2.2.0
   favorite_button: ^0.0.4
   iconly: ^1.0.1
-  mailer: ^5.1.0
+ 
   
 
 dev_dependencies:

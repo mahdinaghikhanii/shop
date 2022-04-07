@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
@@ -158,7 +159,18 @@ class ContactUs extends StatelessWidget {
                   contoroller: product.meesageTextEdit),
               ButtonSubmitData(
                 ontap: () async {
-                  await product.sendEmail();
+                  product.sendEmail();
+                  if (product.getStatusCode == 200) {
+                    AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.INFO,
+                      animType: AnimType.BOTTOMSLIDE,
+                      title: 'Done !',
+                      desc: 'see and help you',
+                      btnCancelOnPress: () {},
+                      btnOkOnPress: () {},
+                    )..show();
+                  } else {}
                 },
               )
             ],

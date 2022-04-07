@@ -13,14 +13,21 @@ class SendEmail extends ChangeNotifier {
   get emailTextEdit => _email;
   get meesageTextEdit => _message;
 
+  String _responseStatus = '';
+
+  get getStatusCode => _responseStatus;
+
   Future sendEmail() async {
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
 
     const serviceId = "service_thha95k";
     const templatedID = "template_u19u98f";
     const userId = "XZHT9xJ29pArXSCz2";
-    final response = await http.post(url,
-        headers: {'Content-Type': 'application/json'},
+    final _response = await http.post(url,
+        headers: {
+          'origin': 'http://localhost',
+          'Content-Type': 'application/json'
+        },
         body: json.encode({
           "service_id": serviceId,
           "template_id": templatedID,
@@ -33,6 +40,8 @@ class SendEmail extends ChangeNotifier {
           }
         }));
 
-    return response.statusCode;
+    print(_response.statusCode);
+    _responseStatus = _response.toString();
+    return _response.statusCode;
   }
 }

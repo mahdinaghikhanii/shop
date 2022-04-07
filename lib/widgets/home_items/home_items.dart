@@ -69,32 +69,35 @@ class HomeItems extends StatelessWidget {
                       padding: const EdgeInsets.all(Constans.padding),
                       sliver: SliverList(
                           delegate: SliverChildListDelegate([
-                        Expanded(
-                            child: GridView.builder(
-                                addAutomaticKeepAlives: true,
-                                shrinkWrap: true,
-                                physics: const ScrollPhysics(),
-                                itemCount: product.items.length,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing: 20,
-                                        childAspectRatio: 0.80,
-                                        mainAxisSpacing: 20),
-                                itemBuilder: (context, index) {
-                                  return ShopList(
-                                    productsMode: product.items[index],
-                                    ontap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => DetailViews(
-                                                    productsModel:
-                                                        product.items[index],
-                                                  )));
-                                    },
-                                  );
-                                }))
+                        ConstrainedBox(
+                          constraints: const BoxConstraints.tightFor(
+                              width: double.infinity),
+                          child: GridView.builder(
+                              addAutomaticKeepAlives: true,
+                              shrinkWrap: true,
+                              physics: const ScrollPhysics(),
+                              itemCount: product.items.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 20,
+                                      childAspectRatio: 0.80,
+                                      mainAxisSpacing: 20),
+                              itemBuilder: (context, index) {
+                                return ShopList(
+                                  productsMode: product.items[index],
+                                  ontap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailViews(
+                                                  productsModel:
+                                                      product.items[index],
+                                                )));
+                                  },
+                                );
+                              }),
+                        )
                       ])),
                     )
                   ],
