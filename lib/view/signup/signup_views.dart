@@ -83,11 +83,7 @@ class SignUpViews extends StatelessWidget {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     InkWell(
-                      onTap: () async {
-                        String _name = _nameContoroloer.text;
-                        String _email = _emailContoroller.text;
-                        String _password = _passwordContoroller.text;
-                      },
+                      onTap: () async {},
                       child: Container(
                         height: 80,
                         width: 80,

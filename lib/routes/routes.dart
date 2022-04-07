@@ -9,6 +9,7 @@ import 'package:shop/view/search/search_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
+import '../view/help/contact_us/contact_us.dart';
 
 class RouteManager {
   static const String cartViews = '/cartViews';
@@ -22,6 +23,7 @@ class RouteManager {
   static const String settingViews = '/settingViews';
   static const String signUp = '/signup';
   static const String contactUs = '/contactUs';
+  static const String appInfo = '/appInfo';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -44,6 +46,8 @@ class RouteManager {
       case signUp:
         return MaterialPageRoute(builder: (context) => const SignUpViews());
       case contactUs:
+        return MaterialPageRoute(builder: (context) => const ContactUs());
+      case appInfo:
         return MaterialPageRoute(builder: (context) => const ContactUs());
     }
     return _errorRoute();
