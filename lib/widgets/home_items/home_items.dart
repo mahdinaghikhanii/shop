@@ -22,7 +22,9 @@ class HomeItems extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: kyellow,
+              ),
             );
             // ignore: unnecessary_null_comparison
           } else if (product.featchData() == null) {

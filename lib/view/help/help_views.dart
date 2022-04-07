@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
@@ -155,9 +156,64 @@ class ContactUs extends StatelessWidget {
                 labelText: "Message",
                 contoroller: product.meesageTextEdit,
               ),
-              ButtonSubmitData(ontap: () async {
-                product.sendEmail();
-              }),
+              !product.getshowCircularProgressIndicator
+                  ? ButtonSubmitData(ontap: () async {
+                      await product.sendEmail();
+                      if (product.getStatusCode == 200) {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.SUCCES,
+                          headerAnimationLoop: true,
+                          animType: AnimType.BOTTOMSLIDE,
+                          title: 'Done',
+                          btnCancelText: "Thanks !",
+                          btnOkColor: kred,
+                          btnOkText: "Ok",
+                          btnCancelColor: kyellow,
+                          desc: 'We have Problems try agin pls !',
+                          buttonsTextStyle:
+                              const TextStyle(color: Colors.black),
+                          showCloseIcon: true,
+                          btnCancelOnPress: () {
+                            product.clearTextEdit();
+                            product.setStatusCode(0);
+                          },
+                          btnOkOnPress: () {
+                            product.setStatusCode(0);
+                            Navigator.of(context)
+                                .pushReplacementNamed(RouteManager.helpViews);
+                            product.clearTextEdit();
+                          },
+                        ).show();
+                      } else if (product.getStatusCode == 403) {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.ERROR,
+                          headerAnimationLoop: true,
+                          animType: AnimType.BOTTOMSLIDE,
+                          title: 'Erorr !',
+                          btnCancelText: "Retry",
+                          btnOkColor: kred,
+                          btnOkText: "Ok",
+                          btnCancelColor: kyellow,
+                          desc: 'We have Problems try agin pls !',
+                          buttonsTextStyle:
+                              const TextStyle(color: Colors.black),
+                          showCloseIcon: true,
+                          btnCancelOnPress: () {},
+                          btnOkOnPress: () {
+                            Navigator.of(context)
+                                .pushNamed(RouteManager.helpViews);
+                            product.clearTextEdit();
+                          },
+                        ).show();
+                      }
+                    })
+                  : const Center(
+                      child: CircularProgressIndicator(
+                        color: kyellow,
+                      ),
+                    ),
               Visibility(
                   visible: product.getcheckTextEdit,
                   child: Text('Please enter the information',

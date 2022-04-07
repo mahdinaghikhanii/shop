@@ -25,7 +25,7 @@ class InputTextContactUs extends StatelessWidget {
         width: double.infinity,
         child: TextFormField(
             style: Theme.of(context).textTheme.labelMedium,
-            autofocus: true,
+            autofocus: false,
             obscureText: false,
             controller: contoroller,
             maxLines: 1,

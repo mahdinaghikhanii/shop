@@ -16,6 +16,28 @@ class SendEmail extends ChangeNotifier {
   get emailTextEdit => _email;
   get meesageTextEdit => _message;
 
+  void clearTextEdit() {
+    _name.clear();
+    _subject.clear();
+    _email.clear();
+    _message.clear();
+    _checkTextEdit = false;
+  }
+
+  int _statusCodes = 0;
+  setStatusCode(int number) {
+    _statusCodes = number;
+    notifyListeners();
+  }
+
+  get getStatusCode => _statusCodes;
+
+  late bool _statuscodeturOrfalse;
+  get getstatuscodeturOrfalse => _statuscodeturOrfalse;
+
+  bool _showCircularProgressIndicator = false;
+  get getshowCircularProgressIndicator => _showCircularProgressIndicator;
+
   Future sendEmail() async {
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
 
@@ -31,7 +53,9 @@ class SendEmail extends ChangeNotifier {
       notifyListeners();
       return null;
     } else {
+      _showCircularProgressIndicator = true;
       _checkTextEdit = false;
+      clearTextEdit();
       notifyListeners();
       final _response = await http.post(url,
           headers: {
@@ -50,7 +74,18 @@ class SendEmail extends ChangeNotifier {
             }
           }));
 
-      return _response.statusCode;
+      if (_response.statusCode == 200) {
+        _statusCodes = _response.statusCode;
+        _showCircularProgressIndicator = false;
+        notifyListeners();
+        return _response.statusCode;
+      } else {
+        _statusCodes = _response.statusCode;
+        _showCircularProgressIndicator = false;
+
+        notifyListeners();
+        return false;
+      }
     }
   }
 }
