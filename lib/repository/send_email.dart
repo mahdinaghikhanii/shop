@@ -32,9 +32,6 @@ class SendEmail extends ChangeNotifier {
 
   get getStatusCode => _statusCodes;
 
-  late bool _statuscodeturOrfalse;
-  get getstatuscodeturOrfalse => _statuscodeturOrfalse;
-
   bool _showCircularProgressIndicator = false;
   get getshowCircularProgressIndicator => _showCircularProgressIndicator;
 

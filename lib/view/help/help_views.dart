@@ -166,14 +166,13 @@ class ContactUs extends StatelessWidget {
                           headerAnimationLoop: true,
                           animType: AnimType.BOTTOMSLIDE,
                           title: 'Done',
-                          btnCancelText: "Thanks !",
-                          btnOkColor: kred,
+                          btnOkColor: kyellow,
                           btnOkText: "Ok",
                           btnCancelColor: kyellow,
-                          desc: 'We have Problems try agin pls !',
-                          buttonsTextStyle:
-                              const TextStyle(color: Colors.black),
-                          showCloseIcon: true,
+                          btnCancelText: "Back home",
+                          desc: 'We will answer you as soon as possible :)',
+                          buttonsTextStyle: const TextStyle(color: kwhite),
+                          showCloseIcon: false,
                           btnCancelOnPress: () {
                             product.clearTextEdit();
                             product.setStatusCode(0);
