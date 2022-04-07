@@ -158,7 +158,13 @@ class ContactUs extends StatelessWidget {
               ButtonSubmitData(ontap: () async {
                 product.sendEmail();
               }),
-              Visibility(visible: product.getcheckTextEdit, child: Text('')),
+              Visibility(
+                  visible: product.getcheckTextEdit,
+                  child: Text('Please enter the information',
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelMedium
+                          ?.copyWith(color: kred))),
             ],
           ),
         ),
