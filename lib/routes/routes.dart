@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop/view/cart/cart_views.dart';
 import 'package:shop/view/favorite/Favorite_views.dart';
+import 'package:shop/view/help/app_info/appinfo_views.dart';
 import 'package:shop/view/help/help_views.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/login/login_views.dart';
@@ -9,7 +10,8 @@ import 'package:shop/view/search/search_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
-import '../view/help/contact_us/contact_us.dart';
+
+import '../view/help/contact_us/contactus_views.dart';
 
 class RouteManager {
   static const String cartViews = '/cartViews';
@@ -46,9 +48,9 @@ class RouteManager {
       case signUp:
         return MaterialPageRoute(builder: (context) => const SignUpViews());
       case contactUs:
-        return MaterialPageRoute(builder: (context) => const ContactUs());
+        return MaterialPageRoute(builder: (context) => const ContactUsViews());
       case appInfo:
-        return MaterialPageRoute(builder: (context) => const ContactUs());
+        return MaterialPageRoute(builder: (context) => const AppInfoViews());
     }
     return _errorRoute();
   }

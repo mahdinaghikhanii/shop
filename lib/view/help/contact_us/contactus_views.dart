@@ -1,15 +1,14 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../constant.dart';
 import '../../../repository/send_email.dart';
 import '../../../routes/routes.dart';
 import '../../../widgets/buttons/button_submit_data/button_submit_data.dart';
 import '../../../widgets/input_text/input_text_contactus.dart';
 
-class ContactUs extends StatelessWidget {
-  const ContactUs({Key? key}) : super(key: key);
+class ContactUsViews extends StatelessWidget {
+  const ContactUsViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -57,7 +57,9 @@ class HelpViews extends StatelessWidget {
               visibilityArrowIcons: false,
             ),
             BuildListTile(
-              ontap: () {},
+              ontap: () {
+                Navigator.pushNamed(context, RouteManager.appInfo);
+              },
               color: grey,
               icon: Icons.info,
               title: "App info",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HelpCenter extends StatelessWidget {
-  const HelpCenter({Key? key}) : super(key: key);
+class HelpCenterViews extends StatelessWidget {
+  const HelpCenterViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

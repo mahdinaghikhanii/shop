@@ -174,9 +174,6 @@ class SettingViews extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text("Version 1.0.0",
-                      style: textTheme.bodyText2
-                          ?.copyWith(color: Colors.grey.shade500)),
                 ]),
           ),
         ),
