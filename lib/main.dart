@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
@@ -21,6 +25,8 @@ void main() async {
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewWedWidgetGetStartScreans = sharedPreferences.getInt('getStart-KEY');
   await appProvider.getDarkThemeOrLightTheme();
+  Directory directory = await pathProvider.getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
   runApp(MyApp(
     appProvider: appProvider,
   ));
