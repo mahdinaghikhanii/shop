@@ -1,4 +1,3 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
@@ -77,12 +76,7 @@ class HelpViews extends StatelessWidget {
 }
 
 class ContactUs extends StatelessWidget {
-  ContactUs({Key? key}) : super(key: key);
-
-  final name = TextEditingController();
-  final subject = TextEditingController();
-  final email = TextEditingController();
-  final message = TextEditingController();
+  const ContactUs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -138,41 +132,33 @@ class ContactUs extends StatelessWidget {
               ),
               const SizedBox(height: Constans.smallSizedBox),
               InputTextContactUs(
-                  padding: 20,
-                  hintText: "Pls write Your name",
-                  labelText: "Name",
-                  contoroller: product.nameTextEdit),
+                padding: 20,
+                hintText: "Pls write Your name",
+                labelText: "Name",
+                contoroller: product.nameTextEdit,
+              ),
               InputTextContactUs(
-                  padding: 20,
-                  hintText: "Pls write Your Subject",
-                  labelText: "Subject",
-                  contoroller: product.subjectTextEdit),
+                padding: 20,
+                hintText: "Pls write Your Subject",
+                labelText: "Subject",
+                contoroller: product.subjectTextEdit,
+              ),
               InputTextContactUs(
-                  padding: 20,
-                  hintText: "Pls write Your Email",
-                  labelText: "Email",
-                  contoroller: product.emailTextEdit),
+                padding: 20,
+                hintText: "Pls write Your Email",
+                labelText: "Email",
+                contoroller: product.emailTextEdit,
+              ),
               InputTextContactUs(
-                  padding: 20,
-                  hintText: "Pls write Your Message",
-                  labelText: "Message",
-                  contoroller: product.meesageTextEdit),
-              ButtonSubmitData(
-                ontap: () async {
-                  product.sendEmail();
-                  if (product.getStatusCode == 200) {
-                    AwesomeDialog(
-                      context: context,
-                      dialogType: DialogType.INFO,
-                      animType: AnimType.BOTTOMSLIDE,
-                      title: 'Done !',
-                      desc: 'see and help you',
-                      btnCancelOnPress: () {},
-                      btnOkOnPress: () {},
-                    )..show();
-                  } else {}
-                },
-              )
+                padding: 20,
+                hintText: "Pls write Your Message",
+                labelText: "Message",
+                contoroller: product.meesageTextEdit,
+              ),
+              ButtonSubmitData(ontap: () async {
+                product.sendEmail();
+              }),
+              Visibility(visible: product.getcheckTextEdit, child: Text('')),
             ],
           ),
         ),

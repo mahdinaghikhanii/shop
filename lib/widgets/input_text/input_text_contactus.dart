@@ -24,7 +24,11 @@ class InputTextContactUs extends StatelessWidget {
         height: 55,
         width: double.infinity,
         child: TextFormField(
+            style: Theme.of(context).textTheme.labelMedium,
+            autofocus: true,
+            obscureText: false,
             controller: contoroller,
+            maxLines: 1,
             decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25.0),

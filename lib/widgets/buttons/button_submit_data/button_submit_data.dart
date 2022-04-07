@@ -13,7 +13,11 @@ class ButtonSubmitData extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(Constans.padding),
       child: InkWell(
-        borderRadius: BorderRadius.circular(Constans.bigBorderRadios),
+        highlightColor: kwhite,
+        focusColor: kwhite,
+        hoverColor: kwhite,
+        splashColor: kwhite,
+        borderRadius: BorderRadius.circular(Constans.mediumsize),
         onTap: ontap,
         child: Container(
           decoration: BoxDecoration(

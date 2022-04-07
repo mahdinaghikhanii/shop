@@ -44,7 +44,7 @@ class RouteManager {
       case signUp:
         return MaterialPageRoute(builder: (context) => const SignUpViews());
       case contactUs:
-        return MaterialPageRoute(builder: (context) => ContactUs());
+        return MaterialPageRoute(builder: (context) => const ContactUs());
     }
     return _errorRoute();
   }
