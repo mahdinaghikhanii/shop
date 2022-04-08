@@ -3,7 +3,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shop/model/onoard_model.dart';
+import 'package:shop/model/onboard_model/onoard_model.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/home/home_views.dart';
 

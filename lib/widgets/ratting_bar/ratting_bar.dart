@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'package:shop/model/products_model.dart';
+import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/constant.dart';
 
 class RatingBars extends StatelessWidget {

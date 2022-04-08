@@ -1,7 +1,8 @@
 import 'package:hive/hive.dart';
-import 'package:shop/model/rating_model.dart';
 
-part "products_model.g.dart";
+import '../rating_model/rating_model.dart';
+
+part 'products_model.g.dart';
 
 @HiveType(typeId: 0)
 class ProductsModel extends HiveObject {

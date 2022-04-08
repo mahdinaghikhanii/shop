@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/model/products_model.dart';
+import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/products_provider/products_provider.dart';
 
 import '../small_button/small_button.dart';

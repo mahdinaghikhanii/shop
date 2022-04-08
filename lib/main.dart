@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 // ignore: library_prefixes
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shop/model/products_model.dart';
-import 'package:shop/model/rating_model.dart';
+import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
@@ -18,6 +17,7 @@ import 'package:shop/routes/routes.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
+import 'model/rating_model/rating_model.dart';
 import 'provider/app_provider/app_provider.dart';
 
 int? isviewWedWidgetGetStartScreans;

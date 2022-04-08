@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop/model/products_model.dart';
+import 'package:shop/model/products_model/products_model.dart';
 
 class Repository extends ChangeNotifier {
   int _currentIndexBildChip = 0;

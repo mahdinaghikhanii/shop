@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/main.dart';
-import 'package:shop/model/products_model.dart';
+import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/divider_defualt/divider_defualt.dart';
