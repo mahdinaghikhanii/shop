@@ -1,19 +1,39 @@
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
 import 'package:shop/model/products_model.dart';
 
-class FavoriteProvider extends ChangeNotifier {
-  final List<ProductsModel> _listfavorite = [];
-  List<ProductsModel> get listFavorite => _listfavorite;
+class FavoriteProvider with ChangeNotifier {
+  final String _favorite = 'favorite';
 
-  int get countFavorite => _listfavorite.length;
+  List _favoriteList = <ProductsModel>[];
+  List get listFavorite => _favoriteList;
 
-  addFavorite(ProductsModel productsModel) {
-    _listfavorite.add(productsModel);
+  int get countFavorite => _favoriteList.length;
+
+  addFavorite(ProductsModel productsModel) async {
+    var box = await Hive.openBox<ProductsModel>(_favorite);
+    box.add(productsModel);
+    print('added');
+    // _listfavorite.add(productsModel);
     notifyListeners();
   }
 
-  removeFavorite(ProductsModel productsModel) {
-    _listfavorite.remove(productsModel);
+  getFavorite() async {
+    final box = await Hive.openBox<ProductsModel>(_favorite);
+    _favoriteList = box.values.toList();
+    notifyListeners();
+  }
+
+  updateFavorite(int index, ProductsModel productsModel) {
+    final box = Hive.box<ProductsModel>(_favorite);
+    box.putAt(index, productsModel);
+    notifyListeners();
+  }
+
+  removeFavorite(int index) async {
+    final box = Hive.box<ProductsModel>(_favorite);
+    box.delete(index);
+    getFavorite();
     notifyListeners();
   }
 }

@@ -1,8 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+// ignore: library_prefixes
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
@@ -27,6 +27,7 @@ void main() async {
   await appProvider.getDarkThemeOrLightTheme();
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
+  Hive.registerAdapter(ProductsModelAdapter());
   runApp(MyApp(
     appProvider: appProvider,
   ));
@@ -48,15 +49,10 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => ProductsProvider()),
           ChangeNotifierProvider<OnBoardProvider>(
               create: (context) => OnBoardProvider()),
-          ChangeNotifierProvider<AppProvider>(
-              create: (
-            context,
-          ) =>
-                  appProvider),
+          ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),
           ChangeNotifierProvider<Repository>(create: (context) => Repository()),
           ChangeNotifierProvider<BottomNavigationBarProvider>(
-            create: (context) => BottomNavigationBarProvider(),
-          )
+              create: (context) => BottomNavigationBarProvider()),
         ],
         child: Consumer<AppProvider>(builder: (context, model, child) {
           return MaterialApp(

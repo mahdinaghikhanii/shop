@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 
@@ -57,8 +59,10 @@ class HelpViews extends StatelessWidget {
               visibilityArrowIcons: false,
             ),
             BuildListTile(
-              ontap: () {
+              ontap: () async {
                 Navigator.pushNamed(context, RouteManager.appInfo);
+                print(
+                    await Provider.of<FavoriteProvider>(context).getFavorite());
               },
               color: grey,
               icon: Icons.info,
