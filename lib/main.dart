@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 // ignore: library_prefixes
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/model/products_model.dart';
+import 'package:shop/model/rating_model.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
@@ -22,12 +24,17 @@ int? isviewWedWidgetGetStartScreans;
 AppProvider appProvider = AppProvider();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Directory directory = await pathProvider.getApplicationDocumentsDirectory();
+  Hive.init(directory.path);
+
+  Hive.registerAdapter(ProductsModelAdapter());
+  Hive.registerAdapter(RatingModelAdapter());
+
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewWedWidgetGetStartScreans = sharedPreferences.getInt('getStart-KEY');
   await appProvider.getDarkThemeOrLightTheme();
-  Directory directory = await pathProvider.getApplicationDocumentsDirectory();
-  Hive.init(directory.path);
-  Hive.registerAdapter(ProductsModelAdapter());
+
   runApp(MyApp(
     appProvider: appProvider,
   ));

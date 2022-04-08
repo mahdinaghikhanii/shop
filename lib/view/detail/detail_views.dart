@@ -19,7 +19,8 @@ class DetailViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favoriteProvider = Provider.of<FavoriteProvider>(context);
+    final favoriteProvider =
+        Provider.of<FavoriteProvider>(context, listen: false);
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
     final productsProvider = Provider.of<ProductsProvider>(context);
@@ -35,7 +36,14 @@ class DetailViews extends StatelessWidget {
             )
           : AddOrRemoveProducts(
               add: () {
-                productsProvider.addProductsCart(productsModel);
+                productsProvider.addProductsCart(ProductsModel(
+                    productsModel.id,
+                    productsModel.title,
+                    productsModel.price,
+                    productsModel.description,
+                    productsModel.catrgory,
+                    productsModel.image,
+                    productsModel.ratingModel));
               },
               price: productsModel.price.toString(),
               remove: () {
@@ -59,7 +67,7 @@ class DetailViews extends StatelessWidget {
               child: FavoriteButton(
                 iconSize: 40,
                 iconDisabledColor: grey,
-                valueChanged: (_isFavorite) {
+                valueChanged: (_isFavorite) async {
                   favoriteProvider.addFavorite(productsModel);
                 },
               ))

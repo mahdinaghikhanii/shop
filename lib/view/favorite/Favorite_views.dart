@@ -41,9 +41,9 @@ class FavoriteViews extends StatelessWidget {
             : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          favoriteProvider.countFavorite == 0
-              ? const NothingIsHere(text: "You have no\nFavorite :(")
-              : const FavoriteItems(),
+          // favoriteProvider.countFavorite == 0
+          //     ? const NothingIsHere(text: "You have no\nFavorite :(")
+          const FavoriteItems(),
         ],
       ),
     );

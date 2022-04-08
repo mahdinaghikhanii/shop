@@ -61,8 +61,6 @@ class HelpViews extends StatelessWidget {
             BuildListTile(
               ontap: () async {
                 Navigator.pushNamed(context, RouteManager.appInfo);
-                print(
-                    await Provider.of<FavoriteProvider>(context).getFavorite());
               },
               color: grey,
               icon: Icons.info,

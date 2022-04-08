@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:shop/model/rating_model.dart';
 
-part 'products_model.g.dart';
+part "products_model.g.dart";
 
 @HiveType(typeId: 0)
 class ProductsModel extends HiveObject {
@@ -29,7 +29,6 @@ class ProductsModel extends HiveObject {
   factory ProductsModel.fromJson(Map<String, dynamic> json) => ProductsModel(
         json["id"] as int,
         json["title"] as String,
-        // ignore: unnecessary_cast
         json["price"].toDouble() as double,
         json["description"] as String,
         json["category"] as String,

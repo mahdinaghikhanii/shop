@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/main.dart';
+import 'package:shop/model/products_model.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import 'package:shop/widgets/divider_defualt/divider_defualt.dart';
@@ -18,10 +19,12 @@ class FavoriteItems extends StatelessWidget {
         fontWeight: FontWeight.w500);
     final size = MediaQuery.of(context).size;
     return Consumer<FavoriteProvider>(builder: (context, favorite, child) {
+      context.watch<FavoriteProvider>().getFavorite();
       return Expanded(
         child: ListView.builder(
           itemCount: favorite.listFavorite.length,
           itemBuilder: (BuildContext context, int index) {
+            ProductsModel fav = favorite.listFavorite[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -49,7 +52,7 @@ class FavoriteItems extends StatelessWidget {
                             width: size.width * 0.20,
                             height: size.height * 0.16,
                             child: CachedNetworkImage(
-                              imageUrl: favorite.listFavorite[index].image,
+                              imageUrl: fav.image,
                             ),
                           ),
                         ],
@@ -65,7 +68,7 @@ class FavoriteItems extends StatelessWidget {
                             const SizedBox(
                               height: 10,
                             ),
-                            Text(favorite.listFavorite[index].title,
+                            Text(fav.title,
                                 textAlign: TextAlign.left,
                                 maxLines: 2,
                                 style: textTitleStyle),
@@ -81,14 +84,11 @@ class FavoriteItems extends StatelessWidget {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Text(favorite
-                                      .listFavorite[index].ratingModel.rate
-                                      .toString()),
+                                  Text(fav.ratingModel.rate.toString()),
                                 ],
                               ),
                             ),
-                            Text("€ " +
-                                favorite.listFavorite[index].price.toString()),
+                            Text("€ " + fav.price.toString()),
                             const SizedBox(
                               height: Constans.smallSizedBox,
                             ),
