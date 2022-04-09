@@ -7,7 +7,6 @@ class FavoriteProvider with ChangeNotifier {
 
   List _favoriteList = <ProductsModel>[];
   List get listFavorite => _favoriteList;
-  int get countFavorite => _favoriteList.length;
 
   addFavorite(ProductsModel productsModel) async {
     var box = await Hive.openBox<ProductsModel>('fa');
@@ -21,7 +20,7 @@ class FavoriteProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  updateFavorite(int index, ProductsModel productsModel) {
+  updateFavorite(int index, ProductsModel productsModel) async {
     final box = Hive.box<ProductsModel>('fa');
     box.putAt(index, productsModel);
     notifyListeners();
@@ -29,8 +28,8 @@ class FavoriteProvider with ChangeNotifier {
 
   removeFavorite(int index) async {
     final box = Hive.box<ProductsModel>('fa');
-    box.delete(index);
-    getFavorite();
+    await box.deleteAt(index);
+    await getFavorite();
     notifyListeners();
   }
 }

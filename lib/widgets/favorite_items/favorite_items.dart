@@ -109,7 +109,7 @@ class FavoriteItems extends StatelessWidget {
                         borderRadius:
                             BorderRadius.circular(Constans.smallBorderRadios),
                         onTap: () {
-                          favorite.removeFavorite(favorite.listFavorite[index]);
+                          favorite.removeFavorite(index);
                         },
                         child: Row(
                           children: const [

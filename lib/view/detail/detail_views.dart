@@ -68,7 +68,7 @@ class DetailViews extends StatelessWidget {
                 iconSize: 40,
                 iconDisabledColor: grey,
                 valueChanged: (_isFavorite) async {
-                  favoriteProvider.addFavorite(productsModel);
+                  await favoriteProvider.addFavorite(productsModel);
                 },
               ))
         ],
