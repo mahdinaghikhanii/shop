@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/main.dart';
-import 'package:shop/provider/detail_provider/detail_provider.dart';
+import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/detail/detail_views.dart';
 
@@ -19,10 +19,11 @@ class CartItems extends StatelessWidget {
         fontSize: 14,
         fontWeight: FontWeight.w500);
     final size = MediaQuery.of(context).size;
-    return Consumer<DetailProvider>(builder: (context, cart, child) {
+    return Consumer<CartProvider>(builder: (context, cart, child) {
+      context.watch<CartProvider>().getProdcutsCart();
       return Expanded(
         child: ListView.builder(
-          itemCount: cart.baskeIteam.length,
+          itemCount: cart.cartItems.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
@@ -30,7 +31,7 @@ class CartItems extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => DetailViews(
-                              productsModel: cart.baskeIteam[index],
+                              productsModel: cart.cartItems[index],
                             )));
               },
               child: Padding(
@@ -47,7 +48,7 @@ class CartItems extends StatelessWidget {
                       width: size.width * 0.24,
                       height: size.height * 0.16,
                       child: CachedNetworkImage(
-                        imageUrl: cart.baskeIteam[index].image,
+                        imageUrl: cart.cartItems[index].image,
                       ),
                     ),
                     const SizedBox(
@@ -58,19 +59,19 @@ class CartItems extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(cart.baskeIteam[index].title,
+                          Text(cart.cartItems[index].title,
                               textAlign: TextAlign.left,
                               maxLines: 2,
                               style: textTitleStyle),
                           const SizedBox(
                             height: 8,
                           ),
-                          Text("€ " + cart.baskeIteam[index].price.toString()),
+                          Text("€ " + cart.cartItems[index].price.toString()),
                           const SizedBox(
                             height: Constans.smallSizedBox,
                           ),
                           AddRemoveProductsButtonCart(
-                            productsModel: cart.baskeIteam[index],
+                            productsModel: cart.cartItems[index],
                           )
                         ],
                       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/model/products_model/products_model.dart';
+import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import '../small_button/small_button.dart';
 
@@ -14,6 +15,7 @@ class AddRemoveProductsButtonCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final detailProvider = Provider.of<DetailProvider>(context);
+    final cartProvider = Provider.of<CartProvider>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 4),
       child: Row(
@@ -21,19 +23,19 @@ class AddRemoveProductsButtonCart extends StatelessWidget {
           SmallButton(
             iconData: Icons.remove,
             onTap: () {
-              detailProvider.removeOneProductsCart(productsModel);
+              //   cartProvider.removeOneProductsCart(productsModel);
             },
             color: grey,
           ),
           Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
               child: Text(
-                detailProvider.countProducts.toString(),
+                cartProvider.countAddCart.toString(),
               )),
           SmallButton(
             iconData: Icons.add,
             onTap: () {
-              detailProvider.addProductsCart(productsModel);
+              cartProvider.addProductsCart(productsModel);
             },
             color: grey,
           ),

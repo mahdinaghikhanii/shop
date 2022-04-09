@@ -3,6 +3,7 @@ import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model/products_model.dart';
+import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 
@@ -23,19 +24,20 @@ class DetailViews extends StatelessWidget {
         Provider.of<FavoriteProvider>(context, listen: false);
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
+    final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
-      bottomNavigationBar: detailsProvider.countProducts == 0
+      bottomNavigationBar: cartProvider.countAddCart == 0
           ? ButtonAddcart(
               detailBTN: 'Buy Now',
               ontap: () {
-                detailsProvider.addProductsCart(productsModel);
+                cartProvider.addProductsCart(productsModel);
               },
               price: productsModel.price.toString(),
             )
           : AddOrRemoveProducts(
               add: () {
-                detailsProvider.addProductsCart(ProductsModel(
+                cartProvider.addProductsCart(ProductsModel(
                     productsModel.id,
                     productsModel.title,
                     productsModel.price,
@@ -45,10 +47,8 @@ class DetailViews extends StatelessWidget {
                     productsModel.ratingModel));
               },
               price: productsModel.price.toString(),
-              remove: () {
-                detailsProvider.removeOneProductsCart(productsModel);
-              },
-              quantity: detailsProvider.countProducts.toString()),
+              remove: () {},
+              quantity: cartProvider.countAddCart.toString()),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
