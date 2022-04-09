@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/model/products_model/products_model.dart';
 
 class DetailProvider extends ChangeNotifier {
   bool _descTextShowFlag = false;
@@ -9,22 +10,25 @@ class DetailProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-// here for btn detail Add cart or remove
-  /*int _currentIndexAddCart = 0;
-  get currnetindexAddCart => _currentIndexAddCart;
+  final List<ProductsModel> _items = [];
+  List<ProductsModel> get baskeIteam => _items;
 
-  setcurrentIndeXAddCart(int index) {
-    _currentIndexAddCart = index;
+  double _price = 0.0;
+  get addcartPrice => _price;
+
+  addProductsCart(ProductsModel productsModel) {
+    _items.add(productsModel);
+    _price += productsModel.price;
     notifyListeners();
   }
 
-  addinAddCart() {
-    _currentIndexAddCart++;
+  int get countProducts => _items.length;
+
+  double get totoalPrice => _price;
+
+  removeOneProductsCart(ProductsModel productsModel) {
+    _items.remove(productsModel);
+    _price -= productsModel.price;
     notifyListeners();
   }
-
-  removeinAddcart() {
-    _currentIndexAddCart--;
-    notifyListeners();
-  }*/
 }

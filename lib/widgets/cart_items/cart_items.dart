@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/main.dart';
-import 'package:shop/provider/products_provider/products_provider.dart';
+import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/detail/detail_views.dart';
 
@@ -19,7 +19,7 @@ class CartItems extends StatelessWidget {
         fontSize: 14,
         fontWeight: FontWeight.w500);
     final size = MediaQuery.of(context).size;
-    return Consumer<ProductsProvider>(builder: (context, cart, child) {
+    return Consumer<DetailProvider>(builder: (context, cart, child) {
       return Expanded(
         child: ListView.builder(
           itemCount: cart.baskeIteam.length,

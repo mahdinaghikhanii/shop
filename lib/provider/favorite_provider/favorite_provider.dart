@@ -8,6 +8,17 @@ class FavoriteProvider with ChangeNotifier {
   List _favoriteList = <ProductsModel>[];
   List get listFavorite => _favoriteList;
 
+  int _lenghtFavorite = 0;
+
+  get lenghFavorite => _lenghtFavorite;
+
+  countFavorite() async {
+    var box = await Hive.openBox<ProductsModel>('fa');
+    _favoriteList = box.values.toList();
+    _lenghtFavorite = _favoriteList.length;
+    notifyListeners();
+  }
+
   addFavorite(ProductsModel productsModel) async {
     var box = await Hive.openBox<ProductsModel>('fa');
     box.add(productsModel);

@@ -1,13 +1,10 @@
 // ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
-import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/constant.dart';
-
 import 'package:shop/view/cart/cart_views.dart';
 import 'package:shop/view/search/search_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
@@ -23,7 +20,6 @@ class HomeViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final detailProvider = Provider.of<DetailProvider>(context);
     final appProvider = Provider.of<AppProvider>(context);
-    final productProvider = Provider.of<ProductsProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     final bottomNavigationBar =
         Provider.of<BottomNavigationBarProvider>(context);
@@ -78,9 +74,9 @@ class HomeViews extends StatelessWidget {
               ),
               GButton(
                 icon: Icons.badge_outlined,
-                text: productProvider.countProducts == 0
+                text: detailProvider.countProducts == 0
                     ? "Cart"
-                    : "Cart " + productProvider.countProducts.toString(),
+                    : "Cart " + detailProvider.countProducts.toString(),
               ),
               const GButton(
                 icon: Icons.settings,

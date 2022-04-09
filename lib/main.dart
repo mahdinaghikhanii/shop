@@ -10,7 +10,6 @@ import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_p
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
-import 'package:shop/provider/products_provider/products_provider.dart';
 import 'package:shop/repository/repository.dart';
 import 'package:shop/repository/send_email.dart';
 import 'package:shop/routes/routes.dart';
@@ -53,7 +52,6 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (context) => SendEmail()),
           ChangeNotifierProvider(create: (context) => FavoriteProvider()),
           ChangeNotifierProvider(create: (context) => DetailProvider()),
-          ChangeNotifierProvider(create: (context) => ProductsProvider()),
           ChangeNotifierProvider<OnBoardProvider>(
               create: (context) => OnBoardProvider()),
           ChangeNotifierProvider<AppProvider>(create: (context) => appProvider),

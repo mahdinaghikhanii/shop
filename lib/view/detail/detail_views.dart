@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
-import 'package:shop/provider/products_provider/products_provider.dart';
+
 import 'package:shop/constant.dart';
 import 'package:shop/widgets/buttons/add_remove_products_button/add_remove_products.dart';
 import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
@@ -23,20 +23,19 @@ class DetailViews extends StatelessWidget {
         Provider.of<FavoriteProvider>(context, listen: false);
     final textTheme = Theme.of(context).textTheme;
     final detailsProvider = Provider.of<DetailProvider>(context);
-    final productsProvider = Provider.of<ProductsProvider>(context);
 
     return Scaffold(
-      bottomNavigationBar: productsProvider.countProducts == 0
+      bottomNavigationBar: detailsProvider.countProducts == 0
           ? ButtonAddcart(
               detailBTN: 'Buy Now',
               ontap: () {
-                productsProvider.addProductsCart(productsModel);
+                detailsProvider.addProductsCart(productsModel);
               },
               price: productsModel.price.toString(),
             )
           : AddOrRemoveProducts(
               add: () {
-                productsProvider.addProductsCart(ProductsModel(
+                detailsProvider.addProductsCart(ProductsModel(
                     productsModel.id,
                     productsModel.title,
                     productsModel.price,
@@ -47,9 +46,9 @@ class DetailViews extends StatelessWidget {
               },
               price: productsModel.price.toString(),
               remove: () {
-                productsProvider.removeOneProductsCart(productsModel);
+                detailsProvider.removeOneProductsCart(productsModel);
               },
-              quantity: productsProvider.countProducts.toString()),
+              quantity: detailsProvider.countProducts.toString()),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(

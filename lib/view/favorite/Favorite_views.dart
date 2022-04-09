@@ -2,15 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/widgets/favorite_items/favorite_items.dart';
+
+import '../../provider/favorite_provider/favorite_provider.dart';
+import '../../widgets/nothing_is_here/nothing_is_here.dart';
 
 class FavoriteViews extends StatelessWidget {
   const FavoriteViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //  final favoriteProvider = Provider.of<FavoriteProvider>(context);
+    context.watch<FavoriteProvider>().countFavorite();
+    final favoriteProvider = Provider.of<FavoriteProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -36,15 +39,14 @@ class FavoriteViews extends StatelessWidget {
         ),
       ),
       body: Column(
-        mainAxisAlignment:
-
-            //    ? MainAxisAlignment.center
-            MainAxisAlignment.start,
+        mainAxisAlignment: favoriteProvider.lenghFavorite == 0
+            ? MainAxisAlignment.center
+            : MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          //  context.watch<FavoriteProvider>().seeLengthFavorite() == 0
-          //    ? const NothingIsHere(text: "You have no\nFavorite :(")
-          FavoriteItems(),
+        children: [
+          favoriteProvider.lenghFavorite == 0
+              ? const NothingIsHere(text: "You have no\nFavorite :(")
+              : FavoriteItems(),
         ],
       ),
     );
