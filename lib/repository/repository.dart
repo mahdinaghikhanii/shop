@@ -36,7 +36,7 @@ class Repository extends ChangeNotifier {
     // ignore: unused_local_variable
     List data = jsonDecode(utf8.decode(respone.bodyBytes));
     _statuCode = respone.statusCode;
-    print("this is status code" + _statuCode.toString());
+    //print("this is status code" + _statuCode.toString());
     List<ProductsModel> loadedProduct = [];
 
     for (int i = 0; i < data.length; i++) {
@@ -47,7 +47,7 @@ class Repository extends ChangeNotifier {
       notifyListeners();
       return _items = loadedProduct;
     } else {
-      return Erorr();
+      return const Erorr();
     }
   }
 }

@@ -27,6 +27,13 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  getProductCartCount() async {
+    final box = await Hive.openBox<ProductsModel>('dt');
+    _items = box.values.toList();
+    _countCart = _items.length;
+    notifyListeners();
+  }
+
   removeOneProductsCart(int index) async {
     final box = Hive.box<ProductsModel>('dt');
     box.deleteAt(index);

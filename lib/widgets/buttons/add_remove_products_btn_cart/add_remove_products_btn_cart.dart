@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
-import 'package:shop/provider/detail_provider/detail_provider.dart';
 import '../small_button/small_button.dart';
 
 class AddRemoveProductsButtonCart extends StatelessWidget {
@@ -14,7 +13,6 @@ class AddRemoveProductsButtonCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final detailProvider = Provider.of<DetailProvider>(context);
     final cartProvider = Provider.of<CartProvider>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 4),

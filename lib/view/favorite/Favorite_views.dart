@@ -46,7 +46,7 @@ class FavoriteViews extends StatelessWidget {
         children: [
           favoriteProvider.lenghFavorite == 0
               ? const NothingIsHere(text: "You have no\nFavorite :(")
-              : FavoriteItems(),
+              : const FavoriteItems(),
         ],
       ),
     );

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 
