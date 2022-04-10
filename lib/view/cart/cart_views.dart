@@ -4,6 +4,8 @@ import 'package:shop/constant.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/widgets/cart_items/cart_items.dart';
 
+import '../../widgets/nothing_is_here/nothing_is_here.dart';
+
 class CartViews extends StatelessWidget {
   const CartViews({
     Key? key,
@@ -12,6 +14,7 @@ class CartViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartProvider = Provider.of<CartProvider>(context);
+    context.watch<CartProvider>().getProductCartCount();
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -31,13 +34,13 @@ class CartViews extends StatelessWidget {
               ? MainAxisAlignment.center
               : MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 00,
             ),
-            // cartProvider.countAddCart == 0
-            //   ? const NothingIsHere(text: "You have no\nCart :(") :
-            CartItems(),
+            cartProvider.countAddCart == 0
+                ? const NothingIsHere(text: "You have no\nCart :(")
+                : const CartItems(),
           ],
         ),
       ),
