@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/routes/routes.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
 import '../../widgets/bottom_sheet/appearance_bottomsheet.dart';
@@ -174,6 +174,23 @@ class SettingViews extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () async {
+                      await launch(
+                          'https://main--nostalgic-jennings-63dd2f.netlify.app/');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'about developer',
+                        style: textTheme.labelMedium?.copyWith(fontSize: 14),
+                      ),
+                    ),
+                  )
                 ]),
           ),
         ),
