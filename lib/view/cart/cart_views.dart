@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
+import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/cart_items/cart_items.dart';
 
 import '../../widgets/nothing_is_here/nothing_is_here.dart';
@@ -17,6 +18,11 @@ class CartViews extends StatelessWidget {
     context.watch<CartProvider>().getProductCartCount();
     return SafeArea(
       child: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: ButtonAddcart(
+            detailBTN: "Buy now",
+            ontap: () {},
+            price: cartProvider.addcartPrice.toString()),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,

@@ -21,6 +21,7 @@ class CartItems extends StatelessWidget {
     return Consumer<CartProvider>(builder: (context, addcart, child) {
       final favoriteProvider = Provider.of<FavoriteProvider>(context);
       context.watch<CartProvider>().getProdcutsCart();
+
       return Expanded(
         child: ListView.builder(
           itemCount: addcart.cartItems.length,
