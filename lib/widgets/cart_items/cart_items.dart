@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/main.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/view/detail/detail_views.dart';
 import '../../model/products_model/products_model.dart';
 import '../divider_defualt/divider_defualt.dart';
@@ -14,12 +15,11 @@ class CartItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTitleStyle = TextStyle(
-        color: appProvider.brighness ? kwhite : kblackappbar,
-        fontSize: 14,
-        fontWeight: FontWeight.w500);
+    final textTheme = Theme.of(context).textTheme;
+
     final size = MediaQuery.of(context).size;
     return Consumer<CartProvider>(builder: (context, addcart, child) {
+      final favoriteProvider = Provider.of<FavoriteProvider>(context);
       context.watch<CartProvider>().getProdcutsCart();
       return Expanded(
         child: ListView.builder(
@@ -41,7 +41,7 @@ class CartItems extends StatelessWidget {
                       left: Constans.padding,
                       right: Constans.padding,
                       top: 10,
-                      bottom: 5),
+                      bottom: 2),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -50,8 +50,8 @@ class CartItems extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: size.width * 0.20,
-                            height: size.height * 0.16,
+                            width: size.width * 0.18,
+                            height: size.height * 0.13,
                             child: CachedNetworkImage(
                               imageUrl: fav.image,
                             ),
@@ -67,14 +67,18 @@ class CartItems extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(
-                              height: 10,
+                              height: 4,
                             ),
-                            Text(fav.title,
-                                textAlign: TextAlign.left,
-                                maxLines: 2,
-                                style: textTitleStyle),
+                            Text(
+                              fav.title,
+                              textAlign: TextAlign.left,
+                              maxLines: 2,
+                              style: textTheme.labelLarge?.copyWith(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
                             Padding(
-                              padding: const EdgeInsets.only(top: 6, bottom: 8),
+                              padding:
+                                  const EdgeInsets.only(top: 6, bottom: 10),
                               child: Row(
                                 children: [
                                   const Icon(
@@ -85,11 +89,30 @@ class CartItems extends StatelessWidget {
                                   const SizedBox(
                                     width: 5,
                                   ),
-                                  Text(fav.ratingModel.rate.toString()),
+                                  Text(
+                                    fav.ratingModel.rate.toString(),
+                                    style: textTheme.labelLarge
+                                        ?.copyWith(fontSize: 15),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const Spacer(),
+                                  FavoriteButton(
+                                    iconSize: 40,
+                                    iconDisabledColor: grey,
+                                    valueChanged: (_isFavorite) async {
+                                      await favoriteProvider.addFavorite(
+                                          addcart.cartItems[index]);
+                                    },
+                                  )
                                 ],
                               ),
                             ),
-                            Text("€ " + fav.price.toString()),
+                            Text(
+                              "€ " + fav.price.toString(),
+                              style: textTheme.labelLarge
+                                  ?.copyWith(fontSize: 13, color: grey),
+                              textAlign: TextAlign.center,
+                            ),
                             const SizedBox(
                               height: Constans.smallSizedBox,
                             ),
@@ -143,7 +166,7 @@ class CartItems extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 const DivderDefualt(),
               ]),
