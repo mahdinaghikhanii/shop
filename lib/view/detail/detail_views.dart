@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +5,7 @@ import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
-
+import 'package:photo_view/photo_view.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/widgets/buttons/add_remove_products_button/add_remove_products.dart';
 import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
@@ -85,9 +84,14 @@ class DetailViews extends StatelessWidget {
               children: [
                 AspectRatio(
                   aspectRatio: 3 / 2,
-                  child: Hero(
-                      tag: productsModel.id,
-                      child: CachedNetworkImage(imageUrl: productsModel.image)),
+                  child: Center(
+                    child: PhotoView(
+                      heroAttributes:
+                          PhotoViewHeroAttributes(tag: productsModel.id),
+                      imageProvider: NetworkImage(productsModel.image),
+                      enableRotation: true,
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
