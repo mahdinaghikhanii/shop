@@ -15,6 +15,7 @@ class ShopList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return GestureDetector(
       onTap: ontap,
       child: SizedBox(
@@ -26,9 +27,12 @@ class ShopList extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                color: kwhite,
-                width: 110,
-                height: 130,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: kwhite,
+                ),
+                width: 120,
+                height: 140,
                 child: Hero(
                   tag: productsMode.id,
                   child: CachedNetworkImage(
@@ -39,10 +43,13 @@ class ShopList extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             Text(
               productsMode.title,
+              style:
+                  textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
               maxLines: 1,
             ),
             const SizedBox(
@@ -54,7 +61,10 @@ class ShopList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('€' + productsMode.price.toString()),
+                  Text(
+                    '€' + productsMode.price.toString(),
+                    style: textTheme.labelLarge,
+                  ),
                   Row(
                     children: [
                       const Icon(
@@ -62,7 +72,10 @@ class ShopList extends StatelessWidget {
                         size: 18,
                         color: kyellow,
                       ),
-                      Text(productsMode.ratingModel.rate.toString())
+                      Text(
+                        productsMode.ratingModel.rate.toString(),
+                        style: textTheme.labelLarge,
+                      )
                     ],
                   )
                 ],
