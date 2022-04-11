@@ -7,7 +7,6 @@ import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/cart/cart_views.dart';
-import 'package:shop/view/search/search_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
 
@@ -25,11 +24,10 @@ class HomeViews extends StatelessWidget {
     final bottomNavigationBar =
         Provider.of<BottomNavigationBarProvider>(context);
     final cartProvider = Provider.of<CartProvider>(context);
-
     // ignore: constant_identifier_names
     const List Screans = [
       HomeItems(),
-      SearchViews(),
+      // SearchViews(),
       CartViews(),
       SettingViews(),
     ];
@@ -70,10 +68,6 @@ class HomeViews extends StatelessWidget {
               const GButton(
                 icon: Icons.home,
                 text: 'Home',
-              ),
-              const GButton(
-                icon: Icons.search,
-                text: 'Search',
               ),
               GButton(
                 icon: Icons.badge_outlined,
