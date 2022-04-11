@@ -54,7 +54,7 @@ class LanguageBottomSheet extends StatelessWidget {
               color: Colors.orange,
             ),
             title: Text(
-              "قارسی",
+              "فارسی",
               style: textTheme.bodyText1?.copyWith(fontFamily: ""),
             ),
             onTap: () {

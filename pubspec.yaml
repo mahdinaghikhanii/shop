@@ -106,9 +106,9 @@ flutter:
   fonts:
     - family: IranYekan
       fonts:
-        - asset: assets/fonts/IRANYekanMobileMedium.ttf
+        - asset: assets/font/IRANYekanMobileMedium.ttf
           weight: 700
-        - asset: assets/fonts/IRANYekanMobileMedium.ttf
+        - asset: assets/font/IRANYekanMobileMedium.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

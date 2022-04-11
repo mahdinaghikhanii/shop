@@ -68,6 +68,7 @@ class HomeViews extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             tabs: [
               GButton(
+                textStyle: Theme.of(context).textTheme.button,
                 icon: Icons.home,
                 text: multilanguage.naemBtnNavigationInHomeViews_Home,
               ),
@@ -77,6 +78,7 @@ class HomeViews extends StatelessWidget {
                     ? multilanguage.naemBtnNavigationInHomeViews_Cart
                     : multilanguage.naemBtnNavigationInHomeViews_Cart +
                         cartProvider.countAddCart.toString(),
+                textStyle: Theme.of(context).textTheme.button,
               ),
               GButton(
                 icon: Icons.settings,
