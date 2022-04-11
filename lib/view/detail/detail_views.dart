@@ -1,16 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/widgets/buttons/add_remove_products_button/add_remove_products.dart';
 import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/ratting_bar/ratting_bar.dart';
+
 import '../../provider/app_provider/app_provider.dart';
+import '../../widgets/show_toast/show_toast.dart';
 
 // ignore: must_be_immutable
 class DetailViews extends StatelessWidget {
@@ -26,15 +28,20 @@ class DetailViews extends StatelessWidget {
     final cartProvider = Provider.of<CartProvider>(context);
 
     return Scaffold(
-      bottomNavigationBar: cartProvider.countAddCart == 0
-          ? ButtonAddcart(
-              detailBTN: 'Buy Now',
-              ontap: () {
-                cartProvider.addProductsCart(productsModel);
-              },
-              price: productsModel.price.toString(),
-            )
-          : AddOrRemoveProducts(
+      bottomNavigationBar: //cartProvider.countAddCart == 0 ?
+          ButtonAddcart(
+        detailBTN: 'Add to Cart',
+        ontap: () {
+          SmartDialog.showToast('',
+              widget: const ShowToast(
+                msg: 'This items Add in your Cart' '',
+              ));
+
+          cartProvider.addProductsCart(productsModel);
+        },
+        price: productsModel.price.toString(),
+      )
+      /*  : AddOrRemoveProducts(
               add: () {
                 cartProvider.addProductsCart(ProductsModel(
                     productsModel.id,
@@ -47,7 +54,8 @@ class DetailViews extends StatelessWidget {
               },
               price: productsModel.price.toString(),
               remove: () {},
-              quantity: cartProvider.countAddCart.toString()),
+              quantity: cartProvider.countAddCart.toString()),*/
+      ,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(

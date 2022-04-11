@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 // ignore: library_prefixes
@@ -63,6 +64,8 @@ class MyApp extends StatelessWidget {
         ],
         child: Consumer<AppProvider>(builder: (context, model, child) {
           return MaterialApp(
+              navigatorObservers: [FlutterSmartDialog.observer],
+              builder: FlutterSmartDialog.init(),
               theme: ConfigTheme.themeData(model.brighness, context),
               title: 'Flutter shop',
               debugShowCheckedModeBanner: false,

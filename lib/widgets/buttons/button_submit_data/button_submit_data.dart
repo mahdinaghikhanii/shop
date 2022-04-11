@@ -28,7 +28,7 @@ class ButtonSubmitData extends StatelessWidget {
           width: double.infinity,
           height: 55,
           child: Center(
-            child: Text('Submit !',
+            child: Text('Send !',
                 style: textTheme.subtitle1?.copyWith(
                     fontSize: 18, fontWeight: FontWeight.w400, color: kyellow)),
           ),

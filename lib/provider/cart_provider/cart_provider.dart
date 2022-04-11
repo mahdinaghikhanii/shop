@@ -14,23 +14,34 @@ class CartProvider extends ChangeNotifier {
   double _price = 0.0;
   get addcartPrice => _price;
 
+  double check = 0;
+
   addProductsCart(ProductsModel productsModel) async {
     final box = await Hive.openBox<ProductsModel>('dt');
+    await Hive.openBox('shopping_box');
     box.add(productsModel);
+    final myBox = Hive.box('shopping_box');
     _price += productsModel.price;
+    myBox.put('shopping_box', _price);
     notifyListeners();
   }
 
   getProdcutsCart() async {
     final box = await Hive.openBox<ProductsModel>('dt');
+    //final boxPrice = await Hive.openBox('totalPrice');
     _items = box.values.toList();
+
     notifyListeners();
   }
 
   getProductCartCount() async {
+    await Hive.openBox('shopping_box');
     final box = await Hive.openBox<ProductsModel>('dt');
     _items = box.values.toList();
     _countCart = _items.length;
+    //  final myBox = Hive.box('shopping_box');
+    // _price = myBox.get('my_key');
+
     notifyListeners();
   }
 

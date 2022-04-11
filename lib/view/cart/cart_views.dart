@@ -19,10 +19,12 @@ class CartViews extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: ButtonAddcart(
-            detailBTN: "Buy now",
-            ontap: () {},
-            price: cartProvider.addcartPrice.toString()),
+        floatingActionButton: cartProvider.countAddCart == 0
+            ? const Text('')
+            : ButtonAddcart(
+                detailBTN: "Buy now",
+                ontap: () {},
+                price: cartProvider.totoalPrice.toString()),
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
