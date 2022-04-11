@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
@@ -18,6 +19,7 @@ class HomeViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final detailProvider = Provider.of<DetailProvider>(context);
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
@@ -65,19 +67,20 @@ class HomeViews extends StatelessWidget {
                 .withOpacity(1), // selected tab background color
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             tabs: [
-              const GButton(
+              GButton(
                 icon: Icons.home,
-                text: 'Home',
+                text: multilanguage.naemBtnNavigationInHomeViews_Home,
               ),
               GButton(
                 icon: Icons.badge_outlined,
                 text: cartProvider.countAddCart == 0
-                    ? "Cart"
-                    : "Cart " + cartProvider.countAddCart.toString(),
+                    ? multilanguage.naemBtnNavigationInHomeViews_Cart
+                    : multilanguage.naemBtnNavigationInHomeViews_Cart +
+                        cartProvider.countAddCart.toString(),
               ),
-              const GButton(
+              GButton(
                 icon: Icons.settings,
-                text: 'Setting',
+                text: multilanguage.naemBtnNavigationInHomeViews_Setting,
               ),
             ],
             onTabChange: (index) {

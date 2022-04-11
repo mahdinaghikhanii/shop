@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/widgets/buttons/button_addcart/button_addcart.dart';
 import 'package:shop/widgets/cart_items/cart_items.dart';
@@ -14,6 +15,7 @@ class CartViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final cartProvider = Provider.of<CartProvider>(context);
     context.watch<CartProvider>().getProductCartCount();
     return SafeArea(

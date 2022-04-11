@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ import 'package:shop/routes/routes.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
+import 'generated/l10n.dart';
 import 'model/rating_model/rating_model.dart';
 import 'provider/app_provider/app_provider.dart';
 
@@ -64,6 +66,14 @@ class MyApp extends StatelessWidget {
         ],
         child: Consumer<AppProvider>(builder: (context, model, child) {
           return MaterialApp(
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              locale: Locale('en'),
+              supportedLocales: S.delegate.supportedLocales,
               navigatorObservers: [FlutterSmartDialog.observer],
               builder: FlutterSmartDialog.init(),
               theme: ConfigTheme.themeData(model.brighness, context),
