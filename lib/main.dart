@@ -76,7 +76,8 @@ class MyApp extends StatelessWidget {
               supportedLocales: S.delegate.supportedLocales,
               navigatorObservers: [FlutterSmartDialog.observer],
               builder: FlutterSmartDialog.init(),
-              theme: ConfigTheme.themeData(model.brighness, context),
+              theme: ConfigTheme.themeData(
+                  model.brighness, context, model.language),
               title: 'Flutter shop',
               debugShowCheckedModeBanner: false,
               initialRoute: '/',

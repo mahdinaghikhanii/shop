@@ -81,6 +81,7 @@ class HomeViews extends StatelessWidget {
               GButton(
                 icon: Icons.settings,
                 text: multilanguage.naemBtnNavigationInHomeViews_Setting,
+                textStyle: Theme.of(context).textTheme.button,
               ),
             ],
             onTabChange: (index) {

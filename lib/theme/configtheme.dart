@@ -2,53 +2,85 @@ import 'package:flutter/material.dart';
 import 'package:shop/constant.dart';
 
 class ConfigTheme {
-  String faPrimaryFontFamily = "IranYekan";
+  static String faPrimaryFontFamily = 'IranYekan';
   late final Color scafoldColor;
   late final Brightness brightness;
 
   ConfigTheme.light() {
     return;
   }
-  static ThemeData themeData(bool isDarkTheme, BuildContext context) {
+  static ThemeData themeData(
+      bool isDarkTheme, BuildContext context, Locale language) {
     return ThemeData(
       textTheme: TextTheme(
           labelMedium: const TextStyle(fontSize: 18, color: grey),
           headline1: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               fontSize: 24,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.normal),
           headline2: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               fontSize: 20,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.normal),
           headline3: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               fontSize: 24,
               color: isDarkTheme ? kwhite : Colors.black,
               fontWeight: FontWeight.bold),
-          headline4:
-              TextStyle(fontSize: 14, color: isDarkTheme ? kwhite : kblack),
+          headline4: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
+              fontSize: 14,
+              color: isDarkTheme ? kwhite : kblack),
           headline6: TextStyle(
               fontSize: 20,
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               color: isDarkTheme ? kwhite : kblack,
               fontWeight: FontWeight.bold),
-          bodyText1:
-              TextStyle(fontSize: 16, color: isDarkTheme ? kwhite : kblack),
+          bodyText1: TextStyle(
+            fontSize: 16,
+            color: isDarkTheme ? kwhite : kblack,
+            fontFamily:
+                language == const Locale('en') ? "" : faPrimaryFontFamily,
+          ),
           subtitle1: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               color: isDarkTheme ? kwhite : kblackappbar,
               fontSize: 24,
               fontWeight: FontWeight.bold),
           subtitle2: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               color: isDarkTheme ? kwhite : kwhite,
               fontWeight: FontWeight.bold,
               fontSize: 18),
           button: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               color: isDarkTheme ? kwhite : kblack,
               fontSize: Constans.fontButtonSisze),
           caption: TextStyle(
-              fontSize: 16, color: isDarkTheme ? kwhite : kblack, height: 1.5),
-          headlineLarge: const TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 20, color: korange),
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
+              fontSize: 16,
+              color: isDarkTheme ? kwhite : kblack,
+              height: 1.5),
+          headlineLarge: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: korange),
           headline5: TextStyle(
+              fontFamily:
+                  language == const Locale('en') ? "" : faPrimaryFontFamily,
               fontWeight: FontWeight.bold,
               fontSize: 34,
               color: isDarkTheme ? kwhite : kblack)),
