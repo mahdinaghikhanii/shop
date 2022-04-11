@@ -16,7 +16,6 @@ class CartItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
     final size = MediaQuery.of(context).size;
     return Consumer<CartProvider>(builder: (context, addcart, child) {
       final favoriteProvider = Provider.of<FavoriteProvider>(context);
@@ -26,7 +25,7 @@ class CartItems extends StatelessWidget {
         child: ListView.builder(
           itemCount: addcart.cartItems.length,
           itemBuilder: (BuildContext context, int index) {
-            ProductsModel fav = addcart.cartItems[index];
+            ProductsModel cartItems = addcart.cartItems[index];
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -53,8 +52,11 @@ class CartItems extends StatelessWidget {
                           SizedBox(
                             width: size.width * 0.18,
                             height: size.height * 0.13,
-                            child: CachedNetworkImage(
-                              imageUrl: fav.image,
+                            child: Hero(
+                              tag: cartItems.id,
+                              child: CachedNetworkImage(
+                                imageUrl: cartItems.image,
+                              ),
                             ),
                           ),
                         ],
@@ -71,7 +73,7 @@ class CartItems extends StatelessWidget {
                               height: 4,
                             ),
                             Text(
-                              fav.title,
+                              cartItems.title,
                               textAlign: TextAlign.left,
                               maxLines: 2,
                               style: textTheme.labelLarge?.copyWith(
@@ -91,7 +93,7 @@ class CartItems extends StatelessWidget {
                                     width: 5,
                                   ),
                                   Text(
-                                    fav.ratingModel.rate.toString(),
+                                    cartItems.ratingModel.rate.toString(),
                                     style: textTheme.labelLarge
                                         ?.copyWith(fontSize: 15),
                                     textAlign: TextAlign.center,
@@ -109,7 +111,7 @@ class CartItems extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "€ " + fav.price.toString(),
+                              "€ " + cartItems.price.toString(),
                               style: textTheme.labelLarge
                                   ?.copyWith(fontSize: 13, color: grey),
                               textAlign: TextAlign.center,
