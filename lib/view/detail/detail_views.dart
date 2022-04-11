@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -85,13 +86,10 @@ class DetailViews extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 3 / 2,
                   child: Center(
-                    child: PhotoView(
-                      heroAttributes:
-                          PhotoViewHeroAttributes(tag: productsModel.id),
-                      imageProvider: NetworkImage(productsModel.image),
-                      enableRotation: true,
-                    ),
-                  ),
+                      child: Hero(
+                          tag: productsModel.id,
+                          child: CachedNetworkImage(
+                              imageUrl: productsModel.image))),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(

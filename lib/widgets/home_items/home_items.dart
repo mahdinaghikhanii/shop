@@ -29,6 +29,8 @@ class HomeItems extends StatelessWidget {
             // ignore: unnecessary_null_comparison
           } else if (product.getStatusCode == 8) {
             return const Erorr();
+          } else if (snapshot.hasError) {
+            return const Erorr();
           } else {
             return Scaffold(
               extendBodyBehindAppBar: true,
