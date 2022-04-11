@@ -30,13 +30,13 @@ void main() async {
 
   Directory directory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(directory.path);
-
   Hive.registerAdapter(ProductsModelAdapter());
   Hive.registerAdapter(RatingModelAdapter());
 
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   isviewWedWidgetGetStartScreans = sharedPreferences.getInt('getStart-KEY');
   await appProvider.getDarkThemeOrLightTheme();
+  await appProvider.fetchLocale();
 
   runApp(MyApp(
     appProvider: appProvider,
@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
               ],
-              locale: Locale('en'),
+              locale: model.language,
               supportedLocales: S.delegate.supportedLocales,
               navigatorObservers: [FlutterSmartDialog.observer],
               builder: FlutterSmartDialog.init(),

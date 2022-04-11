@@ -136,7 +136,9 @@ class SettingViews extends StatelessWidget {
                         color: korange,
                         icon: Icons.language,
                         title: "Language",
-                        trailing: "English",
+                        trailing: appProvider.language == const Locale("en")
+                            ? "English"
+                            : "فارسی",
                         visibilityArrowIcons: true,
                       ),
                       BuildListTile(

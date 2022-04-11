@@ -37,11 +37,12 @@ class LanguageBottomSheet extends StatelessWidget {
             ),
             title: Text("English", style: textTheme.bodyText1),
             onTap: () {
+              appProvider.setLanguage('en');
               Navigator.pop(context);
             },
             trailing: Icon(
               Icons.check,
-              color: appProvider.brighness == false
+              color: appProvider.language == const Locale('en')
                   ? Colors.blue
                   : Colors.transparent,
             ),
@@ -52,13 +53,17 @@ class LanguageBottomSheet extends StatelessWidget {
               Icons.language,
               color: Colors.orange,
             ),
-            title: Text("Persian", style: textTheme.bodyText1),
+            title: Text(
+              "قارسی",
+              style: textTheme.bodyText1?.copyWith(fontFamily: ""),
+            ),
             onTap: () {
+              appProvider.setLanguage('fa');
               Navigator.pop(context);
             },
             trailing: Icon(
               Icons.check,
-              color: appProvider.brighness == true
+              color: appProvider.language == const Locale('fa')
                   ? Colors.orange
                   : Colors.transparent,
             ),
