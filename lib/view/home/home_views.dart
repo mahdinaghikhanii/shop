@@ -68,7 +68,8 @@ class HomeViews extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             tabs: [
               GButton(
-                textStyle: Theme.of(context).textTheme.button,
+                textStyle:
+                    Theme.of(context).textTheme.button?.copyWith(color: kwhite),
                 icon: Icons.home,
                 text: multilanguage.naemBtnNavigationInHomeViews_Home,
               ),
@@ -78,12 +79,15 @@ class HomeViews extends StatelessWidget {
                     ? multilanguage.naemBtnNavigationInHomeViews_Cart
                     : multilanguage.naemBtnNavigationInHomeViews_Cart +
                         cartProvider.countAddCart.toString(),
-                textStyle: Theme.of(context).textTheme.button,
+                textStyle:
+                    Theme.of(context).textTheme.button?.copyWith(color: kwhite),
               ),
               GButton(
                 icon: Icons.settings,
-                text: multilanguage.naemBtnNavigationInHomeViews_Setting,
-                textStyle: Theme.of(context).textTheme.button,
+                text: multilanguage
+                    .naemBtnNavigationInHomeViews_Setting_andAppbarSetting,
+                textStyle:
+                    Theme.of(context).textTheme.button?.copyWith(color: kwhite),
               ),
             ],
             onTabChange: (index) {

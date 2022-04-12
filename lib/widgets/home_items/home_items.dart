@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
@@ -13,6 +14,7 @@ class HomeItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final product = Provider.of<Repository>(context, listen: false);
     product.featchData();
     final textTheme = Theme.of(context).textTheme;
@@ -46,26 +48,35 @@ class HomeItems extends StatelessWidget {
                       pinned: false,
                       floating: true,
                       flexibleSpace: const FlexibleSpaceBar(
-                          titlePadding:
-                              EdgeInsets.only(top: 20, left: 20, right: 20)),
+                          titlePadding: EdgeInsets.only(top: 20)),
                       title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'The most popular',
-                            style: textTheme.subtitle1,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Text(
+                              multilanguage.home_buoldchip_text_Themostpopular,
+                              style: textTheme.subtitle1,
+                            ),
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          Text(
-                            'clothes today',
-                            style: textTheme.headline1,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10, left: 10),
+                            child: Text(
+                              multilanguage.home_buildchip_text_clothestoday,
+                              style:
+                                  textTheme.headline1?.copyWith(fontSize: 18),
+                            ),
                           ),
-                          const SizedBox(
-                              height: 70,
-                              width: double.infinity,
-                              child: BuildChip()),
+                          const Padding(
+                            padding: EdgeInsets.only(right: 5, left: 5),
+                            child: SizedBox(
+                                height: 70,
+                                width: double.infinity,
+                                child: BuildChip()),
+                          ),
                         ],
                       ),
                     ),

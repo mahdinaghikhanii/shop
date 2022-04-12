@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/widgets/favorite_items/favorite_items.dart';
 
 import '../../provider/favorite_provider/favorite_provider.dart';
@@ -12,6 +13,7 @@ class FavoriteViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     context.watch<FavoriteProvider>().countFavorite();
     final favoriteProvider = Provider.of<FavoriteProvider>(context);
 
@@ -45,7 +47,7 @@ class FavoriteViews extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           favoriteProvider.lenghFavorite == 0
-              ? const NothingIsHere(text: "You have no\nFavorite :(")
+              ? NothingIsHere(text: multilanguage.favorite_text_nowhavecart)
               : const FavoriteItems(),
         ],
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
@@ -15,6 +16,7 @@ class SettingViews extends StatelessWidget {
   Widget build(BuildContext context) {
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
+    var multilanguage = S.of(context);
 
     return SafeArea(
       child: Scaffold(
@@ -22,7 +24,8 @@ class SettingViews extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.all(Constans.padding),
             child: Text(
-              'Settings',
+              multilanguage
+                  .naemBtnNavigationInHomeViews_Setting_andAppbarSetting,
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
@@ -39,7 +42,7 @@ class SettingViews extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Account",
+                      Text(multilanguage.setting_Text_Account,
                           style: textTheme.subtitle1?.copyWith(fontSize: 18)),
                       const SizedBox(
                         height: 14,
@@ -75,7 +78,8 @@ class SettingViews extends StatelessWidget {
                                     Navigator.pushNamed(
                                         context, RouteManager.loginViews);
                                   },
-                                  child: Text("Login",
+                                  child: Text(
+                                      multilanguage.setting_button_login,
                                       style: textTheme.subtitle1?.copyWith(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400,
@@ -91,7 +95,8 @@ class SettingViews extends StatelessWidget {
                                     Navigator.pushNamed(
                                         context, RouteManager.signUp);
                                   },
-                                  child: Text("Register",
+                                  child: Text(
+                                      multilanguage.setting_button_register,
                                       style: textTheme.subtitle1?.copyWith(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400,
@@ -105,7 +110,9 @@ class SettingViews extends StatelessWidget {
                       const SizedBox(
                         height: 25,
                       ),
-                      Text("Settings",
+                      Text(
+                          multilanguage
+                              .naemBtnNavigationInHomeViews_Setting_andAppbarSetting,
                           style: textTheme.subtitle1?.copyWith(fontSize: 18)),
                       const SizedBox(
                         height: 15,
@@ -122,8 +129,10 @@ class SettingViews extends StatelessWidget {
                         icon: appProvider.brighness
                             ? Icons.dark_mode
                             : Icons.light_mode,
-                        title: "Appearance",
-                        trailing: appProvider.brighness ? "Dark" : "Light",
+                        title: multilanguage.setting_Listtitle_appearance,
+                        trailing: appProvider.brighness
+                            ? multilanguage.bottomsheet_btnText_dark
+                            : multilanguage.bottomsheet_btnText_light,
                         visibilityArrowIcons: true,
                       ),
                       BuildListTile(
@@ -135,7 +144,7 @@ class SettingViews extends StatelessWidget {
                         },
                         color: korange,
                         icon: Icons.language,
-                        title: "Language",
+                        title: multilanguage.setting_Listtile_Language,
                         trailing: appProvider.language == const Locale("en")
                             ? "English"
                             : "فارسی",
@@ -148,7 +157,7 @@ class SettingViews extends StatelessWidget {
                         },
                         color: kred,
                         icon: Icons.favorite,
-                        title: "Favorite",
+                        title: multilanguage.setting_Listtile_Favorite,
                         trailing: "",
                         visibilityArrowIcons: true,
                       ),
@@ -159,7 +168,7 @@ class SettingViews extends StatelessWidget {
                         },
                         color: kgreen,
                         icon: Icons.help,
-                        title: "Help",
+                        title: multilanguage.setting_Listtile_Help,
                         trailing: "",
                         visibilityArrowIcons: true,
                       ),
@@ -167,7 +176,7 @@ class SettingViews extends StatelessWidget {
                         ontap: () {},
                         color: kpink,
                         icon: Icons.logout,
-                        title: "Logout",
+                        title: multilanguage.setting_Listtile_Logout,
                         trailing: "",
                         visibilityArrowIcons: true,
                       ),
@@ -188,7 +197,7 @@ class SettingViews extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'about developer',
+                        multilanguage.setting_linktext_aboutdeveloper,
                         style: textTheme.labelMedium?.copyWith(fontSize: 14),
                       ),
                     ),

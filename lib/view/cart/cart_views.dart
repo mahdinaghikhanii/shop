@@ -49,7 +49,7 @@ class CartViews extends StatelessWidget {
               height: 00,
             ),
             cartProvider.countAddCart == 0
-                ? const NothingIsHere(text: "You have no\nCart :(")
+                ? NothingIsHere(text: multilanguage.cart_text_nowhavecart)
                 : const CartItems(),
           ],
         ),

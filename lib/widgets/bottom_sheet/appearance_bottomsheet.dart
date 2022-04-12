@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/main.dart';
 
 class AppearnaceBottomSheets extends StatelessWidget {
@@ -8,6 +9,7 @@ class AppearnaceBottomSheets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    var multilanguage = S.of(context);
 
     return Container(
       padding: const EdgeInsets.all(
@@ -36,7 +38,8 @@ class AppearnaceBottomSheets extends StatelessWidget {
               Icons.brightness_5,
               color: Colors.blue,
             ),
-            title: Text("Light", style: textTheme.bodyText1),
+            title: Text(multilanguage.bottomsheet_btnText_light,
+                style: textTheme.bodyText1),
             onTap: () {
               appProvider.brightnessChange = false;
               Navigator.pop(context);
@@ -54,7 +57,8 @@ class AppearnaceBottomSheets extends StatelessWidget {
               Icons.brightness_2,
               color: Colors.orange,
             ),
-            title: Text("Dark", style: textTheme.bodyText1),
+            title: Text(multilanguage.bottomsheet_btnText_dark,
+                style: textTheme.bodyText1),
             onTap: () {
               appProvider.brightnessChange = true;
               Navigator.pop(context);

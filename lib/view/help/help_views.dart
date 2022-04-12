@@ -3,11 +3,14 @@ import 'package:shop/constant.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 
+import '../../generated/l10n.dart';
+
 class HelpViews extends StatelessWidget {
   const HelpViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -29,7 +32,7 @@ class HelpViews extends StatelessWidget {
             left: Constans.padding,
           ),
           child: Text(
-            'Help',
+            multilanguage.setting_Listtile_Help,
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ),
@@ -42,7 +45,7 @@ class HelpViews extends StatelessWidget {
               ontap: () {},
               color: grey,
               icon: Icons.help,
-              title: "Help Centre",
+              title: multilanguage.help_listttile_text_helpcenter,
               trailing: '',
               visibilityArrowIcons: false,
             ),
@@ -52,7 +55,7 @@ class HelpViews extends StatelessWidget {
               },
               color: grey,
               icon: Icons.contact_mail,
-              title: "Contact us",
+              title: multilanguage.contactus_appbar_text,
               trailing: '',
               visibilityArrowIcons: false,
             ),
@@ -62,7 +65,7 @@ class HelpViews extends StatelessWidget {
               },
               color: grey,
               icon: Icons.info,
-              title: "App info",
+              title: multilanguage.help_listttile_textappinfo,
               trailing: '',
               visibilityArrowIcons: false,
             )
