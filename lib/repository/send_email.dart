@@ -52,7 +52,6 @@ class SendEmail extends ChangeNotifier {
     } else {
       _showCircularProgressIndicator = true;
       _checkTextEdit = false;
-      clearTextEdit();
       notifyListeners();
       final _response = await http.post(url,
           headers: {
@@ -74,6 +73,7 @@ class SendEmail extends ChangeNotifier {
       if (_response.statusCode == 200) {
         _statusCodes = _response.statusCode;
         _showCircularProgressIndicator = false;
+        clearTextEdit();
         notifyListeners();
         return _response.statusCode;
       } else {
