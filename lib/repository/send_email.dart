@@ -41,9 +41,9 @@ class SendEmail extends ChangeNotifier {
     const serviceId = "service_thha95k";
     const templatedID = "template_u19u98f";
     const userId = "XZHT9xJ29pArXSCz2";
-    if (_name.text.isEmpty &&
-        _subject.text.isEmpty &&
-        _email.text.isEmpty &&
+    if (_name.text.isEmpty &
+        _subject.text.isEmpty &
+        _email.text.isEmpty &
         _message.text.isEmpty) {
       _checkTextEdit = true;
 

@@ -51,6 +51,8 @@ dependencies:
   build_runner: ^2.1.8
   url_launcher: ^6.0.20
   flutter_smart_dialog: ^3.4.2+1
+  appwrite: ^4.0.2
+
 
 
 dev_dependencies:
