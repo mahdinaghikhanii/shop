@@ -19,6 +19,7 @@ class LoginViews extends StatelessWidget {
         foregroundColor: appProvider.brighness ? kwhite : kblackappbar,
         elevation: 0,
       ),
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SafeArea(
         child: Padding(

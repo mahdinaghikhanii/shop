@@ -16,6 +16,7 @@ class SignUpViews extends StatelessWidget {
     TextEditingController _passwordContoroller = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 12),
