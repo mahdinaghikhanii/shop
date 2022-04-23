@@ -5,9 +5,11 @@ import 'package:shop/generated/l10n.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
+import 'package:shop/widgets/loading/loading.dart';
 
 import '../../repository/repository.dart';
 import '../../view/detail/detail_views.dart';
+import '../skelton/skelton.dart';
 
 class HomeItems extends StatelessWidget {
   const HomeItems({Key? key}) : super(key: key);
@@ -23,11 +25,7 @@ class HomeItems extends StatelessWidget {
         future: Provider.of<Repository>(context, listen: false).featchData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: kyellow,
-              ),
-            );
+            return Loading();
             // ignore: unnecessary_null_comparison
           } else if (product.getStatusCode == 8) {
             return const Erorr();
