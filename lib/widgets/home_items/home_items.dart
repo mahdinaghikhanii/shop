@@ -9,7 +9,6 @@ import 'package:shop/widgets/loading/loading.dart';
 
 import '../../repository/repository.dart';
 import '../../view/detail/detail_views.dart';
-import '../skelton/skelton.dart';
 
 class HomeItems extends StatelessWidget {
   const HomeItems({Key? key}) : super(key: key);
@@ -25,7 +24,25 @@ class HomeItems extends StatelessWidget {
         future: Provider.of<Repository>(context, listen: false).featchData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Loading();
+            return SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(Constans.padding),
+                child: GridView.builder(
+                    addAutomaticKeepAlives: true,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 8,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 20,
+                            childAspectRatio: 0.80,
+                            mainAxisSpacing: 20),
+                    itemBuilder: (context, index) {
+                      return const Loading();
+                    }),
+              ),
+            );
             // ignore: unnecessary_null_comparison
           } else if (product.getStatusCode == 8) {
             return const Erorr();
