@@ -5,7 +5,7 @@ import 'package:shop/generated/l10n.dart';
 import 'package:shop/main.dart';
 import 'package:shop/view/home/home_views.dart';
 
-import '../../repository/repository.dart';
+import '../../services/repository.dart';
 
 class BuildChip extends StatelessWidget {
   const BuildChip({

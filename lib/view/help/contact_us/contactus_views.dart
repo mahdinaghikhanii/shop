@@ -2,8 +2,8 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../constant.dart';
-import '../../../repository/send_email.dart';
 import '../../../routes/routes.dart';
+import '../../../services/send_email.dart';
 import '../../../widgets/buttons/button_submit_data/button_submit_data.dart';
 import '../../../widgets/input_text/input_text_contactus.dart';
 

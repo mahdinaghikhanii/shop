@@ -6,8 +6,7 @@ import 'package:shop/widgets/buildchip/build_chip.dart';
 import 'package:shop/widgets/erorr/erorr.dart';
 import 'package:shop/widgets/home_items/shop_list.dart';
 import 'package:shop/widgets/loading/loading.dart';
-
-import '../../repository/repository.dart';
+import '../../services/repository.dart';
 import '../../view/detail/detail_views.dart';
 
 class HomeItems extends StatelessWidget {

@@ -13,9 +13,10 @@ import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
-import 'package:shop/repository/repository.dart';
-import 'package:shop/repository/send_email.dart';
+
 import 'package:shop/routes/routes.dart';
+import 'package:shop/services/repository.dart';
+import 'package:shop/services/send_email.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
