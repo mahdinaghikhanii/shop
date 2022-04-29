@@ -1,18 +1,14 @@
-// ignore_for_file: unused_local_variable
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/generated/l10n.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
-import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/view/cart/cart_views.dart';
 import 'package:shop/view/setting/setting_views.dart';
 import 'package:shop/widgets/home_items/home_items.dart';
-
 import '../../provider/app_provider/app_provider.dart';
-import '../../services/repository.dart';
 
 class HomeViews extends StatelessWidget {
   const HomeViews({Key? key}) : super(key: key);
@@ -20,9 +16,9 @@ class HomeViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var multilanguage = S.of(context);
-    final detailProvider = Provider.of<DetailProvider>(context);
+
     final appProvider = Provider.of<AppProvider>(context);
-    final textTheme = Theme.of(context).textTheme;
+
     final bottomNavigationBar =
         Provider.of<BottomNavigationBarProvider>(context);
     final cartProvider = Provider.of<CartProvider>(context);
@@ -34,7 +30,6 @@ class HomeViews extends StatelessWidget {
       SettingViews(),
     ];
 
-    final repository = Provider.of<Repository>(context);
     return Scaffold(
       body: Screans[bottomNavigationBar.currentIndex],
       bottomNavigationBar: SafeArea(

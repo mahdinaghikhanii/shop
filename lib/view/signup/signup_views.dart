@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/view/login/login_views.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -11,6 +12,8 @@ class SignUpViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final service = Provider.of<AppwriteAuth>(context);
+    //
     TextEditingController _nameContoroloer = TextEditingController();
     TextEditingController _emailContoroller = TextEditingController();
     TextEditingController _passwordContoroller = TextEditingController();
@@ -84,7 +87,9 @@ class SignUpViews extends StatelessWidget {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     InkWell(
-                      onTap: () async {},
+                      onTap: () async {
+                        context.read()<AppwriteAuth>().client;
+                      },
                       child: Container(
                         height: 80,
                         width: 80,

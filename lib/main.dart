@@ -15,6 +15,7 @@ import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
 
 import 'package:shop/routes/routes.dart';
+import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/services/repository.dart';
 import 'package:shop/services/send_email.dart';
 import 'package:shop/theme/configtheme.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => AppwriteAuth()),
           ChangeNotifierProvider(create: (context) => CartProvider()),
           ChangeNotifierProvider(create: (context) => SendEmail()),
           ChangeNotifierProvider(create: (context) => FavoriteProvider()),
