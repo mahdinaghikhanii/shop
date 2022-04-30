@@ -2,20 +2,18 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 
 class AppwriteAuth extends ChangeNotifier {
-  var client = Client()
+  Client client = Client()
       .setEndpoint("http://localhost:4003/v1") // Your API Endpoint
       .setProject("626a5244cf1dca4dee63") // Your project ID
       .setSelfSigned(status: true);
-
-  get account => Account(client);
 
   bool _isLoggedIn = false;
 
   get getIsLogged => _isLoggedIn;
 
-  void singnInUser(String name, String email, String password) async {
+  void singnInUser(String name, String email, String password, account) async {
     try {
-      Response user =
+      final user =
           await account.create(name: name, email: email, password: password);
       print(user.toString());
 

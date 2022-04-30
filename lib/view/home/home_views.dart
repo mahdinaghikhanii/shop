@@ -25,7 +25,6 @@ class HomeViews extends StatelessWidget {
     // ignore: constant_identifier_names
     const List Screans = [
       HomeItems(),
-      // SearchViews(),
       CartViews(),
       SettingViews(),
     ];

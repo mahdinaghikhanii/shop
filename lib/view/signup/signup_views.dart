@@ -1,8 +1,11 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/view/login/login_views.dart';
+import 'package:shop/widgets/home_items/home_items.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import '../../provider/app_provider/app_provider.dart';
 import '../../widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
@@ -88,7 +91,22 @@ class SignUpViews extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () async {
-                        context.read()<AppwriteAuth>().client;
+                        final client = context.read<AppwriteAuth>().client;
+                        final account = Account(client);
+
+                        try {
+                          var respone = await account.create(
+                              name: _nameContoroloer.text,
+                              userId: 'unique()',
+                              email: _emailContoroller.text,
+                              password: _passwordContoroller.text);
+                          if (respone.status == true) {
+                            Navigator.pushReplacementNamed(
+                                context, RouteManager.homeViews[0]);
+                          }
+                        } catch (e) {
+                          print('false');
+                        }
                       },
                       child: Container(
                         height: 80,
