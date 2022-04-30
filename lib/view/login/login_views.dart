@@ -1,6 +1,9 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/services/appwrite_auth.dart';
+import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
@@ -11,7 +14,8 @@ class LoginViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _nameContoroloer = TextEditingController();
+    final service = Provider.of<AppwriteAuth>(context);
+    TextEditingController _eamilContoroler = TextEditingController();
     TextEditingController _passwordContoroler = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
     return Scaffold(
@@ -66,7 +70,7 @@ class LoginViews extends StatelessWidget {
               InputText(
                 hintText: 'Enter your username',
                 labelText: 'Username',
-                contoroller: _nameContoroloer,
+                contoroller: _eamilContoroler,
                 padding: 0,
               ),
               const SizedBox(
@@ -89,18 +93,43 @@ class LoginViews extends StatelessWidget {
                     'Sign in',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: appProvider.brighness ? kwhite : kblackappbar,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.arrow_right_alt_outlined,
-                        size: 45,
-                        color: appProvider.brighness ? kblackappbar : kwhite,
+                  InkWell(
+                    borderRadius:
+                        BorderRadius.circular(Constans.mediumBorderRadios),
+                    onTap: () async {
+                      final client = context.read<AppwriteAuth>().client;
+                      final account = Account(client);
+
+                      try {
+                        final respone = await account.createSession(
+                            email: _eamilContoroler.text,
+                            password: _passwordContoroler.text);
+                        if (respone.current == true) {
+                          print('done');
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeViews()));
+                        }
+                      } on AppwriteException catch (e) {
+                        print(e.message);
+                        // Account already exists
+                        if (e.code == 409) {}
+                      }
+                    },
+                    child: Container(
+                      height: 80,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: appProvider.brighness ? kwhite : kblackappbar,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.arrow_right_alt_outlined,
+                          size: 45,
+                          color: appProvider.brighness ? kblackappbar : kwhite,
+                        ),
                       ),
                     ),
                   )

@@ -2,10 +2,9 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
+import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/login/login_views.dart';
-import 'package:shop/widgets/home_items/home_items.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import '../../provider/app_provider/app_provider.dart';
 import '../../widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
@@ -90,10 +89,11 @@ class SignUpViews extends StatelessWidget {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     InkWell(
+                      borderRadius:
+                          BorderRadius.circular(Constans.mediumBorderRadios),
                       onTap: () async {
                         final client = context.read<AppwriteAuth>().client;
                         final account = Account(client);
-
                         try {
                           var respone = await account.create(
                               name: _nameContoroloer.text,
@@ -101,11 +101,16 @@ class SignUpViews extends StatelessWidget {
                               email: _emailContoroller.text,
                               password: _passwordContoroller.text);
                           if (respone.status == true) {
-                            Navigator.pushReplacementNamed(
-                                context, RouteManager.homeViews[0]);
+                            service.setsSaveSignInAndSignUp(
+                                true, _nameContoroloer.text);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeViews()));
                           }
-                        } catch (e) {
-                          print('false');
+                        } on AppwriteException catch (e) {
+                          // Account already exists
+                          if (e.code == 409) {}
                         }
                       },
                       child: Container(
