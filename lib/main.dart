@@ -41,6 +41,7 @@ void main() async {
   await appProvider.getDarkThemeOrLightTheme();
   await appProvider.fetchLocale();
   await appwriteAuth.getsaveSignInAndSignUp();
+  // await appwriteAuth.logOutAccount();
 
   runApp(MyApp(
     appProvider: appProvider,

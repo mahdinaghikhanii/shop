@@ -6,20 +6,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppwriteAuth extends ChangeNotifier {
   //this part for connected appwrite Server
-
   Client client = Client()
       .setEndpoint("http://localhost:4003/v1") // Your API Endpoint
       .setProject("626a5244cf1dca4dee63") // Your project ID
       .setSelfSigned(status: true);
 
   final String LOGIN_CHECK = 'LOGINCHECK';
-
   final String LOGIN_USERNAME = 'LOGINUSERNAME';
 
+  //check login is login or not
   bool _isLoggedIn = false;
-  String _username = 'true';
-
   get getIsLogged => _isLoggedIn;
+
+  // user login name
+  String _username = '';
+  get getUserName => _username;
 
   void setsSaveSignInAndSignUp(bool check, String name) {
     _isLoggedIn = check;
@@ -33,8 +34,6 @@ class AppwriteAuth extends ChangeNotifier {
     await sharedPreferences.setBool(LOGIN_CHECK, check);
     await sharedPreferences.setString(LOGIN_USERNAME, name);
   }
-
-  getDarkThemeOrLightTheme() async {}
 
   Future logOutAccount() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

@@ -2,6 +2,7 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/main.dart';
 import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/view/signup/signup_views.dart';
@@ -105,11 +106,12 @@ class LoginViews extends StatelessWidget {
                             email: _eamilContoroler.text,
                             password: _passwordContoroler.text);
                         if (respone.current == true) {
+                          appwriteAuth.setsSaveSignInAndSignUp(
+                              true, _eamilContoroler.text);
                           Navigator.pushReplacementNamed(
                               context, RouteManager.homeViews);
                         }
                       } on AppwriteException catch (e) {
-                        print(e.message);
                         // Account already exists
                         if (e.code == 409) {}
                       }

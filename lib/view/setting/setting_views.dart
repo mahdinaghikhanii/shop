@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/generated/l10n.dart';
+import 'package:shop/main.dart';
 import 'package:shop/routes/routes.dart';
+import 'package:shop/services/appwrite_auth.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -76,39 +78,50 @@ class SettingViews extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(width: 16),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, RouteManager.loginViews);
-                                    },
-                                    child: Text(
-                                        multilanguage.setting_button_login,
-                                        style: textTheme.subtitle1?.copyWith(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w400,
-                                            color: kyellow)),
-                                  ),
-                                  Text(" / ",
-                                      style: textTheme.subtitle1?.copyWith(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: kyellow)),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.pushNamed(
-                                          context, RouteManager.signUp);
-                                    },
-                                    child: Text(
-                                        multilanguage.setting_button_register,
-                                        style: textTheme.subtitle1?.copyWith(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w400,
-                                            color: kyellow)),
-                                  ),
-                                ],
-                              )
+                              SizedBox(
+                                  child: appwriteAuth.getIsLogged
+                                      ? Text(appwriteAuth.getUserName)
+                                      : Row(
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.pushNamed(context,
+                                                    RouteManager.loginViews);
+                                              },
+                                              child: Text(
+                                                  multilanguage
+                                                      .setting_button_login,
+                                                  style: textTheme.subtitle1
+                                                      ?.copyWith(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: kyellow)),
+                                            ),
+                                            Text(" / ",
+                                                style: textTheme.subtitle1
+                                                    ?.copyWith(
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                            FontWeight.w400,
+                                                        color: kyellow)),
+                                            InkWell(
+                                              onTap: () {
+                                                Navigator.pushNamed(context,
+                                                    RouteManager.signUp);
+                                              },
+                                              child: Text(
+                                                  multilanguage
+                                                      .setting_button_register,
+                                                  style: textTheme.subtitle1
+                                                      ?.copyWith(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: kyellow)),
+                                            ),
+                                          ],
+                                        ))
                             ],
                           ),
                         ),
@@ -178,12 +191,14 @@ class SettingViews extends StatelessWidget {
                           visibilityArrowIcons: true,
                         ),
                         BuildListTile(
-                          ontap: () {},
+                          ontap: () {
+                            appwriteAuth.logOutAccount();
+                          },
                           color: kpink,
                           icon: Icons.logout,
                           title: multilanguage.setting_Listtile_Logout,
                           trailing: "",
-                          visibilityArrowIcons: true,
+                          visibilityArrowIcons: appwriteAuth.getIsLogged,
                         ),
                         const SizedBox(
                           height: 20,
