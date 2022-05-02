@@ -52,89 +52,92 @@ class LoginViews extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Text('Welcome\nBack',
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w800,
-                      color: appProvider.brighness ? kwhite : kblackappbar)),
-              const SizedBox(
-                height: 140,
-              ),
-              InputText(
-                hintText: 'Enter your username',
-                labelText: 'Username',
-                contoroller: _eamilContoroler,
-                padding: 0,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              InputText(
-                hintText: 'Enter your password',
-                labelText: 'Password',
-                contoroller: _passwordContoroler,
-                padding: 0,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'Sign in',
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                  InkWell(
-                    borderRadius:
-                        BorderRadius.circular(Constans.mediumBorderRadios),
-                    onTap: () async {
-                      final client = context.read<AppwriteAuth>().client;
-                      final account = Account(client);
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Text('Welcome\nBack',
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w800,
+                        color: appProvider.brighness ? kwhite : kblackappbar)),
+                const SizedBox(
+                  height: 140,
+                ),
+                InputText(
+                  hintText: 'Enter your username',
+                  labelText: 'Username',
+                  contoroller: _eamilContoroler,
+                  padding: 0,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                InputText(
+                  hintText: 'Enter your password',
+                  labelText: 'Password',
+                  contoroller: _passwordContoroler,
+                  padding: 0,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Sign in',
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    InkWell(
+                      borderRadius:
+                          BorderRadius.circular(Constans.mediumBorderRadios),
+                      onTap: () async {
+                        final client = context.read<AppwriteAuth>().client;
+                        final account = Account(client);
 
-                      try {
-                        final respone = await account.createSession(
-                            email: _eamilContoroler.text,
-                            password: _passwordContoroler.text);
-                        if (respone.current == true) {
-                          appwriteAuth.setsSaveSignInAndSignUp(
-                              true, _eamilContoroler.text);
-                          Navigator.pushReplacementNamed(
-                              context, RouteManager.homeViews);
+                        try {
+                          final respone = await account.createSession(
+                              email: _eamilContoroler.text,
+                              password: _passwordContoroler.text);
+                          if (respone.current == true) {
+                            appwriteAuth.setsSaveSignInAndSignUp(
+                                true, _eamilContoroler.text);
+                            Navigator.pushReplacementNamed(
+                                context, RouteManager.homeViews);
+                          }
+                        } on AppwriteException catch (e) {
+                          // Account already exists
+                          if (e.code == 409) {}
                         }
-                      } on AppwriteException catch (e) {
-                        // Account already exists
-                        if (e.code == 409) {}
-                      }
-                    },
-                    child: Container(
-                      height: 80,
-                      width: 80,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: appProvider.brighness ? kwhite : kblackappbar,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_right_alt_outlined,
-                          size: 45,
-                          color: appProvider.brighness ? kblackappbar : kwhite,
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: appProvider.brighness ? kwhite : kblackappbar,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.arrow_right_alt_outlined,
+                            size: 45,
+                            color:
+                                appProvider.brighness ? kblackappbar : kwhite,
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                ],
-              )
-            ],
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
