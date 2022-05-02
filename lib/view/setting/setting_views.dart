@@ -28,6 +28,7 @@ class SettingViews extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Padding(
               padding: const EdgeInsets.all(Constans.padding),
               child: Text(
