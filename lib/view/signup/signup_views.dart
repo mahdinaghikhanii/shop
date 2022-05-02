@@ -59,6 +59,12 @@ class SignUpViews extends StatelessWidget {
                 labelText: 'Name',
                 contoroller: _nameContoroloer,
                 padding: 0,
+                validator: (value) {
+                  if (value!.isEmpty || !value.contains('@')) {
+                    return 'Invalid email!';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 15,
@@ -68,6 +74,7 @@ class SignUpViews extends StatelessWidget {
                 labelText: 'Email',
                 contoroller: _emailContoroller,
                 padding: 0,
+                validator: null,
               ),
               const SizedBox(
                 height: 15,
@@ -77,6 +84,7 @@ class SignUpViews extends StatelessWidget {
                 labelText: 'Password',
                 contoroller: _passwordContoroller,
                 padding: 0,
+                validator: null,
               ),
               const SizedBox(
                 height: 60,

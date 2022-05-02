@@ -74,6 +74,12 @@ class LoginViews extends StatelessWidget {
                   labelText: 'Username',
                   contoroller: _eamilContoroler,
                   padding: 0,
+                  validator: (value) {
+                    if (value!.isEmpty || !value.contains('@')) {
+                      return 'Invalid email!';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 15,
@@ -83,6 +89,12 @@ class LoginViews extends StatelessWidget {
                   labelText: 'Password',
                   contoroller: _passwordContoroler,
                   padding: 0,
+                  validator: (value) {
+                    if (value!.isEmpty || !value.contains('@')) {
+                      return 'Invalid email!';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(
                   height: 25,

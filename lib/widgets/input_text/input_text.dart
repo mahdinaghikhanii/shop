@@ -5,12 +5,14 @@ class InputText extends StatelessWidget {
       {Key? key,
       required this.padding,
       required this.hintText,
+      required this.validator,
       required this.labelText,
       required this.contoroller})
       : super(key: key);
   final String labelText;
   final String hintText;
   final double padding;
+  final validator;
 
   final TextEditingController contoroller;
 
@@ -20,6 +22,7 @@ class InputText extends StatelessWidget {
       padding: EdgeInsets.all(padding),
       child: TextFormField(
           autofocus: false,
+          validator: validator,
           controller: contoroller,
           decoration: InputDecoration(
               labelText: labelText,
