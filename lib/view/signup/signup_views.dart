@@ -109,6 +109,7 @@ class SignUpViews extends StatelessWidget {
                                     builder: (context) => const HomeViews()));
                           }
                         } on AppwriteException catch (e) {
+                          print(e.message);
                           // Account already exists
                           if (e.code == 409) {}
                         }

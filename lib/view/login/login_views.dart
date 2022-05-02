@@ -2,8 +2,8 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
-import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
@@ -105,11 +105,8 @@ class LoginViews extends StatelessWidget {
                             email: _eamilContoroler.text,
                             password: _passwordContoroler.text);
                         if (respone.current == true) {
-                          print('done');
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeViews()));
+                          Navigator.pushReplacementNamed(
+                              context, RouteManager.homeViews);
                         }
                       } on AppwriteException catch (e) {
                         print(e.message);

@@ -27,6 +27,7 @@ import 'provider/app_provider/app_provider.dart';
 
 int? isviewWedWidgetGetStartScreans;
 AppProvider appProvider = AppProvider();
+AppwriteAuth appwriteAuth = AppwriteAuth();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -39,6 +40,7 @@ void main() async {
   isviewWedWidgetGetStartScreans = sharedPreferences.getInt('getStart-KEY');
   await appProvider.getDarkThemeOrLightTheme();
   await appProvider.fetchLocale();
+  await appwriteAuth.getsaveSignInAndSignUp();
 
   runApp(MyApp(
     appProvider: appProvider,

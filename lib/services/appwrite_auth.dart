@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppwriteAuth extends ChangeNotifier {
+  // ignore: non_constant_identifier_names
   final String LOGIN_STATUS = 'STATUSLOGIN';
 
   Client client = Client()
@@ -26,7 +27,7 @@ class AppwriteAuth extends ChangeNotifier {
     sharedPreferences.setString(LOGIN_STATUS, name);
   }
 
-  void getsaveSignInAndSignUp() async {
+  getsaveSignInAndSignUp() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     if (sharedPreferences.getBool(LOGIN_STATUS) == null) {
       _isLoggedIn = false;
