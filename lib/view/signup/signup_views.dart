@@ -2,6 +2,7 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/main.dart';
 import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/login/login_views.dart';
@@ -101,8 +102,8 @@ class SignUpViews extends StatelessWidget {
                               email: _emailContoroller.text,
                               password: _passwordContoroller.text);
                           if (respone.status == true) {
-                            service.setsSaveSignInAndSignUp(
-                                true, _nameContoroloer.text);
+                            appwriteAuth.setsSaveSignInAndSignUp(
+                                true, _emailContoroller.text);
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(

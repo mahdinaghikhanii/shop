@@ -81,7 +81,11 @@ class SettingViews extends StatelessWidget {
                               const SizedBox(width: 16),
                               SizedBox(
                                   child: appwriteAuth.getIsLogged
-                                      ? Text(appwriteAuth.getUserName)
+                                      ? Text(appwriteAuth.getUserName,
+                                          style: textTheme.subtitle1?.copyWith(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w400,
+                                              color: kyellow))
                                       : Row(
                                           children: [
                                             InkWell(
