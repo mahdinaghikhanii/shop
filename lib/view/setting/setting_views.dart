@@ -4,7 +4,7 @@ import 'package:shop/constant.dart';
 import 'package:shop/generated/l10n.dart';
 import 'package:shop/main.dart';
 import 'package:shop/routes/routes.dart';
-import 'package:shop/services/appwrite_auth.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -190,15 +190,18 @@ class SettingViews extends StatelessWidget {
                           trailing: "",
                           visibilityArrowIcons: true,
                         ),
-                        BuildListTile(
-                          ontap: () {
-                            appwriteAuth.logOutAccount();
-                          },
-                          color: kpink,
-                          icon: Icons.logout,
-                          title: multilanguage.setting_Listtile_Logout,
-                          trailing: "",
-                          visibilityArrowIcons: appwriteAuth.getIsLogged,
+                        Visibility(
+                          visible: appwriteAuth.getIsLogged,
+                          child: BuildListTile(
+                            ontap: () {
+                              appwriteAuth.logOutAccount();
+                            },
+                            color: kpink,
+                            icon: Icons.logout,
+                            title: multilanguage.setting_Listtile_Logout,
+                            trailing: "",
+                            visibilityArrowIcons: false,
+                          ),
                         ),
                         const SizedBox(
                           height: 20,

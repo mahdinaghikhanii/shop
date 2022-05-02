@@ -37,7 +37,8 @@ class AppwriteAuth extends ChangeNotifier {
 
   Future logOutAccount() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return await sharedPreferences.remove(LOGIN_CHECK);
+    return await sharedPreferences.remove(LOGIN_CHECK) &&
+        await sharedPreferences.remove(LOGIN_CHECK);
   }
 
   getsaveSignInAndSignUp() async {
