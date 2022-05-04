@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -124,9 +126,21 @@ class LoginViews extends StatelessWidget {
                             Navigator.pushReplacementNamed(
                                 context, RouteManager.homeViews);
                           }
-                        } on AppwriteException catch (e) {
-                          // Account already exists
-                          if (e.code == 409) {}
+                        } catch (e) {
+                          log(" Sign Up $e");
+                          await showDialog(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                    title: const Text('Error Occured'),
+                                    content: Text(e.toString()),
+                                    actions: [
+                                      TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: const Text("Ok"))
+                                    ],
+                                  ));
                         }
                       },
                       child: Container(
