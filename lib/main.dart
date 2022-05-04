@@ -13,6 +13,7 @@ import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
+import 'package:shop/provider/widget_provider/widget_provider.dart';
 
 import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => WidgetProvider()),
           ChangeNotifierProvider(create: (context) => AppwriteAuth()),
           ChangeNotifierProvider(create: (context) => CartProvider()),
           ChangeNotifierProvider(create: (context) => SendEmail()),
