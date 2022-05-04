@@ -126,7 +126,7 @@ class LoginViews extends StatelessWidget {
                             Navigator.pushReplacementNamed(
                                 context, RouteManager.homeViews);
                           }
-                        } catch (e) {
+                        } on AppwriteException catch (e) {
                           log(" Sign Up $e");
                           await showDialog(
                               context: context,
