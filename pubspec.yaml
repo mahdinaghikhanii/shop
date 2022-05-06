@@ -53,6 +53,7 @@ dependencies:
   flutter_smart_dialog: ^3.4.2+1
   appwrite: ^4.0.2
   image_picker: ^0.8.5
+  refresher: ^0.0.4+2
   flutter_riverpod: ^1.0.3
 
 
