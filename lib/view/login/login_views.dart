@@ -1,11 +1,6 @@
-import 'dart:developer';
-
-import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/main.dart';
-import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
@@ -17,7 +12,7 @@ class LoginViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final service = Provider.of<AppwriteAuth>(context);
+    final service = Provider.of<AppwriteAuth>(context);
     TextEditingController _eamilContoroler = TextEditingController();
     TextEditingController _passwordContoroler = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
@@ -113,35 +108,8 @@ class LoginViews extends StatelessWidget {
                       borderRadius:
                           BorderRadius.circular(Constans.mediumBorderRadios),
                       onTap: () async {
-                        final client = context.read<AppwriteAuth>().client;
-                        final account = Account(client);
-
-                        try {
-                          final respone = await account.createSession(
-                              email: _eamilContoroler.text,
-                              password: _passwordContoroler.text);
-                          if (respone.current == true) {
-                            appwriteAuth.setsSaveSignInAndSignUp(
-                                true, _eamilContoroler.text);
-                            Navigator.pushReplacementNamed(
-                                context, RouteManager.homeViews);
-                          }
-                        } on AppwriteException catch (e) {
-                          log(" Sign Up $e");
-                          await showDialog(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                    title: const Text('Error Occured'),
-                                    content: Text(e.toString()),
-                                    actions: [
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: const Text("Ok"))
-                                    ],
-                                  ));
-                        }
+                        service.login(_eamilContoroler.text,
+                            _passwordContoroler.text, context);
                       },
                       child: Container(
                         height: 80,

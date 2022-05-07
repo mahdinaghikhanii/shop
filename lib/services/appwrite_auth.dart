@@ -6,15 +6,25 @@ import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shop/constant.dart';
 import 'package:shop/routes/routes.dart';
 
 class AppwriteAuth extends ChangeNotifier {
   late Account account;
-  //this part for connected appwrite Server
-  Client client = Client()
-      .setEndpoint("http://localhost:4003/v1") // Your API Endpoint
-      .setProject("626a5244cf1dca4dee63") // Your project ID
-      .setSelfSigned(status: true);
+
+  Client client = Client();
+
+  AuthState() {
+    _init();
+  }
+
+  _init() {
+    client
+        .setEndpoint(Constans.endpoint)
+        .setProject(Constans.projectId)
+        .setSelfSigned(status: true);
+    account = Account(client);
+  }
 
   final String LOGIN_CHECK = 'LOGINCHECK';
   final String LOGIN_USERNAME = 'LOGINUSERNAME';
@@ -72,9 +82,12 @@ class AppwriteAuth extends ChangeNotifier {
   Future<void> login(
       String email, String password, BuildContext context) async {
     try {
-      await account.createSession(email: email, password: password);
-
-      await Navigator.pushReplacementNamed(context, RouteManager.homeViews);
+      final respone =
+          await account.createSession(email: email, password: password);
+      if (respone.current == true) {
+        await Navigator.pushReplacementNamed(context, RouteManager.homeViews);
+        setsSaveSignInAndSignUp(true, email);
+      }
     } catch (e) {
       // print(e);
       await showDialog(

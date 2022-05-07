@@ -45,4 +45,8 @@ class Constans {
       TextStyle(color: grey, fontSize: 14);
   static const textStyleFavoriteViewAndBuy =
       TextStyle(color: kyellow, fontSize: 14);
+
+  //this part for connected appwrite Server startprojectId and Ednpoint
+  static const String projectId = "626a5244cf1dca4dee63";
+  static const String endpoint = "http://10.0.2.2:4003/v1";
 }
