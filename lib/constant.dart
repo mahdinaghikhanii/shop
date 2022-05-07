@@ -48,6 +48,6 @@ class Constans {
 
   //this part for connected appwrite Server startprojectId and Ednpoint
   static const String projectId = "626a5244cf1dca4dee63";
-  static const String endpoint = "http://localhost:4003/v1";
+  static const String endpoint = "http://10.0.2.2:4003/v1";
   //http://10.0.2.2:4003/v1
 }

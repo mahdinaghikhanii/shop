@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:shop/constant.dart';
 import 'package:shop/generated/l10n.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';

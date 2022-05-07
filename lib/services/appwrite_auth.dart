@@ -97,7 +97,7 @@ class AppwriteAuth extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      // print(e);
+      //  print(e);
       await showDialog(
           context: context,
           builder: (BuildContext context) => AlertDialog(
