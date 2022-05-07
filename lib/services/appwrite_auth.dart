@@ -14,7 +14,7 @@ class AppwriteAuth extends ChangeNotifier {
 
   Client client = Client();
 
-  AuthState() {
+  AppwriteAuth() {
     _init();
   }
 
@@ -51,7 +51,7 @@ class AppwriteAuth extends ChangeNotifier {
     await sharedPreferences.setString(LOGIN_USERNAME, name);
   }
 
-  Future logOutAccount() async {
+  Future cleanSharedPerfancecLoginAndSignUp() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return await sharedPreferences.remove(LOGIN_CHECK) &&
         await sharedPreferences.remove(LOGIN_CHECK);
@@ -147,6 +147,7 @@ class AppwriteAuth extends ChangeNotifier {
         duration: Duration(seconds: 2),
       ));
       await Navigator.of(context).pushReplacementNamed(RouteManager.homeViews);
+      await cleanSharedPerfancecLoginAndSignUp();
     } catch (e) {
       // print(e);
       await showDialog(

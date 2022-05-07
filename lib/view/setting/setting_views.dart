@@ -198,7 +198,7 @@ class SettingViews extends StatelessWidget {
                           visible: appwriteAuth.getIsLogged,
                           child: BuildListTile(
                             ontap: () async {
-                              appwriteAuth.logOutAccount();
+                              appwriteAuth.logout(context);
                             },
                             color: kpink,
                             icon: Icons.logout,
