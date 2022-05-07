@@ -17,7 +17,7 @@ class LoginViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = Provider.of<AppwriteAuth>(context);
+    //final service = Provider.of<AppwriteAuth>(context);
     TextEditingController _eamilContoroler = TextEditingController();
     TextEditingController _passwordContoroler = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);

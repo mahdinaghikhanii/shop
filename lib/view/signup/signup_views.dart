@@ -17,8 +17,8 @@ class SignUpViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = Provider.of<AppwriteAuth>(context);
-    //
+    // final service = Provider.of<AppwriteAuth>(context);
+
     TextEditingController _nameContoroloer = TextEditingController();
     TextEditingController _emailContoroller = TextEditingController();
     TextEditingController _passwordContoroller = TextEditingController();
