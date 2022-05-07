@@ -9,9 +9,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/routes/routes.dart';
 
+import '../view/home/home_views.dart';
+
 class AppwriteAuth extends ChangeNotifier {
   late Account account;
-
   Client client = Client();
 
   AppwriteAuth() {
@@ -52,6 +53,8 @@ class AppwriteAuth extends ChangeNotifier {
   }
 
   Future cleanSharedPerfancecLoginAndSignUp() async {
+    _isLoggedIn = false;
+    notifyListeners();
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return await sharedPreferences.remove(LOGIN_CHECK) &&
         await sharedPreferences.remove(LOGIN_CHECK);
@@ -82,12 +85,17 @@ class AppwriteAuth extends ChangeNotifier {
   Future<void> login(
       String email, String password, BuildContext context) async {
     try {
-      final respone =
+      var respone =
           await account.createSession(email: email, password: password);
+
       if (respone.current == true) {
-        await Navigator.pushReplacementNamed(context, RouteManager.homeViews);
         setsSaveSignInAndSignUp(true, email);
+
+        await Navigator.pushReplacementNamed(context, RouteManager.homeViews);
+        notifyListeners();
       }
+
+      notifyListeners();
     } catch (e) {
       // print(e);
       await showDialog(
@@ -104,17 +112,23 @@ class AppwriteAuth extends ChangeNotifier {
                 ],
               ));
     }
+    notifyListeners();
   }
 
   ///  A function to signup the user with email and password
   Future<void> signUp(
       String email, String password, BuildContext context) async {
     try {
-      await account.create(
+      var respone = await account.create(
           email: email, password: password, userId: 'unique()');
       // We will creating a userId as the email id(UNIQUE)
 
       await account.createSession(email: email, password: password);
+      if (respone.status == true) {
+        setsSaveSignInAndSignUp(true, email);
+        await Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomeViews()));
+      }
 
       await Navigator.pushReplacementNamed(context, RouteManager.homeViews);
     } catch (e) {
@@ -142,12 +156,13 @@ class AppwriteAuth extends ChangeNotifier {
       ///  it expects sessionID but by passing 'current' it redirects to
       ///  current loggedIn user in this application
       await account.deleteSession(sessionId: 'current');
+
+      await cleanSharedPerfancecLoginAndSignUp();
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Logged out Successfully"),
         duration: Duration(seconds: 2),
       ));
-      await Navigator.of(context).pushReplacementNamed(RouteManager.homeViews);
-      await cleanSharedPerfancecLoginAndSignUp();
+      await Navigator.of(context).pushReplacementNamed(RouteManager.loginViews);
     } catch (e) {
       // print(e);
       await showDialog(

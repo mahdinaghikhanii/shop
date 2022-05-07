@@ -1,12 +1,8 @@
-import 'dart:developer';
-
-import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/main.dart';
 import 'package:shop/services/appwrite_auth.dart';
-import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/login/login_views.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
 import '../../provider/app_provider/app_provider.dart';
@@ -103,38 +99,9 @@ class SignUpViews extends StatelessWidget {
                       borderRadius:
                           BorderRadius.circular(Constans.mediumBorderRadios),
                       onTap: () async {
-                        final client = context.read<AppwriteAuth>().client;
-                        final account = Account(client);
-                        try {
-                          var respone = await account.create(
-                              name: _nameContoroloer.text,
-                              userId: 'unique()',
-                              email: _emailContoroller.text,
-                              password: _passwordContoroller.text);
-                          if (respone.status == true) {
-                            appwriteAuth.setsSaveSignInAndSignUp(
-                                true, _emailContoroller.text);
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomeViews()));
-                          }
-                        } on AppwriteException catch (e) {
-                          log(" Sign Up $e");
-                          await showDialog(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                    title: const Text('Error Occured'),
-                                    content: Text(e.toString()),
-                                    actions: [
-                                      TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          child: const Text("Ok"))
-                                    ],
-                                  ));
-                        }
+                        context.read<AppwriteAuth>();
+                        appwriteAuth.signUp(_emailContoroller.text,
+                            _passwordContoroller.text, context);
                       },
                       child: Container(
                         height: 80,

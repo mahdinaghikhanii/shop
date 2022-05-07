@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
-import 'package:shop/services/appwrite_auth.dart';
+import 'package:shop/main.dart';
 import 'package:shop/view/signup/signup_views.dart';
 import 'package:shop/widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
 import 'package:shop/widgets/input_text/input_text.dart';
@@ -12,7 +12,6 @@ class LoginViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final service = Provider.of<AppwriteAuth>(context);
     TextEditingController _eamilContoroler = TextEditingController();
     TextEditingController _passwordContoroler = TextEditingController();
     final appProvider = Provider.of<AppProvider>(context);
@@ -108,7 +107,7 @@ class LoginViews extends StatelessWidget {
                       borderRadius:
                           BorderRadius.circular(Constans.mediumBorderRadios),
                       onTap: () async {
-                        service.login(_eamilContoroler.text,
+                        appwriteAuth.login(_eamilContoroler.text,
                             _passwordContoroler.text, context);
                       },
                       child: Container(

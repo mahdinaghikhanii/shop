@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+
 import 'package:shop/constant.dart';
 import 'package:shop/generated/l10n.dart';
 import 'package:shop/widgets/buildchip/build_chip.dart';
@@ -15,22 +15,6 @@ class HomeItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RefreshController _refreshController =
-        RefreshController(initialRefresh: false);
-    void _onRefresh() async {
-      await Future.delayed(Duration(milliseconds: 1000));
-
-      _refreshController.refreshCompleted();
-    }
-
-    void _onLoading() async {
-      // monitor network fetch
-      await Future.delayed(Duration(milliseconds: 1000));
-      // if failed,use loadFailed(),if no data return,use LoadNodata()
-
-      _refreshController.loadComplete();
-    }
-
     var multilanguage = S.of(context);
     final product = Provider.of<Repository>(context, listen: false);
     product.featchData();
@@ -73,6 +57,7 @@ class HomeItems extends StatelessWidget {
                   return CustomScrollView(
                     slivers: [
                       SliverAppBar(
+                        automaticallyImplyLeading: false,
                         elevation: 0,
                         expandedHeight: 160,
                         centerTitle: false,

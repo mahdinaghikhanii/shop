@@ -7,6 +7,7 @@ import 'package:shop/routes/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
 import '../../provider/app_provider/app_provider.dart';
+import '../../services/appwrite_auth.dart';
 import '../../widgets/bottom_sheet/appearance_bottomsheet.dart';
 import '../../widgets/bottom_sheet/language_bottomsheet.dart';
 
@@ -18,6 +19,7 @@ class SettingViews extends StatelessWidget {
     final appProvider = Provider.of<AppProvider>(context);
     final textTheme = Theme.of(context).textTheme;
     var multilanguage = S.of(context);
+    context.read<AppwriteAuth>();
 
     return WillPopScope(
       onWillPop: () async {
@@ -198,7 +200,10 @@ class SettingViews extends StatelessWidget {
                           visible: appwriteAuth.getIsLogged,
                           child: BuildListTile(
                             ontap: () async {
-                              appwriteAuth.logout(context);
+                              //appwriteAuth.logout(context);
+
+                              context.read<AppwriteAuth>().client;
+                              appwriteAuth.cleanSharedPerfancecLoginAndSignUp();
                             },
                             color: kpink,
                             icon: Icons.logout,
