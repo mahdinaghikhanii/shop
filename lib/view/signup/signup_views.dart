@@ -63,6 +63,7 @@ class SignUpViews extends StatelessWidget {
                   }
                   return null;
                 },
+                password: false,
               ),
               const SizedBox(
                 height: 15,
@@ -73,6 +74,7 @@ class SignUpViews extends StatelessWidget {
                 contoroller: _emailContoroller,
                 padding: 0,
                 validator: null,
+                password: false,
               ),
               const SizedBox(
                 height: 15,
@@ -83,6 +85,7 @@ class SignUpViews extends StatelessWidget {
                 contoroller: _passwordContoroller,
                 padding: 0,
                 validator: null,
+                password: true,
               ),
               const SizedBox(
                 height: 60,

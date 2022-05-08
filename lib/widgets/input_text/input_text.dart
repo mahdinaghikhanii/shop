@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class InputText extends StatelessWidget {
   const InputText(
       {Key? key,
+      required this.password,
       required this.padding,
       required this.hintText,
       required this.validator,
@@ -13,6 +14,7 @@ class InputText extends StatelessWidget {
       : super(key: key);
   final String labelText;
   final String hintText;
+  final bool password;
   final double padding;
   final validator;
 
@@ -26,6 +28,7 @@ class InputText extends StatelessWidget {
           autofocus: false,
           validator: validator,
           controller: contoroller,
+          obscureText: password,
           decoration: InputDecoration(
               labelText: labelText,
               hintText: hintText,

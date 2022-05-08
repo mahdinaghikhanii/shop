@@ -76,6 +76,7 @@ class LoginViews extends StatelessWidget {
                     }
                     return null;
                   },
+                  password: false,
                 ),
                 const SizedBox(
                   height: 15,
@@ -91,6 +92,7 @@ class LoginViews extends StatelessWidget {
                     }
                     return null;
                   },
+                  password: true,
                 ),
                 const SizedBox(
                   height: 25,

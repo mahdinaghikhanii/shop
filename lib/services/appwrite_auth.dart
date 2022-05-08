@@ -156,7 +156,6 @@ class AppwriteAuth extends ChangeNotifier {
       ///  it expects sessionID but by passing 'current' it redirects to
       ///  current loggedIn user in this application
       await account.deleteSession(sessionId: 'current');
-
       await cleanSharedPerfancecLoginAndSignUp();
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Logged out Successfully"),
