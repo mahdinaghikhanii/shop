@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/constant.dart';
-import 'package:shop/main.dart';
-import 'package:shop/view/signup/signup_views.dart';
-import 'package:shop/widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
-import 'package:shop/widgets/input_text/input_text.dart';
+
+import '../../constant.dart';
+import '../../main.dart';
 import '../../provider/app_provider/app_provider.dart';
+import '../../widgets/buttons/small_btmnavigationbar/small_btmnavigationbar.dart';
+import '../../widgets/input_text/input_text.dart';
+import '../signup/signup_views.dart';
 
 class LoginViews extends StatelessWidget {
   const LoginViews({Key? key}) : super(key: key);

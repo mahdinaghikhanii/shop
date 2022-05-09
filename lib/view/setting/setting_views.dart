@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/constant.dart';
-import 'package:shop/generated/l10n.dart';
-import 'package:shop/main.dart';
-import 'package:shop/routes/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:shop/widgets/build_listtitle/build_listtitle.dart';
+
+import '../../constant.dart';
+import '../../generated/l10n.dart';
+import '../../main.dart';
 import '../../provider/app_provider/app_provider.dart';
+import '../../routes/routes.dart';
 import '../../services/appwrite_auth.dart';
 import '../../widgets/bottom_sheet/appearance_bottomsheet.dart';
 import '../../widgets/bottom_sheet/language_bottomsheet.dart';
+import '../../widgets/build_listtitle/build_listtitle.dart';
 
 class SettingViews extends StatelessWidget {
   const SettingViews({Key? key}) : super(key: key);

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:shop/generated/l10n.dart';
-import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
-import 'package:shop/provider/cart_provider/cart_provider.dart';
-import 'package:shop/constant.dart';
-import 'package:shop/view/cart/cart_views.dart';
-import 'package:shop/view/setting/setting_views.dart';
-import 'package:shop/widgets/home_items/home_items.dart';
+
+import '../../constant.dart';
+import '../../generated/l10n.dart';
 import '../../provider/app_provider/app_provider.dart';
+import '../../provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
+import '../../provider/cart_provider/cart_provider.dart';
+import '../../widgets/home_items/home_items.dart';
+import '../cart/cart_views.dart';
+import '../setting/setting_views.dart';
 
 class HomeViews extends StatelessWidget {
   const HomeViews({Key? key}) : super(key: key);
