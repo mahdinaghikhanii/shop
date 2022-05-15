@@ -32,7 +32,6 @@ class AppwriteAuth extends ChangeNotifier {
 
   //check login is login or not
   bool _isLoggedIn = false;
-
   get getIsLogged => _isLoggedIn;
 
   // user login name
