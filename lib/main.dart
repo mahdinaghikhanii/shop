@@ -1,11 +1,12 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
 // ignore: library_prefixes
 import 'package:path_provider/path_provider.dart' as pathProvider;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/bottomnavigationbar_provider/bottomnavigationbar_provider.dart';
@@ -14,7 +15,6 @@ import 'package:shop/provider/detail_provider/detail_provider.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
 import 'package:shop/provider/onboard_provider/onboard_provider.dart';
 import 'package:shop/provider/widget_provider/widget_provider.dart';
-
 import 'package:shop/routes/routes.dart';
 import 'package:shop/services/appwrite_auth.dart';
 import 'package:shop/services/repository.dart';
@@ -22,6 +22,7 @@ import 'package:shop/services/send_email.dart';
 import 'package:shop/theme/configtheme.dart';
 import 'package:shop/view/home/home_views.dart';
 import 'package:shop/view/onboard/onboard_views.dart';
+
 import 'generated/l10n.dart';
 import 'model/rating_model/rating_model.dart';
 import 'provider/app_provider/app_provider.dart';
