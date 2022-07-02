@@ -18,8 +18,12 @@ class CartProvider extends ChangeNotifier {
 
   addProductsCart(ProductsModel productsModel) async {
     final box = await Hive.openBox<ProductsModel>('dt');
+    if (box.containsKey(productsModel.id)) {
+      box.delete(productsModel.id);
+    } else {
+      box.put(productsModel.id, productsModel);
+    }
     await Hive.openBox('shopping_box');
-    box.add(productsModel);
     final myBox = Hive.box('shopping_box');
     _price += productsModel.price;
     myBox.put('shopping_box', _price);

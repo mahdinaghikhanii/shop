@@ -21,7 +21,12 @@ class FavoriteProvider with ChangeNotifier {
 
   addFavorite(ProductsModel productsModel) async {
     var box = await Hive.openBox<ProductsModel>('fa');
-    box.add(productsModel);
+    if (box.containsKey(productsModel.id)) {
+      box.delete(productsModel.id);
+    } else {
+      box.put(productsModel.id, productsModel);
+    }
+    // box.add(productsModel);
     notifyListeners();
   }
 
