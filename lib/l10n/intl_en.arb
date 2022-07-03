@@ -32,7 +32,11 @@
     "contactus_inputtext_message" : "Message",
     "contactus_btntext_send" : "Send !",
     "favorite_text_nowhavecart" : "You have no\nFavorite :(",
-    "cart_text_nowhavecart" : "You have no\nCart :("
+    "cart_text_nowhavecart" : "You have no\nCart :(",
+    "cartScreams_cart" : "My cart",
+    "appbar_favorite" : "My favorite",
+    "button_ViewAndBuy" : "View and buy",
+    "button_RemoveFavorite" : "Remove favorite"
  
 
 }

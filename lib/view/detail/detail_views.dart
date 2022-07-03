@@ -59,7 +59,8 @@ class DetailViews extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
-            padding: const EdgeInsets.only(left: Constans.padding, top: 4),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Constans.padding, vertical: 4),
             child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -69,7 +70,8 @@ class DetailViews extends StatelessWidget {
         actions: [
           Padding(
               // ignore: unnecessary_const
-              padding: const EdgeInsets.only(right: Constans.padding, top: 4),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: Constans.padding, vertical: 4),
               child: FavoriteButton(
                 iconSize: 40,
                 iconDisabledColor: grey,

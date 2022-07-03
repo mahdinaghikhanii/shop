@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/constant.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/main.dart';
 import 'package:shop/model/products_model/products_model.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
@@ -13,6 +14,7 @@ class FavoriteItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final textTitleStyle = TextStyle(
         color: appProvider.brighness ? kwhite : kblackappbar,
         fontSize: 14,
@@ -112,25 +114,25 @@ class FavoriteItems extends StatelessWidget {
                           favorite.removeFavorite(index);
                         },
                         child: Row(
-                          children: const [
-                            Icon(
+                          children: [
+                            const Icon(
                               Icons.delete,
                               color: grey,
                               size: Constans.mediumsize,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 4,
                             ),
                             Text(
-                              'Remove favorite',
+                              multilanguage.button_RemoveFavorite,
                               style: Constans.textStyleFavoriteAndCartGrayStyle,
                             ),
                           ],
                         ),
                       ),
                       const Spacer(),
-                      const Text(
-                        'View and buy',
+                      Text(
+                        multilanguage.button_ViewAndBuy,
                         style: Constans.textStyleFavoriteViewAndBuy,
                       ),
                       const Icon(

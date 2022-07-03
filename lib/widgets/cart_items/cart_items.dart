@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:favorite_button/favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop/generated/l10n.dart';
 import 'package:shop/provider/cart_provider/cart_provider.dart';
 import 'package:shop/constant.dart';
 import 'package:shop/provider/favorite_provider/favorite_provider.dart';
@@ -15,6 +16,7 @@ class CartItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var multilanguage = S.of(context);
     final textTheme = Theme.of(context).textTheme;
     final size = MediaQuery.of(context).size;
     return Consumer<CartProvider>(builder: (context, addcart, child) {
@@ -139,25 +141,25 @@ class CartItems extends StatelessWidget {
                           addcart.removeOneProductsCart(index);
                         },
                         child: Row(
-                          children: const [
-                            Icon(
+                          children: [
+                            const Icon(
                               Icons.delete,
                               color: grey,
                               size: Constans.mediumsize,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 4,
                             ),
                             Text(
-                              'Remove cart',
+                              multilanguage.button_RemoveFavorite,
                               style: Constans.textStyleFavoriteAndCartGrayStyle,
                             ),
                           ],
                         ),
                       ),
                       const Spacer(),
-                      const Text(
-                        'View details',
+                      Text(
+                        multilanguage.button_ViewAndBuy,
                         style: Constans.textStyleFavoriteViewAndBuy,
                       ),
                       const Icon(

@@ -35,7 +35,7 @@ class FavoriteViews extends StatelessWidget {
             left: Constans.padding,
           ),
           child: Text(
-            'My Favorite',
+            multilanguage.appbar_favorite,
             style: Theme.of(context).textTheme.subtitle1,
           ),
         ),

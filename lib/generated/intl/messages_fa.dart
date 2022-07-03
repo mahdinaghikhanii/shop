@@ -22,12 +22,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appbar_favorite":
+            MessageLookupByLibrary.simpleMessage("علاقه مندی من"),
         "appinfo_title_text":
             MessageLookupByLibrary.simpleMessage("فروشگاه انلاین"),
         "appinfo_versontext": MessageLookupByLibrary.simpleMessage("نسخه"),
         "bottomsheet_btnText_dark": MessageLookupByLibrary.simpleMessage("شب"),
         "bottomsheet_btnText_light":
             MessageLookupByLibrary.simpleMessage("روز"),
+        "button_RemoveFavorite":
+            MessageLookupByLibrary.simpleMessage("پاک کردن "),
+        "button_ViewAndBuy": MessageLookupByLibrary.simpleMessage("دیدن محصول"),
+        "cartScreams_cart": MessageLookupByLibrary.simpleMessage("سبد خرید من"),
         "cart_text_nowhavecart": MessageLookupByLibrary.simpleMessage(
             "شما هیجی در سبد خرید\nندارید :("),
         "contactus_appbar_text":

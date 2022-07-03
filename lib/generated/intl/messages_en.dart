@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appbar_favorite": MessageLookupByLibrary.simpleMessage("My favorite"),
         "appinfo_title_text":
             MessageLookupByLibrary.simpleMessage("Onlin Shop"),
         "appinfo_versontext": MessageLookupByLibrary.simpleMessage("Version"),
@@ -29,6 +30,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Dark"),
         "bottomsheet_btnText_light":
             MessageLookupByLibrary.simpleMessage("Light"),
+        "button_RemoveFavorite":
+            MessageLookupByLibrary.simpleMessage("Remove favorite"),
+        "button_ViewAndBuy":
+            MessageLookupByLibrary.simpleMessage("View and buy"),
+        "cartScreams_cart": MessageLookupByLibrary.simpleMessage("My cart"),
         "cart_text_nowhavecart":
             MessageLookupByLibrary.simpleMessage("You have no\nCart :("),
         "contactus_appbar_text":

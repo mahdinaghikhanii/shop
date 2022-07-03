@@ -32,7 +32,13 @@
     "contactus_inputtext_message" : "پیام",
     "contactus_btntext_send" : "ارسال !",
     "favorite_text_nowhavecart" : "شما هیج مورده علاقه ای در\nندارید :(",
-    "cart_text_nowhavecart" : "شما هیجی در سبد خرید\nندارید :("
+    "cart_text_nowhavecart" : "شما هیجی در سبد خرید\nندارید :(",
+    "cartScreams_cart" : "سبد خرید من",
+    "appbar_favorite" : "علاقه مندی من",
+    "button_ViewAndBuy" : "دیدن محصول",
+    "button_RemoveFavorite" : "پاک کردن "
+
+    
 
 
 }

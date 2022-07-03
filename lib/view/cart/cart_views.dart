@@ -30,11 +30,12 @@ class CartViews extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
-          leadingWidth: 120,
+          leadingWidth: 150,
           leading: Padding(
-            padding: const EdgeInsets.only(left: Constans.padding, top: 20),
+            padding: const EdgeInsets.only(
+                left: Constans.padding, top: 20, right: Constans.padding),
             child: Text(
-              'My Cart',
+              multilanguage.cartScreams_cart,
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
@@ -46,7 +47,7 @@ class CartViews extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 00,
+              height: 05,
             ),
             cartProvider.countAddCart == 0
                 ? NothingIsHere(text: multilanguage.cart_text_nowhavecart)

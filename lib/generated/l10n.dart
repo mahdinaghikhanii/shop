@@ -389,6 +389,46 @@ class S {
       args: [],
     );
   }
+
+  /// `My cart`
+  String get cartScreams_cart {
+    return Intl.message(
+      'My cart',
+      name: 'cartScreams_cart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My favorite`
+  String get appbar_favorite {
+    return Intl.message(
+      'My favorite',
+      name: 'appbar_favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View and buy`
+  String get button_ViewAndBuy {
+    return Intl.message(
+      'View and buy',
+      name: 'button_ViewAndBuy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove favorite`
+  String get button_RemoveFavorite {
+    return Intl.message(
+      'Remove favorite',
+      name: 'button_RemoveFavorite',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
